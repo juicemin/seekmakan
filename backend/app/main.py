@@ -1,4 +1,6 @@
 from fastapi import FastAPI
+from pymongo.errors import PyMongoError
+from app.database import database 
 
 app = FastAPI(
     title = "SeekMakan API",
@@ -12,4 +14,16 @@ def root() -> dict[str, str]:
 
 @app.get("/health")
 def health_check() -> dict[str, str]:
-    return {"status": "healthy"}
+    try:
+        database.command("ping")
+        return{
+            "status": "healthy",
+            "database": "connected",
+        }
+    except PyMongoError:
+        return{
+            "status": "degraded",
+            "database": "disconnected",
+        }
+
+
