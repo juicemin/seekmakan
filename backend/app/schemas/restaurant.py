@@ -15,10 +15,10 @@ class RestaurantCreate(BaseModel):
     description: str | None = None
     address: str
     location: GeoLocation
-    cuisines: list[str] = []
-    food_categories: list[str] = []
+    cuisines: list[str] = Field(default_factory = list)
+    food_categories: list[str] = Field(default_factory = list)
     price_range: str | None = None
-    operating_hours: dict[str, str] = {}
+    operating_hours: dict[str, str] = Field(default_factory = dict)
     verification_status: str = "seeded"
     source: str = "manual"
 
