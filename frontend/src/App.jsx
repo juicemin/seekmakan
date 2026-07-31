@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import { API_BASE_URL } from "./config";
 
-const API_URL = "http://127.0.0.1:8000/api/restaurants";
+const API_URL = `${API_BASE_URL}/api/restaurants`;
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
