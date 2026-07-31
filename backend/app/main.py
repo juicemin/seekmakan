@@ -1,8 +1,15 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends, Response, status
 from fastapi.middleware.cors import CORSMiddleware
+from pymongo.database import Database
 from pymongo.errors import PyMongoError
-from app.database import database 
+
+from app.database import (
+    close_database_connection,
+    get_database,
+)
+
 from app.routers.restaurants import router as restaurant_router
+from app.config import settings
 
 app = FastAPI(
     title = "SeekMakan API",
@@ -12,7 +19,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins = ["http://localhost:5173"],
+    allow_origins = settings.allowed_origins,
     allow_credentials = True,
     allow_methods = ["*"],
     allow_headers = ["*"],
@@ -24,18 +31,27 @@ app.include_router(restaurant_router)
 def root() -> dict[str, str]:
     return {"message": "Welcome to SeekMakan API!"}
 
-@app.get("/health")
-def health_check() -> dict[str, str]:
+@app.get("/health/live")
+def liveness_check() -> dict[str, str]:
+    return {"status": "alive"}
+
+@app.get("/health/ready")
+def readiness_check(
+    response: Response,
+    database: Database = Depends(get_database),
+) -> dict[str, str]:
     try:
         database.command("ping")
-        return{
-            "status": "healthy",
+
+        return {
+            "status": "ready",
             "database": "connected",
         }
     except PyMongoError:
-        return{
-            "status": "degraded",
+        response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
+
+        return {
+            "status": "not_ready",
             "database": "disconnected",
         }
-
 
