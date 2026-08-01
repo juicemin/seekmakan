@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams} from "react-router";
 import {getRestaurant} from "../api/restaurants";
 
 function RestaurantDetailsPage() {
