@@ -1,11 +1,7 @@
-import { Route, Routes } from "react-router";
-import { useEffect, useState } from "react";
 import "./App.css";
-import { API_BASE_URL } from "./config";
+import { Route, Routes } from "react-router";
 import RestaurantDiscoveryPage from "./pages/RestaurantDiscoveryPage";
 import RestaurantDetailsPage from "./pages/RestaurantDetailsPage";
-
-const API_URL = `${API_BASE_URL}/api/restaurants`;
 
 function App() {
   return (
