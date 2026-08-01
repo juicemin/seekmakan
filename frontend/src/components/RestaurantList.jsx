@@ -1,6 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 
-function RestaurantList({ restaurants }) {
+function RestaurantList({restaurants}) {
   if (restaurants.length === 0) {
     return (
       <section

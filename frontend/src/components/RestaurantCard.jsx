@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-function RestaurantCard({ restaurant }) {
+function RestaurantCard({restaurant}) {
     const cuisines = 
     restaurant.cuisines?.length > 0
       ? restaurant.cuisines.join(", ")

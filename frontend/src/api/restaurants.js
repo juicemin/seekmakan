@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../config";
+import {API_BASE_URL} from "../config";
 const RESTAURANTS_URL = `${API_BASE_URL}/api/restaurants`;
 
 async function parseResponse(response) {
