@@ -1,26 +1,128 @@
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
-
-#center {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
+.page {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 48px 0 72px;
+  text-align: left;
 }
 
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
+.page-header {
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+.page-header h1 {
+  margin: 4px 0 12px;
+}
+
+.eyebrow {
+  color: #b45309;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.restaurant-card {
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 6%);
+}
+
+.restaurant-card__title {
+  margin: 0 0 8px;
+}
+
+.restaurant-card__location {
+  margin-bottom: 12px;
+  color: #475569;
+}
+
+.restaurant-card__facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.restaurant-card__facts div {
+  padding: 12px;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.restaurant-card__facts dt {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.restaurant-card__facts dd {
+  margin: 4px 0 0;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.restaurant-card__link,
+.back-link {
+  color: #9a3412;
+  font-weight: 700;
+}
+
+.status-message,
+.empty-state {
+  padding: 24px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.status-message--error {
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.status-message button {
+  margin-top: 16px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  background: #9a3412;
+  cursor: pointer;
+}
+
+.restaurant-details {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.restaurant-details section {
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.restaurant-details address {
+  font-style: normal;
+}
+
+@media (max-width: 600px) {
+  .page {
+    width: min(100% - 24px, 1120px);
+    padding-top: 28px;
   }
 
+  .restaurant-card__facts {
+    grid-template-columns: 1fr;
+  }
+}
