@@ -14,7 +14,7 @@ from app.config import settings
 app = FastAPI(
     title = "SeekMakan API",
     description = "Backend API for SeekMakan",
-    version = "0.139.2",
+    version = "0.1.0",
 )
 
 app.add_middleware(
