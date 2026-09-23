@@ -27,6 +27,8 @@ export async function getRestaurants({
   search = "",
   cuisines = [],
   foodCategories = [],
+  priceRange = "",
+  minRating = "",
   signal,
 } = {}) {
   const query = new URLSearchParams({
@@ -42,6 +44,14 @@ export async function getRestaurants({
   foodCategories.forEach(value => {
     query.append("food_categories", value);
   });
+
+  if (priceRange !== "") {
+  query.set("price_range", priceRange);
+}
+
+if (minRating !== "") {
+  query.set("min_rating", minRating);
+}
 
   const response = await fetch(`${RESTAURANTS_URL}?${query}`, {
     method: "GET",

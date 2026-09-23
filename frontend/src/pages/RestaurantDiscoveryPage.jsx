@@ -8,7 +8,7 @@ function RestaurantDiscoveryPage() {
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
   const [page, setPage] = useState(1);
-  const pageSize = 2;
+  const pageSize = 20;
   const [total, setTotal] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [retry, setRetry] = useState(0);
@@ -25,6 +25,10 @@ function RestaurantDiscoveryPage() {
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [appliedCuisines, setAppliedCuisines] = useState([]);
   const [appliedCategories, setAppliedCategories] = useState([]);
+  const [selectedPrice, setSelectedPrice] = useState("");
+  const [selectedRating, setSelectedRating] = useState("");
+  const [appliedPrice, setAppliedPrice] = useState("");
+  const [appliedRating, setAppliedRating] = useState("");
 
   useEffect(() => {
     const controller = new AbortController();
@@ -40,6 +44,8 @@ function RestaurantDiscoveryPage() {
           search,
           cuisines: appliedCuisines,
           foodCategories: appliedCategories,
+          priceRange: appliedPrice,
+          minRating: appliedRating,
           signal: controller.signal
         });
 
@@ -64,7 +70,16 @@ function RestaurantDiscoveryPage() {
       active = false;
       controller.abort();
     };
-  }, [page, pageSize, search, appliedCuisines, appliedCategories, retry]);
+  }, [
+    page,
+    pageSize,
+    search,
+    appliedCuisines,
+    appliedCategories,
+    appliedPrice,
+    appliedRating,
+    retry,
+  ]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -105,6 +120,8 @@ function RestaurantDiscoveryPage() {
     setSearch(searchInput.trim());
     setAppliedCuisines([...selectedCuisines]);
     setAppliedCategories([...selectedCategories]);
+    setAppliedPrice(selectedPrice);
+    setAppliedRating(selectedRating);
     setPage(1);
     setRetry(value => value + 1);
   }
@@ -112,11 +129,14 @@ function RestaurantDiscoveryPage() {
   function handleClearSearch() {
     setSearchInput("");
     setSearch("");
-
     setSelectedCuisines([]);
     setSelectedCategories([]);
     setAppliedCuisines([]);
     setAppliedCategories([]);
+    setSelectedPrice("");
+    setSelectedRating("");
+    setAppliedPrice("");
+    setAppliedRating("");
 
     setPage(1);
     setRetry(value => value + 1);
@@ -140,7 +160,9 @@ function RestaurantDiscoveryPage() {
     selectedCuisines.length !== appliedCuisines.length ||
     selectedCuisines.some(value => !appliedCuisines.includes(value)) ||
     selectedCategories.length !== appliedCategories.length ||
-    selectedCategories.some(value => !appliedCategories.includes(value));
+    selectedCategories.some(value => !appliedCategories.includes(value)) ||
+    selectedPrice !== appliedPrice ||
+    selectedRating !== appliedRating;
 
   return (
     <main className="page">
@@ -213,6 +235,40 @@ function RestaurantDiscoveryPage() {
           </div>
         )}
 
+        <details className="more-filters">
+          <summary>More filters</summary>
+
+          <div className="more-filters__controls">
+            <label htmlFor="price-filter">
+            Price range
+            <select
+              id="price-filter"
+              value={selectedPrice}
+              onChange={event => setSelectedPrice(event.target.value)}
+            >
+              <option value="">Any price</option>
+              <option value="RM1-RM20">RM1–RM20</option>
+              <option value="RM21-RM50">RM21–RM50</option>
+              <option value="RM51+">RM51+</option>
+            </select>
+          </label>
+
+          <label htmlFor="rating-filter">
+          Rating
+          <select
+            id="rating-filter"
+            value={selectedRating}
+            onChange={event => setSelectedRating(event.target.value)}
+          >
+            <option value="">Any rating</option>
+            <option value="3">3 stars and above</option>
+            <option value="4">4 stars and above</option>
+            <option value="4.5">4.5 stars and above</option>
+          </select>
+          </label>
+        </div>
+      </details>
+
         {hasUnappliedChanges && (
           <p role="status">
             Changes not applied. Click Search to update the results.
@@ -227,6 +283,12 @@ function RestaurantDiscoveryPage() {
 
       {appliedCategories.length > 0 && (
         <p>Applied food categories: {appliedCategories.join(", ")}</p>
+      )}
+
+      {appliedPrice && <p>Applied price: {appliedPrice}</p>}
+
+      {appliedRating && (
+        <p>Applied minimum rating: {appliedRating} stars</p>
       )}
 
       {search && <p>Results for “{search}”</p>}

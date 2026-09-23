@@ -127,7 +127,7 @@ function RestaurantDetailsPage() {
             <p>
               {restaurant.review_count > 0
                 ? `${restaurant.average_rating.toFixed(1)} from ${restaurant.review_count} reviews`
-                : "No reviews have been submitted yet."}
+                : "No reviews yet."}
             </p>
           </section>
         </article>
