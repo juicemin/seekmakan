@@ -13,6 +13,8 @@ def browse_restaurants(
     search: str = "",
     cuisines: list[str] | None = None,
     food_categories: list[str] | None = None,
+    price_range: str | None = None,
+    min_rating: float | None = None,
 ) -> dict:
     selected_cuisines = [
         value.strip()
@@ -33,6 +35,8 @@ def browse_restaurants(
         search.strip(),
         selected_cuisines,
         selected_categories,
+        price_range=price_range,
+        min_rating=min_rating,
     )
 
     return {

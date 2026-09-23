@@ -61,6 +61,8 @@ def list_restaurants(
     search: str = "",
     cuisines: list[str] | None = None,
     food_categories: list[str] | None = None,
+    price_range: str | None = None,
+    min_rating: float | None = None,
 ) -> tuple[list[dict[str, Any]], int]:
     collection = get_restaurant_collection(database)
 
@@ -81,6 +83,13 @@ def list_restaurants(
             {"cuisines": {"$regex": pattern, "$options": "i"}},
             {"food_categories": {"$regex": pattern, "$options": "i"}},
         ]
+
+    if price_range is not None:
+        query["price_range"] = price_range
+
+    if min_rating is not None:
+        query["average_rating"] = {"$gte": min_rating}
+        query["review_count"] = {"$gt": 0}
 
     total = collection.count_documents(query)
 

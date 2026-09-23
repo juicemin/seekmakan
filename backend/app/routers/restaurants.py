@@ -2,6 +2,7 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pymongo.database import Database
 from app.database import get_database
+from app.models.enums import PriceRange
 
 from app.schemas.restaurant import (
     RestaurantCreate,
@@ -32,6 +33,8 @@ def retrieve_restaurants(
     search: str = Query(default="", max_length=100),
     cuisines: list[str] = Query(default=[]),
     food_categories: list[str] = Query(default=[]),
+    price_range: PriceRange | None = Query(default=None),
+    min_rating: float | None = Query(default=None, ge=0, le=5),
 ) -> dict:
     return browse_restaurants(
         database,
@@ -40,6 +43,8 @@ def retrieve_restaurants(
         search,
         cuisines,
         food_categories,
+        price_range=price_range.value if price_range is not None else None,
+         min_rating=min_rating,
     )
 
 @router.get(
