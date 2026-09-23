@@ -88,5 +88,16 @@ class RestaurantResponse(RestaurantBase):
     created_at: datetime
     updated_at: datetime
 
+class RestaurantPage(BaseModel):
+    items: list[RestaurantResponse]
+    page: int = Field(ge=1)
+    page_size: int = Field(ge=1, le=100)
+    total: int = Field(ge=0)
+    total_pages: int = Field(ge=0)
+
+class RestaurantFilterOptions(BaseModel):
+    cuisines: list[str]
+    food_categories: list[str]
+
 def current_utc_time() -> datetime:
     return datetime.now(timezone.utc)

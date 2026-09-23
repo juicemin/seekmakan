@@ -12,7 +12,7 @@ function RestaurantList({restaurants}) {
         </h2>
 
         <p>
-          Try changing your search or filters.
+          Try another search or change your filters. Clear resets both.
         </p>
       </section>
     );

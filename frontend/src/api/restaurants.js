@@ -21,8 +21,29 @@ async function parseResponse(response) {
   throw new Error(message);
 }
 
-export async function getRestaurants({ signal } = {}) {
-  const response = await fetch(RESTAURANTS_URL, {
+export async function getRestaurants({
+  page = 1,
+  pageSize = 20,
+  search = "",
+  cuisines = [],
+  foodCategories = [],
+  signal,
+} = {}) {
+  const query = new URLSearchParams({
+    page,
+    page_size: pageSize,
+    search,
+  });
+
+  cuisines.forEach(value => {
+    query.append("cuisines", value);
+  });
+
+  foodCategories.forEach(value => {
+    query.append("food_categories", value);
+  });
+
+  const response = await fetch(`${RESTAURANTS_URL}?${query}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
@@ -49,6 +70,17 @@ export async function getRestaurant(
       signal,
     },
   );
+
+  return parseResponse(response);
+}
+
+export async function getRestaurantFilterOptions({ signal } = {}) {
+  const response = await fetch(`${RESTAURANTS_URL}/filter-options`, {
+    headers: {
+      Accept: "application/json",
+    },
+    signal,
+  });
 
   return parseResponse(response);
 }

@@ -1,3 +1,19 @@
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+.pagination button, .pagination select {
+  padding: 8px 12px;
+}
+.pagination button[aria-current="page"] {
+  background: #9a3412;
+  color: #ffffff;
+  border-color: #9a3412;
+  font-weight: 700;
+}
 .page {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto;
@@ -125,4 +141,79 @@
   .restaurant-card__facts {
     grid-template-columns: 1fr;
   }
+}
+
+.restaurant-search {
+  margin-bottom: 24px;
+}
+
+.restaurant-search label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.restaurant-search__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.restaurant-search input {
+  flex: 1 1 240px;
+  min-width: 0;
+  padding: 10px 12px;
+}
+
+.restaurant-search button {
+  padding: 10px 16px;
+}
+
+.discovery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.checkbox-dropdown {
+  flex: 1 1 220px;
+  min-width: 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+}
+
+.checkbox-dropdown summary {
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.checkbox-dropdown summary:focus-visible {
+  outline: 3px solid #9a3412;
+  outline-offset: 2px;
+}
+
+.checkbox-dropdown__options {
+  margin: 0;
+  padding: 12px;
+  border: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.restaurant-search .checkbox-dropdown__options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.restaurant-search .checkbox-dropdown input[type="checkbox"] {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  padding: 0;
 }

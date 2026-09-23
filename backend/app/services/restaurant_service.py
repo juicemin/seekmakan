@@ -2,14 +2,51 @@ from pymongo.database import Database
 from app.repositories.restaurant_repository import (
     create_restaurant,
     get_restaurant,
+    get_restaurant_filter_options,
     list_restaurants,
 )
 
 def browse_restaurants(
     database: Database,
-    limit: int,
-) -> list[dict]:
-    return list_restaurants(database, limit)
+    page: int,
+    page_size: int,
+    search: str = "",
+    cuisines: list[str] | None = None,
+    food_categories: list[str] | None = None,
+) -> dict:
+    selected_cuisines = [
+        value.strip()
+        for value in (cuisines or [])
+        if value.strip()
+    ]
+
+    selected_categories = [
+        value.strip()
+        for value in (food_categories or [])
+        if value.strip()
+    ]
+
+    items, total = list_restaurants(
+        database,
+        page,
+        page_size,
+        search.strip(),
+        selected_cuisines,
+        selected_categories,
+    )
+
+    return {
+        "items": items,
+        "page": page,
+        "page_size": page_size,
+        "total": total,
+        "total_pages": (total + page_size - 1) // page_size,
+    }
+
+def browse_restaurant_filter_options(
+    database: Database,
+) -> dict[str, list[str]]:
+    return get_restaurant_filter_options(database)
 
 def find_restaurant(
     database: Database,

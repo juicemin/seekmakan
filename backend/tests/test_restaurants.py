@@ -76,7 +76,7 @@ def override_get_database():
 def test_list_restaurants_successfully() -> None:
     with patch(
         "app.routers.restaurants.browse_restaurants",
-        return_value=[SAMPLE_RESTAURANT],
+        return_value={"items": [SAMPLE_RESTAURANT], "page": 1, "page_size": 20, "total": 1, "total_pages": 1},
     ):
         response = client.get("/api/restaurants")
 
@@ -84,21 +84,22 @@ def test_list_restaurants_successfully() -> None:
 
     response_data = response.json()
 
-    assert len(response_data) == 1
-    assert response_data[0]["id"] == SAMPLE_RESTAURANT_ID
-    assert response_data[0]["name"] == "Test Nasi Lemak"
+    assert len(response_data["items"]) == 1
+    assert response_data["items"][0]["id"] == SAMPLE_RESTAURANT_ID
+    assert response_data["items"][0]["name"] == "Test Nasi Lemak"
 
 
 # Test empty list
 def test_list_restaurants_when_none_exist() -> None:
     with patch(
         "app.routers.restaurants.browse_restaurants",
-        return_value=[],
+        return_value={"items": [], "page": 1, "page_size": 20, "total": 0, "total_pages": 0},
     ):
         response = client.get("/api/restaurants")
 
     assert response.status_code == 200
-    assert response.json() == []
+    assert response.json()["items"] == []
+    assert response.json()["total_pages"] == 0
 
 
 # Test restaurant details

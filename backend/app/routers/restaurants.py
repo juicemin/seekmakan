@@ -5,12 +5,15 @@ from app.database import get_database
 
 from app.schemas.restaurant import (
     RestaurantCreate,
+    RestaurantFilterOptions,
+    RestaurantPage,
     RestaurantResponse,
 )
 
 from app.services.restaurant_service import (
     add_restaurant,
     browse_restaurants,
+    browse_restaurant_filter_options,
     find_restaurant,
 )
 
@@ -21,12 +24,32 @@ router = APIRouter(
 
 DatabaseDependency = Annotated[Database, Depends(get_database)]
 
-@router.get("", response_model=list[RestaurantResponse])
+@router.get("", response_model=RestaurantPage)
 def retrieve_restaurants(
     database: DatabaseDependency,
-    limit: int = Query(default=20, ge=1, le=100),
-) -> list[dict]:
-    return browse_restaurants(database, limit)
+    page: int = Query(default=1, ge=1),
+    page_size: int = Query(default=20, ge=1, le=100),
+    search: str = Query(default="", max_length=100),
+    cuisines: list[str] = Query(default=[]),
+    food_categories: list[str] = Query(default=[]),
+) -> dict:
+    return browse_restaurants(
+        database,
+        page,
+        page_size,
+        search,
+        cuisines,
+        food_categories,
+    )
+
+@router.get(
+    "/filter-options",
+    response_model=RestaurantFilterOptions,
+)
+def retrieve_restaurant_filter_options(
+    database: DatabaseDependency,
+) -> dict[str, list[str]]:
+    return browse_restaurant_filter_options(database)
 
 @router.get(
     "/{restaurant_id}",
