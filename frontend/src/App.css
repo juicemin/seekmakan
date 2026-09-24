@@ -327,3 +327,21 @@
 .restaurant-card:focus-visible {
   outline: 3px solid #9a3412;
 }
+
+.location-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.location-controls label {
+  margin: 0;
+}
+
+.location-controls select {
+  display: block;
+  margin-top: 6px;
+  padding: 10px;
+}

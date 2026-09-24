@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { getRestaurants, getRestaurantFilterOptions } from "../api/restaurants";
 import RestaurantList from "../components/RestaurantList";
 import CheckboxDropdown from "../components/CheckboxDropdown";
@@ -36,6 +36,18 @@ function RestaurantDiscoveryPage() {
     setSelectedRestaurantId(restaurantId);
     setMobileView("list");
   }, []);
+  const [selectedLocation, setSelectedLocation] = useState(null);
+  const [appliedLocation, setAppliedLocation] = useState(null);
+  const [selectedRadius, setSelectedRadius] = useState("");
+  const [appliedRadius, setAppliedRadius] = useState("");
+  const [locationStatus, setLocationStatus] = useState("idle");
+  const [locationError, setLocationError] = useState("");
+  const locationRequestRef = useRef(0);
+  useEffect(() => {
+  return () => {
+    locationRequestRef.current += 1;
+  };
+}, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -53,6 +65,8 @@ function RestaurantDiscoveryPage() {
           foodCategories: appliedCategories,
           priceRange: appliedPrice,
           minRating: appliedRating,
+          location: appliedLocation,
+          radiusKm: appliedRadius,
           signal: controller.signal
         });
 
@@ -86,6 +100,8 @@ function RestaurantDiscoveryPage() {
     appliedCategories,
     appliedPrice,
     appliedRating,
+    appliedLocation,
+    appliedRadius,
     retry,
   ]);
 
@@ -122,8 +138,69 @@ function RestaurantDiscoveryPage() {
     };
   }, [optionsRetry]);
 
+  function handleUseMyLocation() {
+    const requestId = ++locationRequestRef.current;
+    setLocationError("");
+
+    if (!navigator.geolocation) {
+      setLocationStatus("error");
+      setLocationError("This browser does not support location access.");
+      return;
+    }
+
+    setLocationStatus("loading");
+
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        if (requestId !== locationRequestRef.current) return;
+
+        setSelectedLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          accuracy: position.coords.accuracy,
+        });
+        setLocationStatus("success");
+      },
+      error => {
+        if (requestId !== locationRequestRef.current) return;
+
+        const messages = {
+          1: "Location permission was denied. You can still browse without a distance filter.",
+          2: "Your location could not be determined. Please try again.",
+          3: "Location lookup timed out. Please try again.",
+        };
+
+        setLocationStatus("error");
+        setLocationError(
+          messages[error.code] || "Unable to access your location."
+        );
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 60000,
+      }
+    );
+  }
+
   function handleSearch(event) {
     event.preventDefault();
+
+    if (locationStatus === "loading") {
+      setLocationError("Wait for location lookup, or use Clear to cancel.");
+      return;
+    }
+
+    if (selectedRadius !== "" && selectedLocation === null) {
+      setLocationError("Choose a location before applying a distance.");
+      return;
+    }
+
+    setLocationError("");
+    setAppliedLocation(
+      selectedRadius === "" ? null : selectedLocation
+    );
+    setAppliedRadius(selectedRadius);
 
     setSearch(searchInput.trim());
     setAppliedCuisines([...selectedCuisines]);
@@ -145,6 +222,14 @@ function RestaurantDiscoveryPage() {
     setSelectedRating("");
     setAppliedPrice("");
     setAppliedRating("");
+
+    locationRequestRef.current += 1;
+    setSelectedLocation(null);
+    setAppliedLocation(null);
+    setSelectedRadius("");
+    setAppliedRadius("");
+    setLocationStatus("idle");
+    setLocationError("");
 
     setPage(1);
     setRetry(value => value + 1);
@@ -170,7 +255,15 @@ function RestaurantDiscoveryPage() {
     selectedCategories.length !== appliedCategories.length ||
     selectedCategories.some(value => !appliedCategories.includes(value)) ||
     selectedPrice !== appliedPrice ||
-    selectedRating !== appliedRating;
+    selectedRating !== appliedRating ||
+    selectedRadius !== appliedRadius ||
+    (
+      selectedRadius !== "" &&
+      (
+        selectedLocation?.latitude !== appliedLocation?.latitude ||
+        selectedLocation?.longitude !== appliedLocation?.longitude
+      )
+    );
 
   useEffect(() => {
     if (!selectedRestaurantId || status !== "success") return;
@@ -240,6 +333,45 @@ function RestaurantDiscoveryPage() {
             </button>
           </div>
         )}
+
+        <div className="location-controls">
+          <button
+            type="button"
+            onClick={handleUseMyLocation}
+            disabled={locationStatus === "loading"}
+          >
+            {locationStatus === "loading"
+              ? "Finding location..."
+              : "Use my location"}
+          </button>
+
+          <label htmlFor="distance-filter">
+            Distance
+          <select
+            id="distance-filter"
+            value={selectedRadius}
+            onChange={event => setSelectedRadius(event.target.value)}
+          >
+            <option value="">Any distance</option>
+            <option value="1">Within 1 km</option>
+            <option value="3">Within 3 km</option>
+            <option value="5">Within 5 km</option>
+            <option value="10">Within 10 km</option>
+            <option value="25">Within 25 km</option>
+            <option value="50">Within 50 km</option>
+          </select>
+        </label>
+      </div>
+
+      {locationError && <p role="alert">{locationError}</p>}
+
+      {selectedLocation && (
+        <p role="status">
+          Location selected
+          {selectedLocation.accuracy != null &&
+            ` — estimated accuracy ${Math.round(selectedLocation.accuracy)} m`}.
+        </p>
+      )}
 
         {optionsStatus === "success" && (
           <div className="discovery-filters">
@@ -313,6 +445,13 @@ function RestaurantDiscoveryPage() {
 
       {appliedRating && (
         <p>Applied minimum rating: {appliedRating} stars</p>
+      )}
+
+      {appliedLocation && appliedRadius !== "" && (
+        <p>
+          Within {appliedRadius} km of the selected location
+          {" "}(approximate straight-line distance).
+        </p>
       )}
 
       {search && <p>Results for “{search}”</p>}
