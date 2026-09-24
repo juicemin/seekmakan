@@ -35,7 +35,21 @@ def retrieve_restaurants(
     food_categories: list[str] = Query(default=[]),
     price_range: PriceRange | None = Query(default=None),
     min_rating: float | None = Query(default=None, ge=0, le=5),
+    latitude: float | None = Query(default=None, ge=-90, le=90),
+    longitude: float | None = Query(default=None, ge=-180, le=180),
+    radius_km: float | None = Query(default=None, gt=0, le=50),
 ) -> dict:
+    location_values = (latitude, longitude, radius_km)
+
+    if (
+        any(value is not None for value in location_values)
+        and not all(value is not None for value in location_values)
+    ):
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="Provide latitude, longitude, and radius_km together.",
+        )
+    
     return browse_restaurants(
         database,
         page,
@@ -44,7 +58,10 @@ def retrieve_restaurants(
         cuisines,
         food_categories,
         price_range=price_range.value if price_range is not None else None,
-         min_rating=min_rating,
+        min_rating=min_rating,
+        latitude=latitude,
+        longitude=longitude,
+        radius_km=radius_km,     
     )
 
 @router.get(

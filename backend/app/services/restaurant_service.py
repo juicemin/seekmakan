@@ -15,6 +15,9 @@ def browse_restaurants(
     food_categories: list[str] | None = None,
     price_range: str | None = None,
     min_rating: float | None = None,
+    latitude: float | None = None,
+    longitude: float | None = None,
+    radius_km: float | None = None,
 ) -> dict:
     selected_cuisines = [
         value.strip()
@@ -37,6 +40,9 @@ def browse_restaurants(
         selected_categories,
         price_range=price_range,
         min_rating=min_rating,
+        latitude=latitude,
+        longitude=longitude,
+        radius_km=radius_km,
     )
 
     return {

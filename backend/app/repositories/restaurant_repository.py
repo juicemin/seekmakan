@@ -63,6 +63,9 @@ def list_restaurants(
     food_categories: list[str] | None = None,
     price_range: str | None = None,
     min_rating: float | None = None,
+    latitude: float | None = None,
+    longitude: float | None = None,
+    radius_km: float | None = None,
 ) -> tuple[list[dict[str, Any]], int]:
     collection = get_restaurant_collection(database)
 
@@ -90,6 +93,22 @@ def list_restaurants(
     if min_rating is not None:
         query["average_rating"] = {"$gte": min_rating}
         query["review_count"] = {"$gt": 0}
+
+    if (
+        latitude is not None
+        and longitude is not None
+        and radius_km is not None
+    ):
+        earth_radius_km = 6371.0
+
+        query["location"] = {
+            "$geoWithin": {
+                "$centerSphere": [
+                    [longitude, latitude],
+                    radius_km / earth_radius_km,
+                ]
+            }
+        }
 
     total = collection.count_documents(query)
 
