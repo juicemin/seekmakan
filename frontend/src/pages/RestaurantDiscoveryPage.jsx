@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getRestaurants, getRestaurantFilterOptions } from "../api/restaurants";
 import RestaurantList from "../components/RestaurantList";
 import CheckboxDropdown from "../components/CheckboxDropdown";
@@ -30,6 +30,12 @@ function RestaurantDiscoveryPage() {
   const [selectedRating, setSelectedRating] = useState("");
   const [appliedPrice, setAppliedPrice] = useState("");
   const [appliedRating, setAppliedRating] = useState("");
+  const [mobileView, setMobileView] = useState("list");
+  const [selectedRestaurantId, setSelectedRestaurantId] = useState(null);
+  const handleMapSelect = useCallback((restaurantId) => {
+    setSelectedRestaurantId(restaurantId);
+    setMobileView("list");
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -53,6 +59,7 @@ function RestaurantDiscoveryPage() {
         if (!active) return;
 
         setRestaurants(data.items);
+        setSelectedRestaurantId(null);
         setTotal(data.total);
         setTotalPages(data.total_pages);
         setStatus("success");
@@ -164,6 +171,22 @@ function RestaurantDiscoveryPage() {
     selectedCategories.some(value => !appliedCategories.includes(value)) ||
     selectedPrice !== appliedPrice ||
     selectedRating !== appliedRating;
+
+  useEffect(() => {
+    if (!selectedRestaurantId || status !== "success") return;
+
+    const card = document.getElementById(
+      `restaurant-${selectedRestaurantId}`
+   );
+
+    if (!card) return;
+
+    card.focus({ preventScroll: true });
+    card.scrollIntoView({
+      behavior: "auto",
+      block: "nearest",
+    });
+  }, [selectedRestaurantId, mobileView, status]);
 
   return (
     <main className="page">
@@ -328,19 +351,52 @@ function RestaurantDiscoveryPage() {
               : `0 restaurants displayed (${total} available)`}
           </p>
 
-          <div className="discovery-results">
+          {restaurants.length > 0 && (
+            <div className="view-switch" role="group" aria-label="Results view">
+              <button
+                type="button"
+                aria-pressed={mobileView === "list"}
+                onClick={() => setMobileView("list")}
+              >
+              List
+              </button>
+
+              <button
+                type="button"
+                aria-pressed={mobileView === "map"}
+                onClick={() => setMobileView("map")}
+              >
+              Map
+              </button>
+            </div>
+          )}
+
+            <div
+              className={`discovery-results ${
+                restaurants.length === 0 ? "discovery-results--empty" : ""
+              }`}
+              data-mobile-view={mobileView}
+            >
             {restaurants.length > 0 && (
-            <RestaurantMap restaurants={restaurants} />
+              <div className="discovery-map-panel">
+              <RestaurantMap 
+              restaurants={restaurants} 
+              onSelectRestaurant={handleMapSelect}
+              />
+              </div>
             )}
 
-          <div>
-            {restaurants.length === 0 && total > 0 ? (
-            <p>No restaurants on this page. Return to the first page.</p>
-            ) : (
-              <RestaurantList restaurants={restaurants} />
-            )}
+            <div className="discovery-list-panel">
+              {restaurants.length === 0 && total > 0 ? (
+                <p>No restaurants on this page. Return to the first page.</p>
+              ) : (
+                <RestaurantList 
+                restaurants={restaurants} 
+                selectedRestaurantId={selectedRestaurantId}
+                />
+              )}
+            </div>
           </div>
-        </div>
 
           <nav className="pagination" aria-label="Restaurant pages">
             <button

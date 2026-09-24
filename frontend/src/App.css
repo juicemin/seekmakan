@@ -275,3 +275,55 @@
     height: 300px;
   }
 }
+
+.view-switch {
+  display: none;
+}
+
+.discovery-results--empty {
+  grid-template-columns: 1fr;
+}
+
+@media (max-width: 800px) {
+  .view-switch {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .view-switch button {
+    flex: 1;
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+
+  .view-switch button[aria-pressed="true"] {
+    background: #9a3412;
+    color: #ffffff;
+    border-color: #9a3412;
+    font-weight: 700;
+  }
+
+  .discovery-results[data-mobile-view="list"] .discovery-map-panel {
+    display: none;
+  }
+
+  .discovery-results[data-mobile-view="map"]:not(
+    .discovery-results--empty
+  ) .discovery-list-panel {
+    display: none;
+  }
+
+  .discovery-results .restaurant-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.restaurant-card--selected {
+  border-color: #9a3412;
+  box-shadow: 0 0 0 2px #9a3412;
+}
+
+.restaurant-card:focus-visible {
+  outline: 3px solid #9a3412;
+}

@@ -3,11 +3,14 @@ import L from "leaflet";
 
 const DEFAULT_CENTER = [2.8141, 101.7972];
 
-export default function RestaurantMap({ restaurants }) {
-  const containerRef = useRef(null);
-  const mapRef = useRef(null);
-  const markersRef = useRef(null);
-  const [tileError, setTileError] = useState(false);
+export default function RestaurantMap({
+  restaurants,
+  onSelectRestaurant,
+}) {
+    const containerRef = useRef(null);
+    const mapRef = useRef(null);
+    const markersRef = useRef(null);
+    const [tileError, setTileError] = useState(false);
 
   // Create the map when this component mounts.
   useEffect(() => {
@@ -16,7 +19,7 @@ export default function RestaurantMap({ restaurants }) {
     }).setView(DEFAULT_CENTER, 12);
 
     mapRef.current = map;
-    markersRef.current = L.layerGroup().addTo(map);
+    markersRef.current = L.featureGroup().addTo(map);
 
     const tiles = L.tileLayer(
       "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
@@ -32,8 +35,25 @@ export default function RestaurantMap({ restaurants }) {
     tiles.addTo(map);
 
     const observer = new ResizeObserver(() => {
-      map.invalidateSize({ pan: false });
+        const container = map.getContainer();
+
+        if (container.clientWidth === 0 || container.clientHeight === 0) {
+            return;
+            }
+
+        map.invalidateSize({ pan: false });
+            
+    const bounds = markersRef.current?.getBounds();
+
+        if (bounds?.isValid()) {
+            map.fitBounds(bounds, {
+            padding: [30, 30],
+            maxZoom: 15,
+            animate: false,
+            });
+        }
     });
+
     observer.observe(containerRef.current);
 
     return () => {
@@ -89,18 +109,25 @@ export default function RestaurantMap({ restaurants }) {
         weight: 2,
       })
         .bindPopup(popup)
+        .on("click", () => {
+            onSelectRestaurant(restaurant.id);
+        })
         .addTo(markers);
     });
 
-    if (positions.length > 0) {
-      map.fitBounds(positions, {
+    if (
+        positions.length > 0 &&
+        map.getContainer().clientWidth > 0 &&
+        map.getContainer().clientHeight > 0
+    ) {
+        map.fitBounds(positions, {
         padding: [30, 30],
         maxZoom: 15,
       });
     } else {
       map.setView(DEFAULT_CENTER, 12);
     }
-  }, [restaurants]);
+  }, [restaurants, onSelectRestaurant]);
 
   return (
     <section aria-label="Map of current restaurant results">

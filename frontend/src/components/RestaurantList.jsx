@@ -1,6 +1,9 @@
 import RestaurantCard from "./RestaurantCard";
 
-function RestaurantList({restaurants}) {
+function RestaurantList({
+  restaurants,
+  selectedRestaurantId,
+}) {
   if (restaurants.length === 0) {
     return (
       <section
@@ -27,6 +30,7 @@ function RestaurantList({restaurants}) {
         <RestaurantCard
           key={restaurant.id}
           restaurant={restaurant}
+          isSelected={restaurant.id === selectedRestaurantId}
         />
       ))}
     </section>

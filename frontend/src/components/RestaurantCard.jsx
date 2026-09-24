@@ -1,6 +1,6 @@
 import {Link} from "react-router";
 
-function RestaurantCard({restaurant}) {
+function RestaurantCard({restaurant, isSelected = false}) {
     const cuisines = 
     restaurant.cuisines?.length > 0
       ? restaurant.cuisines.join(", ")
@@ -15,9 +15,19 @@ function RestaurantCard({restaurant}) {
     .join(", ");
 
      return (
-    <article className="restaurant-card">
+    <article
+    id={`restaurant-${restaurant.id}`}
+    tabIndex={-1}
+    aria-labelledby={`restaurant-title-${restaurant.id}`}
+    className={`restaurant-card ${
+    isSelected ? "restaurant-card--selected" : ""
+    }`}
+    >
       <div className="restaurant-card__content">
-        <h2 className="restaurant-card__title">
+        <h2
+          id={`restaurant-title-${restaurant.id}`}
+          className="restaurant-card__title"
+        >
           {restaurant.name}
         </h2>
 
