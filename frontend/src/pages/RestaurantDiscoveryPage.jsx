@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getRestaurants, getRestaurantFilterOptions } from "../api/restaurants";
 import RestaurantList from "../components/RestaurantList";
 import CheckboxDropdown from "../components/CheckboxDropdown";
+import RestaurantMap from "../components/RestaurantMap";
 
 function RestaurantDiscoveryPage() {
   const [restaurants, setRestaurants] = useState([]);
@@ -326,9 +327,20 @@ function RestaurantDiscoveryPage() {
               ? `Showing ${(page - 1) * pageSize + 1}–${(page - 1) * pageSize + restaurants.length} of ${total} restaurants`
               : `0 restaurants displayed (${total} available)`}
           </p>
-          {restaurants.length === 0 && total > 0
-            ? <p>No restaurants on this page. Return to the first page.</p>
-            : <RestaurantList restaurants={restaurants} />}
+
+          <div className="discovery-results">
+            {restaurants.length > 0 && (
+            <RestaurantMap restaurants={restaurants} />
+            )}
+
+          <div>
+            {restaurants.length === 0 && total > 0 ? (
+            <p>No restaurants on this page. Return to the first page.</p>
+            ) : (
+              <RestaurantList restaurants={restaurants} />
+            )}
+          </div>
+        </div>
 
           <nav className="pagination" aria-label="Restaurant pages">
             <button

@@ -247,3 +247,31 @@
   margin-top: 6px;
   padding: 10px;
 }
+
+.discovery-results {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.discovery-results > * {
+  min-width: 0;
+}
+
+.restaurant-map {
+  height: 420px;
+  width: 100%;
+  border-radius: 12px;
+  isolation: isolate;
+}
+
+@media (max-width: 800px) {
+  .discovery-results {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant-map {
+    height: 300px;
+  }
+}
