@@ -3,6 +3,7 @@ import { getRestaurants, getRestaurantFilterOptions } from "../api/restaurants";
 import RestaurantList from "../components/RestaurantList";
 import CheckboxDropdown from "../components/CheckboxDropdown";
 import RestaurantMap from "../components/RestaurantMap";
+import LocationPicker from "../components/LocationPicker";
 
 function RestaurantDiscoveryPage() {
   const [restaurants, setRestaurants] = useState([]);
@@ -42,6 +43,7 @@ function RestaurantDiscoveryPage() {
   const [appliedRadius, setAppliedRadius] = useState("");
   const [locationStatus, setLocationStatus] = useState("idle");
   const [locationError, setLocationError] = useState("");
+  const [showLocationPicker, setShowLocationPicker] = useState(false);
   const locationRequestRef = useRef(0);
   useEffect(() => {
   return () => {
@@ -139,6 +141,7 @@ function RestaurantDiscoveryPage() {
   }, [optionsRetry]);
 
   function handleUseMyLocation() {
+    setShowLocationPicker(false);
     const requestId = ++locationRequestRef.current;
     setLocationError("");
 
@@ -163,6 +166,7 @@ function RestaurantDiscoveryPage() {
       },
       error => {
         if (requestId !== locationRequestRef.current) return;
+        setLocationError("");
 
         const messages = {
           1: "Location permission was denied. You can still browse without a distance filter.",
@@ -182,6 +186,16 @@ function RestaurantDiscoveryPage() {
       }
     );
   }
+
+  function handleConfirmMapLocation(location) {
+  // Ignore any older browser-location request still finishing.
+  locationRequestRef.current += 1;
+
+  setSelectedLocation(location);
+  setLocationStatus("success");
+  setLocationError("");
+  setShowLocationPicker(false);
+}
 
   function handleSearch(event) {
     event.preventDefault();
@@ -230,6 +244,7 @@ function RestaurantDiscoveryPage() {
     setAppliedRadius("");
     setLocationStatus("idle");
     setLocationError("");
+    setShowLocationPicker(false);
 
     setPage(1);
     setRetry(value => value + 1);
@@ -345,6 +360,20 @@ function RestaurantDiscoveryPage() {
               : "Use my location"}
           </button>
 
+          <button
+            type="button"
+            aria-expanded={showLocationPicker}
+            aria-controls="location-picker-panel"
+            onClick={() => {
+              locationRequestRef.current += 1;
+              setLocationStatus("idle");
+              setLocationError("");
+              setShowLocationPicker(value => !value);
+            }}
+          >
+            {showLocationPicker ? "Close location picker" : "Choose on map"}
+          </button>
+
           <label htmlFor="distance-filter">
             Distance
           <select
@@ -361,6 +390,15 @@ function RestaurantDiscoveryPage() {
             <option value="50">Within 50 km</option>
           </select>
         </label>
+      </div>
+
+      <div id="location-picker-panel" hidden={!showLocationPicker}>
+        {showLocationPicker && (
+          <LocationPicker
+            initialLocation={selectedLocation}
+            onConfirm={handleConfirmMapLocation}
+          />
+        )}
       </div>
 
       {locationError && <p role="alert">{locationError}</p>}
