@@ -31,6 +31,8 @@ function RestaurantDiscoveryPage() {
   const [selectedRating, setSelectedRating] = useState("");
   const [appliedPrice, setAppliedPrice] = useState("");
   const [appliedRating, setAppliedRating] = useState("");
+  const [selectedOpenNow, setSelectedOpenNow] = useState(false);
+  const [appliedOpenNow, setAppliedOpenNow] = useState(false);  
   const [mobileView, setMobileView] = useState("list");
   const [selectedRestaurantId, setSelectedRestaurantId] = useState(null);
   const handleMapSelect = useCallback((restaurantId) => {
@@ -69,6 +71,7 @@ function RestaurantDiscoveryPage() {
           minRating: appliedRating,
           location: appliedLocation,
           radiusKm: appliedRadius,
+          openNow: appliedOpenNow,
           signal: controller.signal
         });
 
@@ -104,6 +107,7 @@ function RestaurantDiscoveryPage() {
     appliedRating,
     appliedLocation,
     appliedRadius,
+    appliedOpenNow,
     retry,
   ]);
 
@@ -221,6 +225,7 @@ function RestaurantDiscoveryPage() {
     setAppliedCategories([...selectedCategories]);
     setAppliedPrice(selectedPrice);
     setAppliedRating(selectedRating);
+    setAppliedOpenNow(selectedOpenNow);
     setPage(1);
     setRetry(value => value + 1);
   }
@@ -236,6 +241,8 @@ function RestaurantDiscoveryPage() {
     setSelectedRating("");
     setAppliedPrice("");
     setAppliedRating("");
+    setSelectedOpenNow(false);
+    setAppliedOpenNow(false);
 
     locationRequestRef.current += 1;
     setSelectedLocation(null);
@@ -271,6 +278,7 @@ function RestaurantDiscoveryPage() {
     selectedCategories.some(value => !appliedCategories.includes(value)) ||
     selectedPrice !== appliedPrice ||
     selectedRating !== appliedRating ||
+    selectedOpenNow !== appliedOpenNow ||
     selectedRadius !== appliedRadius ||
     (
       selectedRadius !== "" &&
@@ -461,6 +469,15 @@ function RestaurantDiscoveryPage() {
           </select>
           </label>
         </div>
+
+        <label className="open-now-filter">
+          <input
+            type="checkbox"
+            checked={selectedOpenNow}
+            onChange={event => setSelectedOpenNow(event.target.checked)}
+          />
+          Open now
+        </label>
       </details>
 
         {hasUnappliedChanges && (
@@ -483,6 +500,10 @@ function RestaurantDiscoveryPage() {
 
       {appliedRating && (
         <p>Applied minimum rating: {appliedRating} stars</p>
+      )}
+
+      {appliedOpenNow && (
+        <p>Open now, based on listed hours in Malaysia time.</p>
       )}
 
       {appliedLocation && appliedRadius !== "" && (

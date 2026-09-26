@@ -1,6 +1,34 @@
 import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router";
 import {getRestaurant} from "../api/restaurants";
+import OpeningStatus from "../components/OpeningStatus";
+const WEEKDAYS = [
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+  "sunday",
+];
+
+function formatOperatingHours(hours) {
+  if (!hours) return "Not provided";
+
+  if (hours.status === "closed") {
+    return "Closed";
+  }
+
+  if (hours.status === "open_24_hours") {
+    return "Open 24 hours";
+  }
+
+  if (!hours.open || !hours.close) {
+    return "Not provided";
+  }
+
+  return `${hours.open} – ${hours.close}`;
+}
 
 function RestaurantDetailsPage() {
   const {restaurantId} = useParams();
@@ -78,6 +106,10 @@ function RestaurantDetailsPage() {
             <h1>{restaurant.name}</h1>
 
             <p>
+              <OpeningStatus status={restaurant.opening_status} />
+            </p>
+
+            <p>
               {restaurant.description ||
                 "No description is available."}
             </p>
@@ -87,14 +119,16 @@ function RestaurantDetailsPage() {
             <h2>Location</h2>
             <address>
               <p>{restaurant.address.full_address}</p>
+              
+              {restaurant.address.postcode && (
+                <p>{restaurant.address.postcode}, {" "}
+                {restaurant.address.city}</p>
+              )}
+
               <p>
-                {restaurant.address.city},{" "}
                 {restaurant.address.state}
               </p>
 
-              {restaurant.address.postcode && (
-                <p>{restaurant.address.postcode}</p>
-              )}
             </address>
           </section>
 
@@ -120,6 +154,29 @@ function RestaurantDetailsPage() {
               {restaurant.price_range ?? "Unavailable"}
             </p>
           </section>
+
+          <section>
+            <h2>Opening hours</h2>
+
+            <dl className="opening-hours">
+              {WEEKDAYS.map(day => {
+                const hours = restaurant.operating_hours?.[day];
+
+                return (
+                  <div className="opening-hours__row" key={day}>
+                    <dt>
+                      {day.charAt(0).toUpperCase() + day.slice(1)}
+                    </dt>
+
+                  <dd>
+                    {formatOperatingHours(hours)}
+                  </dd>
+                  
+                </div>
+              );
+            })}
+          </dl>
+        </section>
 
           <section>
             <h2>Rating</h2>

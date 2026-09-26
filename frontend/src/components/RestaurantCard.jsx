@@ -1,4 +1,5 @@
 import {Link} from "react-router";
+import OpeningStatus from "./OpeningStatus";
 
 function RestaurantCard({restaurant, isSelected = false}) {
     const cuisines = 
@@ -30,6 +31,10 @@ function RestaurantCard({restaurant, isSelected = false}) {
         >
           {restaurant.name}
         </h2>
+
+        <p>
+          <OpeningStatus status={restaurant.opening_status} />
+        </p>
 
         <p className="restaurant-card__location">
           {location || "Location unavailable"}

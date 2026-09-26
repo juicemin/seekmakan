@@ -373,3 +373,59 @@
     1px -1px white,
     -1px 1px white;
 }
+
+.opening-hours {
+  max-width: 420px;
+}
+
+.opening-hours__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.opening-hours__row dt {
+  font-weight: 600;
+}
+
+.opening-hours__row dd {
+  margin: 0;
+  text-align: right;
+}
+
+.open-now-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.open-now-filter input {
+  width: auto;
+  margin: 0;
+}
+
+.opening-status {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.opening-status--open {
+  color: #166534;
+  background: #dcfce7;
+}
+
+.opening-status--closed {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.opening-status--unknown {
+  color: #374151;
+  background: #f3f4f6;
+}

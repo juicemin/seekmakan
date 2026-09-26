@@ -31,6 +31,7 @@ export async function getRestaurants({
   minRating = "",
   location = null,
   radiusKm = "",
+  openNow = false,
   signal,
 } = {}) {
   const query = new URLSearchParams({
@@ -59,6 +60,10 @@ if (location !== null && radiusKm !== "") {
   query.set("latitude", String(location.latitude));
   query.set("longitude", String(location.longitude));
   query.set("radius_km", String(radiusKm));
+}
+
+if (openNow) {
+  query.set("open_now", "true");
 }
 
   const response = await fetch(`${RESTAURANTS_URL}?${query}`, {
