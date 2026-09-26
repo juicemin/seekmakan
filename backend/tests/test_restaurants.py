@@ -242,3 +242,55 @@ def test_rejects_restaurant_name_that_is_too_short() -> None:
     )
 
     assert response.status_code == 422
+
+@pytest.mark.parametrize(
+    "params",
+    [
+        {"latitude": 2.8141},
+        {"longitude": 101.7972},
+        {"radius_km": 5},
+        {"latitude": 2.8141, "longitude": 101.7972},
+        {"latitude": 2.8141, "radius_km": 5},
+        {"longitude": 101.7972, "radius_km": 5},
+        {"latitude": 91, "longitude": 101.7972, "radius_km": 5},
+        {"latitude": 2.8141, "longitude": 181, "radius_km": 5},
+        {"latitude": 2.8141, "longitude": 101.7972, "radius_km": 0},
+        {"latitude": 2.8141, "longitude": 101.7972, "radius_km": 51},
+    ],
+)
+def test_rejects_invalid_distance_search(params):
+    with patch(
+        "app.routers.restaurants.browse_restaurants"
+    ) as browse:
+        response = client.get("/api/restaurants", params=params)
+
+    assert response.status_code == 422
+    browse.assert_not_called()
+
+def test_valid_distance_search_reaches_service():
+    with patch(
+        "app.routers.restaurants.browse_restaurants",
+        return_value={
+            "items": [],
+            "page": 1,
+            "page_size": 20,
+            "total": 0,
+            "total_pages": 0,
+        },
+    ) as browse:
+        response = client.get(
+            "/api/restaurants",
+            params={
+                "latitude": 2.8141,
+                "longitude": 101.7972,
+                "radius_km": 5,
+            },
+        )
+
+    assert response.status_code == 200
+    browse.assert_called_once()
+
+    arguments = browse.call_args.kwargs
+    assert arguments["latitude"] == 2.8141
+    assert arguments["longitude"] == 101.7972
+    assert arguments["radius_km"] == 5

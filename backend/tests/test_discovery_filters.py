@@ -129,3 +129,25 @@ def test_filter_options_are_sorted_and_ignore_blank_values(
     collection.distinct.assert_any_call(
         "food_categories", {"visibility_status": "active"}
     )
+
+def test_distance_filter_builds_correct_query(
+    collection,
+    database: Database,
+):
+    list_restaurants(
+        database,
+        latitude=2.8141,
+        longitude=101.7972,
+        radius_km=5,
+        price_range="RM1-RM20",
+    )
+
+    query = collection.find.call_args.args[0]
+    circle = query["location"]["$geoWithin"]["$centerSphere"]
+
+    assert circle[0] == [101.7972, 2.8141]
+    assert circle[1] == pytest.approx(5 / 6371.0)
+    assert query["visibility_status"] == "active"
+    assert query["price_range"] == "RM1-RM20"
+
+    collection.count_documents.assert_called_once_with(query)

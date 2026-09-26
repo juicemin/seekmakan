@@ -18,6 +18,7 @@ def browse_restaurants(
     latitude: float | None = None,
     longitude: float | None = None,
     radius_km: float | None = None,
+    open_now: bool = False,
 ) -> dict:
     selected_cuisines = [
         value.strip()
@@ -43,6 +44,7 @@ def browse_restaurants(
         latitude=latitude,
         longitude=longitude,
         radius_km=radius_km,
+        open_now=open_now,
     )
 
     return {

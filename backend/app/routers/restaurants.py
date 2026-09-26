@@ -38,6 +38,7 @@ def retrieve_restaurants(
     latitude: float | None = Query(default=None, ge=-90, le=90),
     longitude: float | None = Query(default=None, ge=-180, le=180),
     radius_km: float | None = Query(default=None, gt=0, le=50),
+    open_now: bool = Query(default=False),
 ) -> dict:
     location_values = (latitude, longitude, radius_km)
 
@@ -46,7 +47,7 @@ def retrieve_restaurants(
         and not all(value is not None for value in location_values)
     ):
         raise HTTPException(
-            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            status_code=status.HTTP_422_UNPROCESSABLE_CONTENT,
             detail="Provide latitude, longitude, and radius_km together.",
         )
     
@@ -61,7 +62,8 @@ def retrieve_restaurants(
         min_rating=min_rating,
         latitude=latitude,
         longitude=longitude,
-        radius_km=radius_km,     
+        radius_km=radius_km,    
+        open_now=open_now, 
     )
 
 @router.get(

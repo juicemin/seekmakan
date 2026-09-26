@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 from typing import Literal
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 from app.models.enums import (
     PriceRange,
@@ -48,13 +48,53 @@ class GeoLocation(BaseModel):
         return coordinates
 
 class DailyOperatingHours(BaseModel):
-    open: str
-    close: str
+    status: Literal["open", "closed", "open_24_hours"] = "open"
+
+    open: str | None = Field(
+        default=None,
+        pattern=r"^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+    )
+    close: str | None = Field(
+        default=None,
+        pattern=r"^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+    )
+
+    @model_validator(mode="after")
+    def validate_hours(self) -> "DailyOperatingHours":
+        if self.status == "open":
+            if self.open is None or self.close is None:
+                raise ValueError(
+                    "Open days require both opening and closing times."
+                )
+
+            if self.open == self.close:
+                raise ValueError(
+                    "Opening and closing times must differ. "
+                    "Use open_24_hours for all-day operation."
+                )
+
+        elif self.open is not None or self.close is not None:
+            raise ValueError(
+                "Closed and 24-hour days must not contain opening "
+                "or closing times."
+            )
+
+        return self
 
 class RestaurantSource(BaseModel):
     type: SourceType = SourceType.MANUAL
     external_id: str | None = None
     last_checked_at: datetime | None = None
+
+Weekday = Literal[
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday",
+]
 
 class RestaurantBase(BaseModel):
     name: str = Field(min_length=2, max_length=100)
@@ -67,7 +107,7 @@ class RestaurantBase(BaseModel):
     cuisines: list[str] = Field(default_factory=list)
     food_categories: list[str] = Field(default_factory=list)
     price_range: PriceRange | None = None
-    operating_hours: dict[str, DailyOperatingHours] = Field(
+    operating_hours: dict[Weekday, DailyOperatingHours] = Field(
         default_factory=dict
     )
     verification_status: VerificationStatus = (
@@ -87,6 +127,7 @@ class RestaurantResponse(RestaurantBase):
     review_count: int = 0
     created_at: datetime
     updated_at: datetime
+    opening_status: Literal["open", "closed", "unknown"] = "unknown"
 
 class RestaurantPage(BaseModel):
     items: list[RestaurantResponse]

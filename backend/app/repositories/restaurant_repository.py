@@ -2,12 +2,22 @@ from datetime import datetime, timezone
 from typing import Any
 from bson import ObjectId
 from pymongo.database import Database
+from app.repositories.opening_hours import (
+    build_open_now_query,
+    calculate_opening_status,
+)
 import re
 
 def get_restaurant_collection(database: Database):
     return database["restaurants"]
 
-def serialize_restaurant(document: dict[str, Any]) -> dict[str, Any]:
+def serialize_restaurant(
+    document: dict[str, Any],
+    *,
+    now: datetime | None = None,
+) -> dict[str, Any]:
+    checked_at = now if now is not None else datetime.now(timezone.utc)
+
     return {
         "id": str(document["_id"]),
         "name": document["name"],
@@ -18,6 +28,10 @@ def serialize_restaurant(document: dict[str, Any]) -> dict[str, Any]:
         "food_categories": document.get("food_categories", []),
         "price_range": document.get("price_range"),
         "operating_hours": document.get("operating_hours", {}),
+        "opening_status": calculate_opening_status(
+            document.get("operating_hours", {}),
+            checked_at,
+        ),
         "verification_status": document.get(
             "verification_status",
             "seeded",
@@ -66,8 +80,10 @@ def list_restaurants(
     latitude: float | None = None,
     longitude: float | None = None,
     radius_km: float | None = None,
+    open_now: bool = False,
 ) -> tuple[list[dict[str, Any]], int]:
     collection = get_restaurant_collection(database)
+    checked_at = datetime.now(timezone.utc)
 
     query: dict[str, Any] = {
         "visibility_status": "active",
@@ -110,6 +126,14 @@ def list_restaurants(
             }
         }
 
+    if open_now:
+        query = {
+            "$and": [
+                query,
+                build_open_now_query(checked_at),
+            ]
+        }
+
     total = collection.count_documents(query)
 
     cursor = (
@@ -121,7 +145,7 @@ def list_restaurants(
     )
 
     return [
-        serialize_restaurant(document)
+        serialize_restaurant(document, now=checked_at)
         for document in cursor
     ], total
 
