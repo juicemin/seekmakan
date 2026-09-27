@@ -1,5 +1,6 @@
 import {Link} from "react-router";
 import OpeningStatus from "./OpeningStatus";
+import HiddenGemBadge from "./HiddenGemBadge";
 
 function RestaurantCard({restaurant, isSelected = false}) {
     const cuisines = 
@@ -32,8 +33,9 @@ function RestaurantCard({restaurant, isSelected = false}) {
           {restaurant.name}
         </h2>
 
-        <p>
+        <p className="restaurant-badges">
           <OpeningStatus status={restaurant.opening_status} />
+          <HiddenGemBadge eligible={restaurant.is_hidden_gem} />
         </p>
 
         <p className="restaurant-card__location">

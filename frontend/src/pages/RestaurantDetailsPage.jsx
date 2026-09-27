@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {Link, useParams} from "react-router";
 import {getRestaurant} from "../api/restaurants";
 import OpeningStatus from "../components/OpeningStatus";
+import HiddenGemBadge from "../components/HiddenGemBadge";
 const WEEKDAYS = [
   "monday",
   "tuesday",
@@ -107,6 +108,8 @@ function RestaurantDetailsPage() {
 
             <p>
               <OpeningStatus status={restaurant.opening_status} />
+              {" "}
+              <HiddenGemBadge eligible={restaurant.is_hidden_gem} />
             </p>
 
             <p>

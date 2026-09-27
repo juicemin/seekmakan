@@ -429,3 +429,56 @@
   color: #374151;
   background: #f3f4f6;
 }
+
+.restaurant-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.hidden-gem-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #6b21a8;
+  background: #f3e8ff;
+}
+
+.quick-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  margin-top: 12px;
+}
+
+.quick-filters .open-now-filter {
+  margin: 0;
+}
+
+@media (min-width: 801px) {
+  .discovery-page {
+    width: min(1440px, calc(100% - 48px));
+  }
+
+  .discovery-page .discovery-results:not(.discovery-results--empty) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  }
+
+  .discovery-map-panel {
+    position: sticky;
+    top: 24px;
+    align-self: start;
+  }
+
+  .discovery-map-panel .restaurant-map {
+    height: min(560px, calc(100dvh - 120px));
+  }
+
+  .discovery-list-panel .restaurant-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

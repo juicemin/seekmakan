@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { getRestaurants, getRestaurantFilterOptions } from "../api/restaurants";
-import RestaurantList from "../components/RestaurantList";
-import CheckboxDropdown from "../components/CheckboxDropdown";
-import RestaurantMap from "../components/RestaurantMap";
-import LocationPicker from "../components/LocationPicker";
+import RestaurantList from "./RestaurantList";
+import CheckboxDropdown from "./CheckboxDropdown";
+import RestaurantMap from "./RestaurantMap";
+import LocationPicker from "./LocationPicker";
 
 function RestaurantDiscoveryPage() {
   const [restaurants, setRestaurants] = useState([]);
@@ -32,7 +32,9 @@ function RestaurantDiscoveryPage() {
   const [appliedPrice, setAppliedPrice] = useState("");
   const [appliedRating, setAppliedRating] = useState("");
   const [selectedOpenNow, setSelectedOpenNow] = useState(false);
-  const [appliedOpenNow, setAppliedOpenNow] = useState(false);  
+  const [appliedOpenNow, setAppliedOpenNow] = useState(false);
+  const [selectedHiddenGems, setSelectedHiddenGems] = useState(false);
+  const [appliedHiddenGems, setAppliedHiddenGems] = useState(false);
   const [mobileView, setMobileView] = useState("list");
   const [selectedRestaurantId, setSelectedRestaurantId] = useState(null);
   const handleMapSelect = useCallback((restaurantId) => {
@@ -48,10 +50,10 @@ function RestaurantDiscoveryPage() {
   const [showLocationPicker, setShowLocationPicker] = useState(false);
   const locationRequestRef = useRef(0);
   useEffect(() => {
-  return () => {
-    locationRequestRef.current += 1;
-  };
-}, []);
+    return () => {
+      locationRequestRef.current += 1;
+    };
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -72,6 +74,7 @@ function RestaurantDiscoveryPage() {
           location: appliedLocation,
           radiusKm: appliedRadius,
           openNow: appliedOpenNow,
+          hiddenGems: appliedHiddenGems,
           signal: controller.signal
         });
 
@@ -108,6 +111,7 @@ function RestaurantDiscoveryPage() {
     appliedLocation,
     appliedRadius,
     appliedOpenNow,
+    appliedHiddenGems,
     retry,
   ]);
 
@@ -192,14 +196,14 @@ function RestaurantDiscoveryPage() {
   }
 
   function handleConfirmMapLocation(location) {
-  // Ignore any older browser-location request still finishing.
-  locationRequestRef.current += 1;
+    // Ignore any older browser-location request still finishing.
+    locationRequestRef.current += 1;
 
-  setSelectedLocation(location);
-  setLocationStatus("success");
-  setLocationError("");
-  setShowLocationPicker(false);
-}
+    setSelectedLocation(location);
+    setLocationStatus("success");
+    setLocationError("");
+    setShowLocationPicker(false);
+  }
 
   function handleSearch(event) {
     event.preventDefault();
@@ -226,6 +230,7 @@ function RestaurantDiscoveryPage() {
     setAppliedPrice(selectedPrice);
     setAppliedRating(selectedRating);
     setAppliedOpenNow(selectedOpenNow);
+    setAppliedHiddenGems(selectedHiddenGems);
     setPage(1);
     setRetry(value => value + 1);
   }
@@ -243,6 +248,8 @@ function RestaurantDiscoveryPage() {
     setAppliedRating("");
     setSelectedOpenNow(false);
     setAppliedOpenNow(false);
+    setSelectedHiddenGems(false);
+    setAppliedHiddenGems(false);
 
     locationRequestRef.current += 1;
     setSelectedLocation(null);
@@ -279,6 +286,7 @@ function RestaurantDiscoveryPage() {
     selectedPrice !== appliedPrice ||
     selectedRating !== appliedRating ||
     selectedOpenNow !== appliedOpenNow ||
+    selectedHiddenGems !== appliedHiddenGems ||
     selectedRadius !== appliedRadius ||
     (
       selectedRadius !== "" &&
@@ -293,7 +301,7 @@ function RestaurantDiscoveryPage() {
 
     const card = document.getElementById(
       `restaurant-${selectedRestaurantId}`
-   );
+    );
 
     if (!card) return;
 
@@ -305,7 +313,7 @@ function RestaurantDiscoveryPage() {
   }, [selectedRestaurantId, mobileView, status]);
 
   return (
-    <main className="page">
+    <main className="page discovery-page">
       <header className="page-header">
         <p className="eyebrow">SeekMakan</p>
         <h1>Restaurant Discovery</h1>
@@ -384,40 +392,40 @@ function RestaurantDiscoveryPage() {
 
           <label htmlFor="distance-filter">
             Distance
-          <select
-            id="distance-filter"
-            value={selectedRadius}
-            onChange={event => setSelectedRadius(event.target.value)}
-          >
-            <option value="">Any distance</option>
-            <option value="1">Within 1 km</option>
-            <option value="3">Within 3 km</option>
-            <option value="5">Within 5 km</option>
-            <option value="10">Within 10 km</option>
-            <option value="25">Within 25 km</option>
-            <option value="50">Within 50 km</option>
-          </select>
-        </label>
-      </div>
+            <select
+              id="distance-filter"
+              value={selectedRadius}
+              onChange={event => setSelectedRadius(event.target.value)}
+            >
+              <option value="">Any distance</option>
+              <option value="1">Within 1 km</option>
+              <option value="3">Within 3 km</option>
+              <option value="5">Within 5 km</option>
+              <option value="10">Within 10 km</option>
+              <option value="25">Within 25 km</option>
+              <option value="50">Within 50 km</option>
+            </select>
+          </label>
+        </div>
 
-      <div id="location-picker-panel" hidden={!showLocationPicker}>
-        {showLocationPicker && (
-          <LocationPicker
-            initialLocation={selectedLocation}
-            onConfirm={handleConfirmMapLocation}
-          />
+        <div id="location-picker-panel" hidden={!showLocationPicker}>
+          {showLocationPicker && (
+            <LocationPicker
+              initialLocation={selectedLocation}
+              onConfirm={handleConfirmMapLocation}
+            />
+          )}
+        </div>
+
+        {locationError && <p role="alert">{locationError}</p>}
+
+        {selectedLocation && (
+          <p role="status">
+            Location selected
+            {selectedLocation.accuracy != null &&
+              ` — estimated accuracy ${Math.round(selectedLocation.accuracy)} m`}.
+          </p>
         )}
-      </div>
-
-      {locationError && <p role="alert">{locationError}</p>}
-
-      {selectedLocation && (
-        <p role="status">
-          Location selected
-          {selectedLocation.accuracy != null &&
-            ` — estimated accuracy ${Math.round(selectedLocation.accuracy)} m`}.
-        </p>
-      )}
 
         {optionsStatus === "success" && (
           <div className="discovery-filters">
@@ -442,43 +450,54 @@ function RestaurantDiscoveryPage() {
 
           <div className="more-filters__controls">
             <label htmlFor="price-filter">
-            Price range
-            <select
-              id="price-filter"
-              value={selectedPrice}
-              onChange={event => setSelectedPrice(event.target.value)}
-            >
-              <option value="">Any price</option>
-              <option value="RM1-RM20">RM1–RM20</option>
-              <option value="RM21-RM50">RM21–RM50</option>
-              <option value="RM51+">RM51+</option>
-            </select>
-          </label>
+              Price range
+              <select
+                id="price-filter"
+                value={selectedPrice}
+                onChange={event => setSelectedPrice(event.target.value)}
+              >
+                <option value="">Any price</option>
+                <option value="RM1-RM20">RM1–RM20</option>
+                <option value="RM21-RM50">RM21–RM50</option>
+                <option value="RM51+">RM51+</option>
+              </select>
+            </label>
 
-          <label htmlFor="rating-filter">
-          Rating
-          <select
-            id="rating-filter"
-            value={selectedRating}
-            onChange={event => setSelectedRating(event.target.value)}
-          >
-            <option value="">Any rating</option>
-            <option value="3">3 stars and above</option>
-            <option value="4">4 stars and above</option>
-            <option value="4.5">4.5 stars and above</option>
-          </select>
-          </label>
-        </div>
+            <label htmlFor="rating-filter">
+              Rating
+              <select
+                id="rating-filter"
+                value={selectedRating}
+                onChange={event => setSelectedRating(event.target.value)}
+              >
+                <option value="">Any rating</option>
+                <option value="3">3 stars and above</option>
+                <option value="4">4 stars and above</option>
+                <option value="4.5">4.5 stars and above</option>
+              </select>
+            </label>
+          </div>
 
-        <label className="open-now-filter">
-          <input
-            type="checkbox"
-            checked={selectedOpenNow}
-            onChange={event => setSelectedOpenNow(event.target.checked)}
-          />
-          Open now
-        </label>
-      </details>
+          <div className="quick-filters">
+            <label className="open-now-filter">
+              <input
+                type="checkbox"
+                checked={selectedOpenNow}
+                onChange={event => setSelectedOpenNow(event.target.checked)}
+              />
+              Open now
+            </label>
+
+            <label className="open-now-filter">
+              <input
+                type="checkbox"
+                checked={selectedHiddenGems}
+                onChange={event => setSelectedHiddenGems(event.target.checked)}
+              />
+              Hidden Gems
+            </label>
+          </div>
+        </details>
 
         {hasUnappliedChanges && (
           <p role="status">
@@ -511,6 +530,10 @@ function RestaurantDiscoveryPage() {
           Within {appliedRadius} km of the selected location
           {" "}(approximate straight-line distance).
         </p>
+      )}
+
+      {appliedHiddenGems && (
+        <p>Hidden Gems: highly rated restaurants with fewer reviews on SeekMakan.</p>
       )}
 
       {search && <p>Results for “{search}”</p>}
@@ -556,7 +579,7 @@ function RestaurantDiscoveryPage() {
                 aria-pressed={mobileView === "list"}
                 onClick={() => setMobileView("list")}
               >
-              List
+                List
               </button>
 
               <button
@@ -564,23 +587,22 @@ function RestaurantDiscoveryPage() {
                 aria-pressed={mobileView === "map"}
                 onClick={() => setMobileView("map")}
               >
-              Map
+                Map
               </button>
             </div>
           )}
 
-            <div
-              className={`discovery-results ${
-                restaurants.length === 0 ? "discovery-results--empty" : ""
+          <div
+            className={`discovery-results ${restaurants.length === 0 ? "discovery-results--empty" : ""
               }`}
-              data-mobile-view={mobileView}
-            >
+            data-mobile-view={mobileView}
+          >
             {restaurants.length > 0 && (
               <div className="discovery-map-panel">
-              <RestaurantMap 
-              restaurants={restaurants} 
-              onSelectRestaurant={handleMapSelect}
-              />
+                <RestaurantMap
+                  restaurants={restaurants}
+                  onSelectRestaurant={handleMapSelect}
+                />
               </div>
             )}
 
@@ -588,9 +610,9 @@ function RestaurantDiscoveryPage() {
               {restaurants.length === 0 && total > 0 ? (
                 <p>No restaurants on this page. Return to the first page.</p>
               ) : (
-                <RestaurantList 
-                restaurants={restaurants} 
-                selectedRestaurantId={selectedRestaurantId}
+                <RestaurantList
+                  restaurants={restaurants}
+                  selectedRestaurantId={selectedRestaurantId}
                 />
               )}
             </div>
