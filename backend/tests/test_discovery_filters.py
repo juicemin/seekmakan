@@ -151,3 +151,25 @@ def test_distance_filter_builds_correct_query(
     assert query["price_range"] == "RM1-RM20"
 
     collection.count_documents.assert_called_once_with(query)
+
+def test_hidden_gems_preserves_stricter_rating_filter(
+    collection,
+    database: Database,
+):
+    list_restaurants(
+        database,
+        min_rating=4.5,
+        hidden_gems=True,
+    )
+
+    query = collection.find.call_args.args[0]
+    existing_filters, gem_filter = query["$and"]
+
+    assert existing_filters["visibility_status"] == "active"
+    assert existing_filters["average_rating"] == {"$gte": 4.5}
+    assert gem_filter == {
+        "average_rating": {"$gte": 4.0},
+        "review_count": {"$gte": 5, "$lt": 50},
+    }
+
+    collection.count_documents.assert_called_once_with(query)

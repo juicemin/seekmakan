@@ -39,6 +39,7 @@ def retrieve_restaurants(
     longitude: float | None = Query(default=None, ge=-180, le=180),
     radius_km: float | None = Query(default=None, gt=0, le=50),
     open_now: bool = Query(default=False),
+    hidden_gems: bool = Query(default=False),
 ) -> dict:
     location_values = (latitude, longitude, radius_km)
 
@@ -64,6 +65,7 @@ def retrieve_restaurants(
         longitude=longitude,
         radius_km=radius_km,    
         open_now=open_now, 
+        hidden_gems=hidden_gems,
     )
 
 @router.get(

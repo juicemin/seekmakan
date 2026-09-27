@@ -6,6 +6,10 @@ from app.repositories.opening_hours import (
     build_open_now_query,
     calculate_opening_status,
 )
+from app.repositories.hidden_gems import (
+    build_hidden_gem_query,
+    is_hidden_gem,
+)
 import re
 
 def get_restaurant_collection(database: Database):
@@ -31,6 +35,10 @@ def serialize_restaurant(
         "opening_status": calculate_opening_status(
             document.get("operating_hours", {}),
             checked_at,
+        ),
+        "is_hidden_gem": is_hidden_gem(
+            document.get("average_rating", 0.0),
+            document.get("review_count", 0),
         ),
         "verification_status": document.get(
             "verification_status",
@@ -81,6 +89,7 @@ def list_restaurants(
     longitude: float | None = None,
     radius_km: float | None = None,
     open_now: bool = False,
+    hidden_gems: bool = False,
 ) -> tuple[list[dict[str, Any]], int]:
     collection = get_restaurant_collection(database)
     checked_at = datetime.now(timezone.utc)
@@ -124,6 +133,14 @@ def list_restaurants(
                     radius_km / earth_radius_km,
                 ]
             }
+        }
+
+    if hidden_gems:
+        query = {
+            "$and": [
+                query,
+                build_hidden_gem_query(),
+            ]
         }
 
     if open_now:

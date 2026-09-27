@@ -128,6 +128,7 @@ class RestaurantResponse(RestaurantBase):
     created_at: datetime
     updated_at: datetime
     opening_status: Literal["open", "closed", "unknown"] = "unknown"
+    is_hidden_gem: bool = False
 
 class RestaurantPage(BaseModel):
     items: list[RestaurantResponse]
