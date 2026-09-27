@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {Link, useParams} from "react-router";
+import { Link, useLocation, useParams } from "react-router";
 import {getRestaurant} from "../api/restaurants";
 import OpeningStatus from "../components/OpeningStatus";
 import HiddenGemBadge from "../components/HiddenGemBadge";
@@ -33,6 +33,14 @@ function formatOperatingHours(hours) {
 
 function RestaurantDetailsPage() {
   const {restaurantId} = useParams();
+  const routeLocation = useLocation();
+  const requestedReturn = routeLocation.state?.returnTo;
+
+  const fromFood =
+  typeof requestedReturn === "string" &&
+  (requestedReturn === "/food" || requestedReturn.startsWith("/food?"));
+
+  const returnTo = fromFood ? requestedReturn : "/restaurants";
   const [restaurant, setRestaurant] = useState(null);
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
@@ -71,11 +79,8 @@ function RestaurantDetailsPage() {
 
   return (
     <main className="page">
-      <Link
-        className="back-link"
-        to="/restaurants"
-      >
-        ← Back to restaurants
+      <Link className="back-link" to={returnTo}>
+          {fromFood ? "← Back to food discovery" : "← Back to restaurant discovery"}
       </Link>
 
       {status === "loading" && (

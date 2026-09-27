@@ -5,7 +5,10 @@ import CheckboxDropdown from "./CheckboxDropdown";
 import RestaurantMap from "./RestaurantMap";
 import LocationPicker from "./LocationPicker";
 
-function RestaurantDiscoveryPage() {
+function RestaurantDiscovery({ foodCategory = null }) {
+  const isFoodDiscovery = foodCategory !== null;
+  const Container = isFoodDiscovery ? "section" : "main";
+
   const [restaurants, setRestaurants] = useState([]);
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
@@ -68,7 +71,8 @@ function RestaurantDiscoveryPage() {
           pageSize,
           search,
           cuisines: appliedCuisines,
-          foodCategories: appliedCategories,
+          foodCategories:
+          foodCategory === null ? appliedCategories : [foodCategory],
           priceRange: appliedPrice,
           minRating: appliedRating,
           location: appliedLocation,
@@ -106,6 +110,7 @@ function RestaurantDiscoveryPage() {
     search,
     appliedCuisines,
     appliedCategories,
+    foodCategory,
     appliedPrice,
     appliedRating,
     appliedLocation,
@@ -313,13 +318,21 @@ function RestaurantDiscoveryPage() {
   }, [selectedRestaurantId, mobileView, status]);
 
   return (
-    <main className="page discovery-page">
+    <Container
+      className={
+        isFoodDiscovery ? "food-results" : "page discovery-page"
+      }
+    >
       <header className="page-header">
-        <p className="eyebrow">SeekMakan</p>
-        <h1>Restaurant Discovery</h1>
-        <p>
-          Explore restaurants and discover food around Malaysia.
-        </p>
+        {isFoodDiscovery ? (
+          <h2>Restaurants serving {foodCategory}</h2>
+        ) : (
+          <>
+            <p className="eyebrow">SeekMakan</p>
+            <h1>Restaurant Discovery</h1>
+            <p>Explore restaurants and discover food around Malaysia.</p>
+          </>
+        )}
       </header>
 
       <form
@@ -337,7 +350,11 @@ function RestaurantDiscoveryPage() {
             type="search"
             value={searchInput}
             onChange={event => setSearchInput(event.target.value)}
-            placeholder="Restaurant name, cuisine, or food category"
+            placeholder={
+              isFoodDiscovery
+                ? "Search within matching restaurants"
+                : "Restaurant name, cuisine, or food category"
+            }
             maxLength={100}
           />
 
@@ -436,12 +453,14 @@ function RestaurantDiscoveryPage() {
               onChange={setSelectedCuisines}
             />
 
-            <CheckboxDropdown
-              label="Food category"
-              options={filterOptions.food_categories}
-              selected={selectedCategories}
-              onChange={setSelectedCategories}
-            />
+            {!isFoodDiscovery && (
+              <CheckboxDropdown
+                label="Food category"
+                options={filterOptions.food_categories}
+                selected={selectedCategories}
+                onChange={setSelectedCategories}
+              />
+            )}
           </div>
         )}
 
@@ -649,8 +668,8 @@ function RestaurantDiscoveryPage() {
           </nav>
         </section>
       )}
-    </main>
+    </Container>
   );
 }
 
-export default RestaurantDiscoveryPage;
+export default RestaurantDiscovery;

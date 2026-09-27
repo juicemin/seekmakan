@@ -1,16 +1,17 @@
-import {Link} from "react-router";
+import { Link, useLocation } from "react-router";
 import OpeningStatus from "./OpeningStatus";
 import HiddenGemBadge from "./HiddenGemBadge";
 
 function RestaurantCard({restaurant, isSelected = false}) {
-    const cuisines = 
+  const routeLocation = useLocation();
+  const cuisines = 
     restaurant.cuisines?.length > 0
       ? restaurant.cuisines.join(", ")
       : "Cuisine information unavailable";
 
     const location = [
-        restaurant.address?.city,
-        restaurant.address?.state,
+      restaurant.address?.city,
+      restaurant.address?.state,
     ]
 
     .filter(Boolean)
@@ -65,6 +66,9 @@ function RestaurantCard({restaurant, isSelected = false}) {
         <Link
           className="restaurant-card__link"
           to={`/restaurants/${restaurant.id}`}
+          state={{
+            returnTo: routeLocation.pathname + routeLocation.search,
+          }}
         >
           View details
         </Link>
