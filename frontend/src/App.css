@@ -574,3 +574,123 @@
 .discovery-page > .page-header > .eyebrow {
   margin-top: 0;
 }
+
+.decision-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.decision-layout > * {
+  min-width: 0;
+}
+
+.decision-setup fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 20px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+}
+
+.decision-setup label {
+  display: block;
+  margin: 16px 0 6px;
+  font-weight: 600;
+}
+
+.decision-setup select {
+  width: 100%;
+  padding: 10px;
+}
+
+.decision-layout button {
+  min-height: 44px;
+  margin-top: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.decision-layout button:disabled {
+  cursor: not-allowed;
+}
+
+.decision-setup .decision-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.decision-wheel-panel {
+  text-align: center;
+}
+
+.decision-wheel-wrap {
+  position: relative;
+  width: min(100%, 380px);
+  margin: 24px auto;
+}
+
+.decision-wheel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border: 5px solid #9a3412;
+  border-radius: 50%;
+}
+
+.decision-wheel-pointer {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 24px solid #7c2d12;
+}
+
+.decision-wheel-number {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.decision-wheel-number > span {
+  position: absolute;
+  top: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #1e293b;
+  font-weight: 700;
+}
+
+.decision-winner,
+.decision-options {
+  margin-top: 24px;
+  text-align: left;
+}
+
+.decision-options summary {
+  cursor: pointer;
+}
+
+.decision-options ol {
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+@media (max-width: 800px) {
+  .decision-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decision-wheel {
+    transition: none !important;
+  }
+}

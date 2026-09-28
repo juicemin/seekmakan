@@ -3,6 +3,7 @@ import { NavLink, Route, Routes } from "react-router";
 import RestaurantDiscoveryPage from "./components/RestaurantDiscovery";
 import RestaurantDetailsPage from "./pages/RestaurantDetailsPage";
 import FoodDiscoveryPage from "./pages/FoodDiscoveryPage";
+import DecideForMePage from "./pages/DecideForMePage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <nav className="discovery-nav" aria-label="Discovery pages">
         <NavLink to="/restaurants">Restaurant Discovery</NavLink>
         <NavLink to="/food">Food Discovery</NavLink>
+        <NavLink to="/decide">Decide For Me</NavLink>
       </nav>
 
     <Routes>
@@ -31,6 +33,11 @@ function App() {
       <Route 
         path="/food" 
         element={<FoodDiscoveryPage />} 
+      />
+
+      <Route 
+      path="/decide" 
+      element={<DecideForMePage />} 
       />
 
     </Routes>
