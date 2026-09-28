@@ -1,9 +1,11 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+from pydantic import SecretStr
 
 class Settings(BaseSettings):
     mongodb_uri: str
     mongodb_database: str = "seekmakan"
     mongodb_timeout_ms: int = 5000
+    geoapify_api_key: SecretStr = SecretStr("")
 
     cors_origins: str = (
         "http://localhost:5173,http://127.0.0.1:5173"

@@ -2,10 +2,10 @@ from fastapi import FastAPI, Depends, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from pymongo.database import Database
 from pymongo.errors import PyMongoError
-
 from app.database import get_database
-
 from app.routers.restaurants import router as restaurant_router
+from app.routers.decisions import router as decision_router
+from app.routers.locations import router as location_router
 from app.config import settings
 
 app = FastAPI(
@@ -23,6 +23,10 @@ app.add_middleware(
 )
 
 app.include_router(restaurant_router)
+
+app.include_router(decision_router)
+
+app.include_router(location_router)
 
 @app.get("/")
 def root() -> dict[str, str]:
