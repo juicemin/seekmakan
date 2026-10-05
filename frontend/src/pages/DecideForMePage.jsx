@@ -16,7 +16,10 @@ export default function DecideForMePage() {
   setOptions,
   setWinner,
   setRotation,
+  manualRestaurants,
+  loadManualWheel,
 } = useDecision();
+  const isManualSource = settings.source === "manual";
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const controllerRef = useRef(null);
@@ -98,18 +101,46 @@ export default function DecideForMePage() {
   }
 
   function updateSetting(name, value) {
+    if (name === "source") {
+      locationRequestRef.current += 1;
+      setLocating(false);
+      setLocationError("");
+      setShowPicker(false);
+    }
+
     setSettings(current => ({ ...current, [name]: value }));
     setPool(null);
+    setOptions([]);
+    setWinner(null);
+    setRotation(0);
     setError("");
   }
 
   async function handleLoad(event) {
     event.preventDefault();
 
+    if (loading) return;
+
+    if (isManualSource) {
+      loadManualWheel();
+      setError("");
+      return;
+    }
+
+    if (!location) {
+      setError("Choose a location before loading nearby options.");
+      return;
+    }
+
     if (locating || showPicker) {
       setLocationError(
         "Finish choosing your location before loading wheel options.",
       );
+      return;
+    }
+
+    if (settings.radius === "") {
+      setError("Choose a distance before loading nearby options.");
       return;
     }
 
@@ -128,6 +159,9 @@ export default function DecideForMePage() {
           latitude: location.latitude,
           longitude: location.longitude,
           radius_km: Number(settings.radius),
+          search: settings.search,
+          cuisines: settings.cuisines,
+          food_categories: settings.foodCategories,
           price_range: settings.price || null,
           min_rating: settings.rating ? Number(settings.rating) : null,
           open_now: settings.openNow,
@@ -152,6 +186,27 @@ export default function DecideForMePage() {
     }
   }
 
+  const discoveryFilterLabels = [
+    ...(settings.search ? [`Search: ${settings.search}`] : []),
+    ...settings.cuisines.map(value => `Cuisine: ${value}`),
+    ...settings.foodCategories.map(value => `Food: ${value}`),
+  ];
+
+  function clearDiscoveryFilters() {
+    setSettings(current => ({
+      ...current,
+      search: "",
+      cuisines: [],
+      foodCategories: [],
+    }));
+
+    setPool(null);
+    setOptions([]);
+    setWinner(null);
+    setRotation(0);
+    setError("");
+  }
+
   return (
     <main className="page discovery-page">
       <header className="page-header">
@@ -173,7 +228,33 @@ export default function DecideForMePage() {
             >
               <option value="nearby">Nearby Options</option>
               <option value="hidden_gems">Hidden Gems</option>
+              <option value="manual">My selections ({manualRestaurants.length})</option>
             </select>
+
+            {!isManualSource && discoveryFilterLabels.length > 0 && (
+              <section className="filter-summary" aria-label="Discovery filters">
+                <strong>From discovery</strong>
+
+                <ul className="filter-summary__items">
+                  {discoveryFilterLabels.map(label => (
+                    <li key={label}>{label}</li>
+                  ))}
+                </ul>
+
+                <button type="button" onClick={clearDiscoveryFilters}>
+                  Clear discovery filters
+                </button>
+              </section>
+            )}
+
+            {isManualSource ? (
+              <p>
+                These are the restaurants you added from discovery.
+                Location and nearby filters do not apply to this collection.
+                Choose at least two in the wheel checklist.
+              </p>
+            ) : (
+              <>
 
             <button
               type="button"
@@ -183,20 +264,24 @@ export default function DecideForMePage() {
               {locating ? "Finding location…" : "Use my location"}
             </button>
 
-            <button
-              type="button"
-              aria-expanded={showPicker}
-              onClick={() => {
+            <div className="location-picker-control">
+              <span className="location-picker-control__label">Location</span>
 
-                // Ignore a pending browser-location result.
-                locationRequestRef.current += 1;
-                setLocating(false);
-                setLocationError("");
-                setShowPicker(value => !value);
-              }}
-            >
-              {showPicker ? "Close location picker" : "Search or choose on map"}
-            </button>
+              <button
+                type="button"
+                aria-expanded={showPicker}
+                onClick={() => {
+                  locationRequestRef.current += 1;
+                  setLocating(false);
+                  setLocationError("");
+                  setShowPicker(value => !value);
+                }}
+              >
+                {showPicker
+                  ? "Close location picker"
+                  : "Search or choose on map"}
+              </button>
+            </div>
 
             {locating && <p role="status">Finding your current location…</p>}
 
@@ -224,6 +309,10 @@ export default function DecideForMePage() {
               value={settings.radius}
               onChange={event => updateSetting("radius", event.target.value)}
             >
+              <option value="" disabled>
+                Choose distance
+              </option>
+
               {[1, 3, 5, 10, 25, 50].map(distance => (
                 <option key={distance} value={distance}>
                   Within {distance} km
@@ -265,15 +354,25 @@ export default function DecideForMePage() {
               />
               Open now
             </label>
+          </>
+        )}
 
-            <button type="submit" disabled={showPicker || locating}>
-              {loading ? "Loading..." : "Load wheel options"}
+            <button
+              type="submit"
+              disabled={!isManualSource && (showPicker || locating)}
+            >
+              {loading
+                ? "Loading..."
+                : isManualSource
+                  ? "Load my selections"
+                  : "Load wheel options"}
             </button>
           </fieldset>
 
           <p>
-            Changing settings resets the wheel. Distance is measured
-            in a straight line.
+            {isManualSource
+              ? "Loading your selections starts a new wheel. Your collection is kept while navigating, but resets on a browser refresh."
+              : "Changing settings resets the wheel. Distance is measured in a straight line."}
           </p>
 
           {error && <p role="alert">{error}</p>}
@@ -288,8 +387,9 @@ export default function DecideForMePage() {
 
           {pool !== null && pool.length === 0 && (
             <p role="status">
-              No matching restaurants. Change your location, distance,
-              or filters and try again.
+              {isManualSource
+                ? "No manual selections yet. Add restaurants from Restaurant Discovery or Food Discovery."
+                : "No matching restaurants. Change your location, distance, or filters and try again."}
             </p>
           )}
 

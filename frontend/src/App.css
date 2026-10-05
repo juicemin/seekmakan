@@ -311,6 +311,23 @@
   outline: 3px solid #9a3412;
 }
 
+.location-picker-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.location-picker-control__label {
+  display: block;
+  font-size: 0.975rem;
+  font-weight: 600;
+}
+
+.location-controls .location-picker-control > button,
+.decision-setup .location-picker-control > button {
+  margin: 0;
+}
+
 .location-controls {
   display: flex;
   flex-wrap: wrap;
@@ -327,6 +344,16 @@
   display: block;
   margin-top: 6px;
   padding: 10px;
+}
+
+.location-picker-control {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.location-picker-control__label {
+  font-weight: 600;
 }
 
 .location-picker__map-wrap {
@@ -1444,4 +1471,201 @@
   .filter-drawer.map-sheet[open] {
     animation: none;
   }
+}
+
+.restaurant-card__add {
+  display: block;
+  min-height: 44px;
+  margin: 0 0 0 auto;
+  padding: 8px 12px;
+  border: 1px solid #9a3412;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #9a3412;
+  font: inherit;
+  cursor: pointer;
+}
+
+.restaurant-card__add:disabled {
+  border-color: #cbd5e1;
+  background: #f1f5f9;
+  color: #475569;
+  cursor: default;
+}
+
+.manual-wheel-summary {
+  position: fixed;
+  left: max(12px, env(safe-area-inset-left));
+  bottom: max(12px, env(safe-area-inset-bottom));
+  z-index: 1100;
+
+  display: block;
+  max-height: 60dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+
+  width: max-content;
+  max-width: min(360px, calc(100vw - 24px));
+  margin: 0;
+  padding: 10px 12px;
+
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  background: #fff7ed;
+  box-shadow: 0 4px 16px rgb(15 23 42 / 15%);
+}
+
+body:has(.manual-wheel-summary) .page {
+  padding-bottom: 160px;
+}
+
+.manual-wheel-summary p {
+  margin: 0;
+}
+
+.manual-wheel-summary button {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+
+.manual-wheel-summary__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.manual-wheel-summary__toolbar > p {
+  flex: 1;
+  min-width: 0;
+}
+
+.manual-wheel-summary__toolbar > button {
+  flex-shrink: 0;
+}
+
+.manual-wheel-summary__list {
+  max-height: 30dvh;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+
+.manual-wheel-summary__list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid #fed7aa;
+}
+
+.manual-wheel-summary__list span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.manual-wheel-summary__list button {
+  flex-shrink: 0;
+}
+
+.manual-wheel-summary__toggle {
+  min-width: 44px;
+}
+
+.manual-wheel-summary__list label {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  gap: 8px;
+  min-width: 0;
+  min-height: 44px;
+  cursor: pointer;
+}
+
+.manual-wheel-summary__list input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.manual-wheel-summary__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.manual-wheel-summary__footer > button:last-child {
+  margin-left: auto;
+}
+
+.manual-wheel-summary__hint {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 800px) {
+  .restaurant-card__add,
+  .manual-wheel-summary {
+    font-size: 0.875rem;
+  }
+}
+
+.restaurant-card__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.restaurant-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.restaurant-card__actions .restaurant-card__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.restaurant-details__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.restaurant-details__title-row h1 {
+  flex: 1 1 160px;
+  min-width: 0;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.restaurant-details__title-row .restaurant-card__add {
+  flex: 0 0 auto;
+  margin: 0 0 0 auto;
+}
+
+.discovery-wheel-action {
+  margin: 12px 0 16px;
+}
+
+.discovery-wheel-action button {
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  white-space: normal;
+}
+
+.discovery-wheel-action p {
+  margin: 6px 0 0;
+  font-size: 0.875rem;
 }

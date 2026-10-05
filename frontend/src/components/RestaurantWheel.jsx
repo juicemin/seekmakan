@@ -13,6 +13,9 @@ export default function RestaurantWheel() {
     setWinner,
     rotation,
     setRotation,
+    settings,
+    clearManualRestaurants,
+    setManualExcludedIds,
   } = useDecision();
 
   const [spinning, setSpinning] = useState(false);
@@ -45,6 +48,15 @@ export default function RestaurantWheel() {
 
   function updateWheelOptions(nextOptions) {
     if (spinningRef.current) return;
+    if (settings.source === "manual") {
+      const nextSelectedIds = new Set(nextOptions.map(item => item.id));
+
+      setManualExcludedIds(
+        availableRestaurants
+          .filter(item => !nextSelectedIds.has(item.id))
+          .map(item => item.id),
+      );
+    }
 
     setOptions(nextOptions);
     setWinner(null);
@@ -156,15 +168,15 @@ export default function RestaurantWheel() {
           : winner
             ? `Selected: ${winner.name}`
             : options.length < 2
-              ? "No restaurants selected. Please select at least two to spin."
+              ? "Select at least two restaurants to spin."
               : "Ready to spin."}
       </p>
 
       {winner && (
         <div className="decision-winner">
-          <RestaurantCard restaurant={winner} />
+          <RestaurantCard restaurant={winner} allowAddToWheel={false}/>
           <button type="button" onClick={handleRemove}>
-            Remove from this wheel
+            Uncheck this restaurant
           </button>
         </div>
       )}
@@ -191,8 +203,20 @@ export default function RestaurantWheel() {
             onClick={() => updateWheelOptions([])}
             disabled={options.length === 0}
           >
-            Clear selection
+            Uncheck all
           </button>
+
+          {settings.source === "manual" && (
+            <button
+              type="button"
+              onClick={() => {
+                if (spinningRef.current) return;
+                  clearManualRestaurants();
+              }}
+            >
+              Clear collection
+            </button>
+          )}
         </div>
 
         <ul className="wheel-selection__list">

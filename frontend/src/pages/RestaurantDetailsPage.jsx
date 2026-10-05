@@ -3,6 +3,8 @@ import { Link, useLocation, useParams } from "react-router";
 import {getRestaurant} from "../api/restaurants";
 import OpeningStatus from "../components/OpeningStatus";
 import HiddenGemBadge from "../components/HiddenGemBadge";
+import AddToWheelButton from "../components/AddToWheelButton";
+import ManualWheelSummary from "../components/ManualWheelSummary";
 const WEEKDAYS = [
   "monday",
   "tuesday",
@@ -122,7 +124,10 @@ const returnLabel = validReturn
               {restaurant.verification_status}
             </p>
 
-            <h1>{restaurant.name}</h1>
+            <div className="restaurant-details__title-row">
+              <h1>{restaurant.name}</h1>
+                <AddToWheelButton restaurant={restaurant} />
+            </div>
 
             <p>
               <OpeningStatus status={restaurant.opening_status} />
@@ -210,6 +215,7 @@ const returnLabel = validReturn
           </section>
         </article>
       )}
+      <ManualWheelSummary />
     </main>
   );
 }

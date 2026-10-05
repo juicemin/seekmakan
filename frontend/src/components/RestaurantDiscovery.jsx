@@ -1,15 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
+import { useDecision } from "../context/decision-context";
 import { getRestaurants, getRestaurantFilterOptions } from "../api/restaurants";
 import RestaurantList from "./RestaurantList";
 import CheckboxDropdown from "./CheckboxDropdown";
 import RestaurantMap from "./RestaurantMap";
 import LocationPicker from "./LocationPicker";
 import ResponsiveFilters from "./ResponsiveFilters";
+import ManualWheelSummary from "./ManualWheelSummary";
 
 function RestaurantDiscovery({ foodCategory = null }) {
   const isFoodDiscovery = foodCategory !== null;
   const Container = isFoodDiscovery ? "section" : "main";
-
   const [restaurants, setRestaurants] = useState([]);
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
@@ -24,6 +26,8 @@ function RestaurantDiscovery({ foodCategory = null }) {
     cuisines: [],
     food_categories: [],
   });
+  const navigate = useNavigate();
+  const { prepareDiscoveryWheel } = useDecision();
   const [optionsStatus, setOptionsStatus] = useState("loading");
   const [optionsError, setOptionsError] = useState("");
   const [optionsRetry, setOptionsRetry] = useState(0);
@@ -39,7 +43,6 @@ function RestaurantDiscovery({ foodCategory = null }) {
   const [appliedOpenNow, setAppliedOpenNow] = useState(false);
   const [selectedHiddenGems, setSelectedHiddenGems] = useState(false);
   const [appliedHiddenGems, setAppliedHiddenGems] = useState(false);
-  
   const [mobileView, setMobileView] = useState("list");
   const [selectedRestaurantId, setSelectedRestaurantId] = useState(null);
   const handleMapSelect = useCallback((restaurantId) => {
@@ -70,7 +73,6 @@ function RestaurantDiscovery({ foodCategory = null }) {
   const [isMobileLayout, setIsMobileLayout] = useState(
     () => window.matchMedia("(max-width: 800px)").matches,
   );
-
   useEffect(() => {
     const media = window.matchMedia("(max-width: 800px)");
 
@@ -426,6 +428,26 @@ function RestaurantDiscovery({ foodCategory = null }) {
       : []),
   ];
 
+  function handleUseFilteredResults() {
+  prepareDiscoveryWheel({
+    location:
+      appliedRadius !== "" ? appliedLocation : null,
+    radius: appliedRadius,
+    search,
+    cuisines: appliedCuisines,
+    foodCategories:
+      foodCategory !== null
+        ? [foodCategory]
+        : appliedCategories,
+    price: appliedPrice,
+    rating: appliedRating,
+    openNow: appliedOpenNow,
+    hiddenGems: appliedHiddenGems,
+  });
+
+  navigate("/decide");
+}
+
   return (
     <Container
       className={
@@ -443,6 +465,8 @@ function RestaurantDiscovery({ foodCategory = null }) {
           </>
         )}
       </header>
+
+      <ManualWheelSummary />
 
       <form
         className="restaurant-search"
@@ -521,19 +545,25 @@ function RestaurantDiscovery({ foodCategory = null }) {
               : "Use my location"}
           </button>
 
-          <button
-            type="button"
-            aria-expanded={showLocationPicker}
-            aria-controls="location-picker-panel"
-            onClick={() => {
-              locationRequestRef.current += 1;
-              setLocationStatus("idle");
-              setLocationError("");
-              setShowLocationPicker(value => !value);
-            }}
-          >
-            {showLocationPicker ? "Close location picker" : "Search or choose on map"}
-          </button>
+          <div className="location-picker-control">
+            <span className="location-picker-control__label">Location</span>
+
+            <button
+              type="button"
+              aria-expanded={showLocationPicker}
+              aria-controls="location-picker-panel"
+              onClick={() => {
+                locationRequestRef.current += 1;
+                setLocationStatus("idle");
+                setLocationError("");
+                setShowLocationPicker(value => !value);
+              }}
+            >
+              {showLocationPicker
+                ? "Close location picker"
+                : "Search or choose on map"}
+            </button>
+          </div>
 
           <label htmlFor="distance-filter">
             Distance
@@ -733,6 +763,24 @@ function RestaurantDiscovery({ foodCategory = null }) {
               ? `Showing ${(page - 1) * pageSize + 1}–${(page - 1) * pageSize + restaurants.length} of ${total} restaurants`
               : `0 restaurants displayed (${total} available)`}
           </p>
+
+          {total > 0 && (
+            <div className="discovery-wheel-action">
+              <button
+                type="button"
+                onClick={handleUseFilteredResults}
+                disabled={hasUnappliedChanges}
+              >
+                Use filtered results in Decide For Me
+              </button>
+
+              {hasUnappliedChanges && (
+                <p>
+                  Apply your filter changes before continuing.
+                </p>
+              )}
+            </div>
+          )}
 
           {restaurants.length > 0 && (
             <div className="view-switch">

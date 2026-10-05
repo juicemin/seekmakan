@@ -1,9 +1,11 @@
 import { Link, useLocation } from "react-router";
 import OpeningStatus from "./OpeningStatus";
 import HiddenGemBadge from "./HiddenGemBadge";
+import AddToWheelButton from "./AddToWheelButton";
 
-function RestaurantCard({restaurant, isSelected = false}) {
+function RestaurantCard({restaurant, isSelected = false, allowAddToWheel = true}) {
   const routeLocation = useLocation();
+
   const cuisines = 
     restaurant.cuisines?.length > 0
       ? restaurant.cuisines.join(", ")
@@ -62,7 +64,8 @@ function RestaurantCard({restaurant, isSelected = false}) {
             </dd>
           </div>
         </dl>
-
+        
+        <div className="restaurant-card__actions">
         <Link
           className="restaurant-card__link"
           to={`/restaurants/${restaurant.id}`}
@@ -72,6 +75,10 @@ function RestaurantCard({restaurant, isSelected = false}) {
         >
           View details
         </Link>
+        {allowAddToWheel && (
+          <AddToWheelButton restaurant={restaurant} />
+        )}
+        </div>
       </div>
     </article>
   );
