@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from "react";
+import LocationSearch from "./LocationSearch";
 import L from "leaflet";
 
 export default function LocationPicker({ initialLocation, onConfirm }) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const initialLocationRef = useRef(initialLocation);
+  const namedLocationRef = useRef(initialLocation);
   const [tileError, setTileError] = useState(false);
 
   useEffect(() => {
@@ -54,22 +56,48 @@ export default function LocationPicker({ initialLocation, onConfirm }) {
     };
   }, []);
 
+  function handleSearchLocation(location) {
+  const map = mapRef.current;
+  if (!map) return;
+
+  namedLocationRef.current = location;
+
+  map.setView(
+    [location.latitude, location.longitude],
+    14,
+    { animate: false },
+  );
+}
+
   function handleConfirm() {
     const map = mapRef.current;
     if (!map) return;
 
     const center = map.getCenter().wrap();
+    const namedLocation = namedLocationRef.current;
+
+    const stillAtNamedLocation =
+      namedLocation &&
+      center.distanceTo([
+        namedLocation.latitude,
+        namedLocation.longitude,
+      ]) < 1;
 
     onConfirm({
       latitude: center.lat,
       longitude: center.lng,
-    });
-  }
+      label: stillAtNamedLocation
+        ? namedLocation.label || "Selected map location"
+        : "Selected map location",
+      });
+    }
 
   return (
     <section aria-label="Choose a search location">
+      <LocationSearch onSelect={handleSearchLocation} />
+
       <p id="location-picker-help">
-        Move the map or click a point to position the crosshair.
+        Search for a location, or move the map to position the crosshair.
         Then choose Use this location.
       </p>
 

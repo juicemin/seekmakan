@@ -6,6 +6,8 @@ const DEFAULT_CENTER = [2.8141, 101.7972];
 export default function RestaurantMap({
   restaurants,
   onSelectRestaurant,
+  searchLocation = null,
+  radiusKm = "",
 }) {
     const containerRef = useRef(null);
     const mapRef = useRef(null);
@@ -73,7 +75,39 @@ export default function RestaurantMap({
     if (!map || !markers) return;
 
     markers.clearLayers();
-    const positions = [];
+
+    if (searchLocation) {
+      const center = [
+        searchLocation.latitude,
+        searchLocation.longitude,
+      ];
+      const radius = Number(radiusKm);
+
+      if (Number.isFinite(radius) && radius > 0) {
+        L.circle(center, {
+          radius: radius * 1000,
+          color: "#2563eb",
+          weight: 2,
+          fillColor: "#2563eb",
+          fillOpacity: 0.08,
+          interactive: false,
+        }).addTo(markers);
+      }
+
+      const popup = document.createElement("span");
+      popup.textContent =
+        `Search location: ${searchLocation.label || "Selected map location"}`;
+
+      L.circleMarker(center, {
+        radius: 7,
+        color: "#ffffff",
+        weight: 3,
+        fillColor: "#2563eb",
+        fillOpacity: 1,
+      })
+        .bindPopup(popup)
+        .addTo(markers);
+    }
 
     restaurants.forEach(restaurant => {
       const coordinates = restaurant.location?.coordinates;
@@ -96,7 +130,6 @@ export default function RestaurantMap({
       }
 
       const position = [latitude, longitude];
-      positions.push(position);
 
       const popup = document.createElement("span");
       popup.textContent = restaurant.name;
@@ -115,23 +148,34 @@ export default function RestaurantMap({
         .addTo(markers);
     });
 
-    if (
-        positions.length > 0 &&
-        map.getContainer().clientWidth > 0 &&
-        map.getContainer().clientHeight > 0
-    ) {
-        map.fitBounds(positions, {
-        padding: [30, 30],
-        maxZoom: 15,
-      });
-    } else {
-      map.setView(DEFAULT_CENTER, 12);
+    const bounds = markers.getBounds();
+    const container = map.getContainer();
+
+    if (container.clientWidth > 0 && container.clientHeight > 0) {
+      if (bounds.isValid()) {
+        map.fitBounds(bounds, {
+          padding: [30, 30],
+          maxZoom: 15,
+          animate: false,
+        });
+      } else {
+        map.setView(DEFAULT_CENTER, 12);
+      }
     }
-  }, [restaurants, onSelectRestaurant]);
+  }, [restaurants, onSelectRestaurant,searchLocation, radiusKm]);
 
   return (
     <section aria-label="Map of current restaurant results">
-      <p>Map of restaurants on this page</p>
+      <p>Orange markers: restaurants on this page.</p>
+
+      {searchLocation && (
+        <p>
+          Blue marker:{" "}
+          {searchLocation.label || "Selected map location"}
+          {Number(radiusKm) > 0 &&
+            ` · Shaded area: within ${radiusKm} km in a straight line`}
+        </p>
+      )}
 
       {tileError && (
         <p role="status">

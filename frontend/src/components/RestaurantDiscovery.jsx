@@ -4,6 +4,7 @@ import RestaurantList from "./RestaurantList";
 import CheckboxDropdown from "./CheckboxDropdown";
 import RestaurantMap from "./RestaurantMap";
 import LocationPicker from "./LocationPicker";
+import ResponsiveFilters from "./ResponsiveFilters";
 
 function RestaurantDiscovery({ foodCategory = null }) {
   const isFoodDiscovery = foodCategory !== null;
@@ -38,12 +39,20 @@ function RestaurantDiscovery({ foodCategory = null }) {
   const [appliedOpenNow, setAppliedOpenNow] = useState(false);
   const [selectedHiddenGems, setSelectedHiddenGems] = useState(false);
   const [appliedHiddenGems, setAppliedHiddenGems] = useState(false);
+  
   const [mobileView, setMobileView] = useState("list");
   const [selectedRestaurantId, setSelectedRestaurantId] = useState(null);
   const handleMapSelect = useCallback((restaurantId) => {
     setSelectedRestaurantId(restaurantId);
     setMobileView("list");
   }, []);
+  const [filtersOpen, setFiltersOpen] = useState(false);
+  const closeFilters = useCallback(() => {
+    setFiltersOpen(false);
+  }, []);
+  const closeMap = useCallback(() => {
+  setMobileView("list");
+}, []);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [appliedLocation, setAppliedLocation] = useState(null);
   const [selectedRadius, setSelectedRadius] = useState("");
@@ -58,11 +67,30 @@ function RestaurantDiscovery({ foodCategory = null }) {
     };
   }, []);
 
+  const [isMobileLayout, setIsMobileLayout] = useState(
+    () => window.matchMedia("(max-width: 800px)").matches,
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 800px)");
+
+    function handleLayoutChange(event) {
+      setIsMobileLayout(event.matches);
+    }
+
+    media.addEventListener("change", handleLayoutChange);
+
+    return () => {
+      media.removeEventListener("change", handleLayoutChange);
+    };
+  }, []);
+
   useEffect(() => {
     const controller = new AbortController();
     let active = true;
     async function loadRestaurants() {
       setStatus("loading");
+      setMobileView("list");
       setError("");
 
       try {
@@ -154,6 +182,7 @@ function RestaurantDiscovery({ foodCategory = null }) {
   }, [optionsRetry]);
 
   function handleUseMyLocation() {
+
     setShowLocationPicker(false);
     const requestId = ++locationRequestRef.current;
     setLocationError("");
@@ -174,7 +203,9 @@ function RestaurantDiscovery({ foodCategory = null }) {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           accuracy: position.coords.accuracy,
+          label: "Your current location",
         });
+        setLocationError("");
         setLocationStatus("success");
       },
       error => {
@@ -238,6 +269,7 @@ function RestaurantDiscovery({ foodCategory = null }) {
     setAppliedHiddenGems(selectedHiddenGems);
     setPage(1);
     setRetry(value => value + 1);
+    setFiltersOpen(false);
   }
 
   function handleClearSearch() {
@@ -301,6 +333,56 @@ function RestaurantDiscovery({ foodCategory = null }) {
       )
     );
 
+    useEffect(() => {
+      if (
+        isMobileLayout ||
+        !hasUnappliedChanges ||
+        showLocationPicker ||
+        locationStatus === "loading"
+      ) {
+        return;
+      }
+
+      if (selectedRadius !== "" && selectedLocation === null) {
+        setLocationError("Choose a location before applying a distance.");
+      return;
+      }
+
+      const timeoutId = window.setTimeout(() => {
+        setLocationError("");
+        setSearch(searchInput.trim());
+        setAppliedCuisines(selectedCuisines);
+        setAppliedCategories(selectedCategories);
+        setAppliedPrice(selectedPrice);
+        setAppliedRating(selectedRating);
+        setAppliedOpenNow(selectedOpenNow);
+        setAppliedHiddenGems(selectedHiddenGems);
+
+        setAppliedLocation(
+          selectedRadius === "" ? null : selectedLocation,
+        );
+        setAppliedRadius(selectedRadius);
+
+        setPage(1);
+      }, 400);
+
+      return () => window.clearTimeout(timeoutId);
+    }, [
+      isMobileLayout,
+      hasUnappliedChanges,
+      searchInput,
+      selectedCuisines,
+      selectedCategories,
+      selectedPrice,
+      selectedRating,
+      selectedOpenNow,
+      selectedHiddenGems,
+      selectedLocation,
+      selectedRadius,
+      showLocationPicker,
+      locationStatus,
+    ]);
+
   useEffect(() => {
     if (!selectedRestaurantId || status !== "success") return;
 
@@ -316,6 +398,33 @@ function RestaurantDiscovery({ foodCategory = null }) {
       block: "nearest",
     });
   }, [selectedRestaurantId, mobileView, status]);
+
+  // Summary of applied filters 
+  const appliedFilterLabels = [
+    ...(search ? [`Search: ${search}`] : []),
+
+    ...(foodCategory
+      ? [`Food: ${foodCategory}`]
+      : appliedCategories.map(value => `Food: ${value}`)),
+
+    ...appliedCuisines.map(value => `Cuisine: ${value}`),
+
+    ...(appliedPrice ? [`Price: ${appliedPrice}`] : []),
+
+    ...(appliedRating ? [`Rating: ${appliedRating}+`] : []),
+
+    ...(appliedOpenNow ? ["Open now"] : []),
+
+    ...(appliedHiddenGems ? ["Hidden Gems"] : []),
+
+    ...(appliedLocation && appliedRadius !== ""
+      ? [
+          `Within ${appliedRadius} km of ${
+            appliedLocation.label || "selected map location"
+          }`,
+        ]
+      : []),
+  ];
 
   return (
     <Container
@@ -352,8 +461,8 @@ function RestaurantDiscovery({ foodCategory = null }) {
             onChange={event => setSearchInput(event.target.value)}
             placeholder={
               isFoodDiscovery
-                ? "Search within matching restaurants"
-                : "Restaurant name, cuisine, or food category"
+                ? "Search restaurants"
+                : "Name, cuisine, or food category"
             }
             maxLength={100}
           />
@@ -366,6 +475,25 @@ function RestaurantDiscovery({ foodCategory = null }) {
             Clear
           </button>
         </div>
+
+        <button
+          type="button"
+          className="mobile-filter-trigger"
+          aria-haspopup="dialog"
+          aria-expanded={filtersOpen}
+          onClick={() => {
+            setMobileView("list");
+            setFiltersOpen(true);
+          }}
+        >
+          Filters
+        </button>
+
+        <ResponsiveFilters
+          open={filtersOpen}
+          onClose={closeFilters}
+        >
+    
         {optionsStatus === "loading" && (
           <p role="status">Loading filter options...</p>
         )}
@@ -404,7 +532,7 @@ function RestaurantDiscovery({ foodCategory = null }) {
               setShowLocationPicker(value => !value);
             }}
           >
-            {showLocationPicker ? "Close location picker" : "Choose on map"}
+            {showLocationPicker ? "Close location picker" : "Search or choose on map"}
           </button>
 
           <label htmlFor="distance-filter">
@@ -438,9 +566,11 @@ function RestaurantDiscovery({ foodCategory = null }) {
 
         {selectedLocation && (
           <p role="status">
-            Location selected
+            Selected location:{" "}
+            {selectedLocation.label || "Selected map location"}
             {selectedLocation.accuracy != null &&
-              ` — estimated accuracy ${Math.round(selectedLocation.accuracy)} m`}.
+              ` — estimated accuracy ${Math.round(selectedLocation.accuracy)} m`}
+            {selectedRadius !== "" && ` · Within ${selectedRadius} km`}
           </p>
         )}
 
@@ -520,42 +650,55 @@ function RestaurantDiscovery({ foodCategory = null }) {
 
         {hasUnappliedChanges && (
           <p role="status">
-            Changes not applied. Click Search to update the results.
+            {isMobileLayout
+              ? "Changes not applied. Choose Show results."
+              : "Results update automatically once your filter selections are valid and the location picker is closed."}
           </p>
         )}
 
+          <div className="filter-drawer__actions">
+            <button type="button" onClick={handleClearSearch}>
+              Clear search and filters
+            </button>
+
+            <button
+              type="submit"
+              disabled={locationStatus === "loading" || showLocationPicker}
+            >
+              Show results
+            </button>
+          </div>
+        </ResponsiveFilters>
+
       </form>
 
-      {appliedCuisines.length > 0 && (
-        <p>Applied cuisines: {appliedCuisines.join(", ")}</p>
+      {appliedFilterLabels.length > 0 && (
+        <section className="filter-summary" aria-label="Applied filters">
+          <div className="filter-summary__header">
+            <strong>Applied filters</strong>
+
+            <button type="button" onClick={handleClearSearch}>
+              Clear search and filters
+            </button>
+          </div>
+
+          <ul className="filter-summary__items">
+            {appliedFilterLabels.map(label => (
+              <li key={label}>{label}</li>
+            ))}
+          </ul>
+
+          {appliedLocation && appliedRadius !== "" && (
+            <small>Distance is measured in a straight line.</small>
+          )}
+
+          {isFoodDiscovery && (
+            <small>
+              Clearing filters keeps your selected food.
+            </small>
+          )}
+        </section>
       )}
-
-      {appliedCategories.length > 0 && (
-        <p>Applied food categories: {appliedCategories.join(", ")}</p>
-      )}
-
-      {appliedPrice && <p>Applied price: {appliedPrice}</p>}
-
-      {appliedRating && (
-        <p>Applied minimum rating: {appliedRating} stars</p>
-      )}
-
-      {appliedOpenNow && (
-        <p>Open now, based on listed hours in Malaysia time.</p>
-      )}
-
-      {appliedLocation && appliedRadius !== "" && (
-        <p>
-          Within {appliedRadius} km of the selected location
-          {" "}(approximate straight-line distance).
-        </p>
-      )}
-
-      {appliedHiddenGems && (
-        <p>Hidden Gems: highly rated restaurants with fewer reviews on SeekMakan.</p>
-      )}
-
-      {search && <p>Results for “{search}”</p>}
 
       {status === "loading" && (
         <section
@@ -592,21 +735,17 @@ function RestaurantDiscovery({ foodCategory = null }) {
           </p>
 
           {restaurants.length > 0 && (
-            <div className="view-switch" role="group" aria-label="Results view">
+            <div className="view-switch">
               <button
                 type="button"
-                aria-pressed={mobileView === "list"}
-                onClick={() => setMobileView("list")}
+                aria-haspopup="dialog"
+                aria-expanded={mobileView === "map"}
+                onClick={() => {
+                  setFiltersOpen(false);
+                  setMobileView("map");
+                }}
               >
-                List
-              </button>
-
-              <button
-                type="button"
-                aria-pressed={mobileView === "map"}
-                onClick={() => setMobileView("map")}
-              >
-                Map
+                Show map
               </button>
             </div>
           )}
@@ -617,26 +756,65 @@ function RestaurantDiscovery({ foodCategory = null }) {
             data-mobile-view={mobileView}
           >
             {restaurants.length > 0 && (
-              <div className="discovery-map-panel">
+              <ResponsiveFilters
+                open={mobileView === "map" && !filtersOpen}
+                onClose={closeMap}
+                title="Restaurant map"
+                variant="map"
+                desktopClassName="discovery-map-panel"
+              >
                 <RestaurantMap
                   restaurants={restaurants}
                   onSelectRestaurant={handleMapSelect}
+                  searchLocation={appliedLocation}
+                  radiusKm={appliedRadius}
                 />
-              </div>
+              </ResponsiveFilters>
             )}
 
             <div className="discovery-list-panel">
-              {restaurants.length === 0 && total > 0 ? (
-                <p>No restaurants on this page. Return to the first page.</p>
+              {restaurants.length === 0 ? (
+                <section className="empty-state" role="status">
+                  <h2>
+                    {total > 0
+                      ? "No restaurants on this page"
+                      : appliedLocation
+                        ? "No restaurants found in this area"
+                        : "No matching restaurants"}
+                  </h2>
+
+                  <p>
+                    {total > 0
+                      ? "Return to the first page to view available results."
+                      : "Try changing location, increasing the distance or clearing your filters."}
+                  </p>
+
+                  {total > 0 ? (
+                    <button type="button" onClick={() => setPage(1)}>
+                      Return to first page
+                    </button>
+                  ) : (
+                    <button type="button" onClick={handleClearSearch}>
+                      Clear search and filters
+                    </button>
+                  )}
+
+                  {isFoodDiscovery && total === 0 && (
+                    <p>
+                      Your selected food remains active. You can also choose another food above.                      
+                    </p>
+                  )}
+                </section>
               ) : (
                 <RestaurantList
                   restaurants={restaurants}
                   selectedRestaurantId={selectedRestaurantId}
                 />
-              )}
+             )}
             </div>
           </div>
 
+        {totalPages > 0 && (
           <nav className="pagination" aria-label="Restaurant pages">
             <button
               type="button"
@@ -666,6 +844,7 @@ function RestaurantDiscovery({ foodCategory = null }) {
               Next
             </button>
           </nav>
+        )}
         </section>
       )}
     </Container>

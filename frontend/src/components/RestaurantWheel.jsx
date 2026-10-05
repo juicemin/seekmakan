@@ -1,20 +1,34 @@
 import { useEffect, useRef, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import { useDecision } from "../context/decision-context";
 
-const COLORS = ["#fed7aa", "#bbf7d0", "#bfdbfe", "#e9d5ff"];
+const COLORS = ["#f3b9a2", "#dec1fe", "#b8dff9", "#fff9d5", "#f0c0f0", "#fe7777", "#c4fac1", "#c4b5fd"];
 
-export default function RestaurantWheel({ items }) {
-  const [options, setOptions] = useState(items);
-  const [winner, setWinner] = useState(null);
+export default function RestaurantWheel() {
+  const {
+    pool,
+    options,
+    setOptions,
+    winner,
+    setWinner,
+    rotation,
+    setRotation,
+  } = useDecision();
+
   const [spinning, setSpinning] = useState(false);
-  const [rotation, setRotation] = useState(0);
-
   const timerRef = useRef(null);
   const spinningRef = useRef(false);
 
   useEffect(() => {
     return () => window.clearTimeout(timerRef.current);
   }, []);
+
+  const availableRestaurants = pool ?? [];
+  const selectedIds = new Set(options.map(item => item.id));
+
+  const wheelNumbers = new Map(
+    options.map((item, index) => [item.id, index + 1]),
+  );
 
   const sliceAngle = options.length > 0 ? 360 / options.length : 360;
 
@@ -29,8 +43,34 @@ export default function RestaurantWheel({ items }) {
         .join(", ")})`
     : "#e5e7eb";
 
+  function updateWheelOptions(nextOptions) {
+    if (spinningRef.current) return;
+
+    setOptions(nextOptions);
+    setWinner(null);
+    setRotation(0);
+  }
+
+  function handleToggleOption(restaurantId) {
+    if (spinningRef.current) return;
+
+    const nextSelectedIds = new Set(selectedIds);
+
+    if (nextSelectedIds.has(restaurantId)) {
+      nextSelectedIds.delete(restaurantId);
+    } else {
+      nextSelectedIds.add(restaurantId);
+    }
+
+    const nextOptions = availableRestaurants.filter(
+      restaurant => nextSelectedIds.has(restaurant.id),
+    );
+
+    updateWheelOptions(nextOptions);
+  }
+
   function handleSpin() {
-    if (spinningRef.current || options.length === 0) return;
+    if (spinningRef.current || options.length < 2) return;
 
     spinningRef.current = true;
     setSpinning(true);
@@ -60,14 +100,17 @@ export default function RestaurantWheel({ items }) {
   function handleRemove() {
     if (!winner || spinningRef.current) return;
 
-    setOptions(current => current.filter(item => item.id !== winner.id));
-    setWinner(null);
+    updateWheelOptions(
+      options.filter(item => item.id !== winner.id),
+    );
   }
 
   return (
     <section className="decision-wheel-panel" aria-label="Restaurant wheel">
       <h2>Choose a restaurant</h2>
-      <p>{options.length} options remaining</p>
+      <p>
+        {options.length} of {availableRestaurants.length} restaurants selected
+      </p>
 
       <div className="decision-wheel-wrap" aria-hidden="true">
         <div className="decision-wheel-pointer" />
@@ -102,7 +145,7 @@ export default function RestaurantWheel({ items }) {
       <button
         type="button"
         onClick={handleSpin}
-        disabled={spinning || options.length === 0}
+        disabled={spinning || options.length < 2}
       >
         {spinning ? "Spinning..." : winner ? "Spin again" : "Spin"}
       </button>
@@ -112,8 +155,8 @@ export default function RestaurantWheel({ items }) {
           ? "Choosing a restaurant..."
           : winner
             ? `Selected: ${winner.name}`
-            : options.length === 0
-              ? "No options remain. Load options again or change your filters."
+            : options.length < 2
+              ? "No restaurants selected. Please select at least two to spin."
               : "Ready to spin."}
       </p>
 
@@ -126,14 +169,59 @@ export default function RestaurantWheel({ items }) {
         </div>
       )}
 
-      <details className="decision-options">
-        <summary>View wheel options ({options.length})</summary>
-        <ol>
-          {options.map(item => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ol>
-      </details>
-    </section>
+      <details className="decision-options" open>
+        <summary>
+          Choose wheel options ({options.length}/{availableRestaurants.length})
+        </summary>
+
+        <fieldset className="wheel-selection" disabled={spinning}>
+          <legend>Include restaurants in this spin</legend>
+
+        <div className="wheel-selection__actions">
+          <button
+            type="button"
+            onClick={() => updateWheelOptions([...availableRestaurants])}
+            disabled={options.length === availableRestaurants.length}
+          >
+            Select all
+          </button>
+
+          <button
+            type="button"
+            onClick={() => updateWheelOptions([])}
+            disabled={options.length === 0}
+          >
+            Clear selection
+          </button>
+        </div>
+
+        <ul className="wheel-selection__list">
+          {availableRestaurants.map(restaurant => {
+            const checked = selectedIds.has(restaurant.id);
+            const wheelNumber = wheelNumbers.get(restaurant.id);
+
+            return (
+              <li key={restaurant.id}>
+                <label>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() => handleToggleOption(restaurant.id)}
+                />
+
+                <span>
+                  {checked && options.length <= 20 && (
+                    <strong>{wheelNumber}. </strong>
+                  )}
+                  {restaurant.name}
+                </span>
+              </label>
+            </li>
+          );
+        })}
+      </ul>
+    </fieldset>
+  </details>
+  </section>
   );
 }

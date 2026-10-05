@@ -2,26 +2,100 @@ import { useEffect, useRef, useState } from "react";
 import { getDecisionCandidates } from "../api/decisions";
 import LocationPicker from "../components/LocationPicker";
 import RestaurantWheel from "../components/RestaurantWheel";
+import { useDecision } from "../context/decision-context";
 
 export default function DecideForMePage() {
-  const [location, setLocation] = useState(null);
   const [showPicker, setShowPicker] = useState(false);
-  const [settings, setSettings] = useState({
-    source: "nearby",
-    radius: "5",
-    price: "",
-    rating: "",
-    openNow: false,
-  });
-
-  const [pool, setPool] = useState(null);
+  const {
+  location,
+  setLocation,
+  settings,
+  setSettings,
+  pool,
+  setPool,
+  setOptions,
+  setWinner,
+  setRotation,
+} = useDecision();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const controllerRef = useRef(null);
+  const [locating, setLocating] = useState(false);
+  const [locationError, setLocationError] = useState("");
+  const locationRequestRef = useRef(0);
 
   useEffect(() => {
-    return () => controllerRef.current?.abort();
+    return () => {
+      controllerRef.current?.abort();
+      locationRequestRef.current += 1;
+    };
   }, []);
+
+  function selectLocation(value) {
+    locationRequestRef.current += 1;
+
+    setLocation(value);
+    setLocating(false);
+    setLocationError("");
+    setShowPicker(false);
+    setError("");
+
+    // Existing options belong to the previous search location.
+    setPool(null);
+    setOptions([]);
+    setWinner(null);
+    setRotation(0);
+  }
+
+  function handleUseMyLocation() {
+    const requestId = ++locationRequestRef.current;
+
+    setLocationError("");
+    setShowPicker(false);
+
+    if (!navigator.geolocation) {
+      setLocating(false);
+      setLocationError(
+        "Location access is unavailable. Search for a location instead.",
+      );
+      return;
+    }
+
+    setLocating(true);
+
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        if (requestId !== locationRequestRef.current) return;
+
+        selectLocation({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          accuracy: position.coords.accuracy,
+          label: "Your current location",
+        });
+      },
+      locationFailure => {
+        if (requestId !== locationRequestRef.current) return;
+
+        setLocating(false);
+
+        const messages = {
+          1: "Location permission was denied. Search or choose on the map instead.",
+          2: "Your location could not be determined. Try again or choose it manually.",
+          3: "Location lookup timed out. Try again or choose it manually.",
+        };
+
+        setLocationError(
+          messages[locationFailure.code] || "Unable to access your location.",
+        );
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 60000,
+      },
+    );
+  }
 
   function updateSetting(name, value) {
     setSettings(current => ({ ...current, [name]: value }));
@@ -32,8 +106,10 @@ export default function DecideForMePage() {
   async function handleLoad(event) {
     event.preventDefault();
 
-    if (!location) {
-      setError("Choose a location before loading wheel options.");
+    if (locating || showPicker) {
+      setLocationError(
+        "Finish choosing your location before loading wheel options.",
+      );
       return;
     }
 
@@ -61,7 +137,11 @@ export default function DecideForMePage() {
 
       if (controller.signal.aborted) return;
 
+      setOptions(data.items);
+      setWinner(null);
+      setRotation(0);
       setPool(data.items);
+
     } catch (requestError) {
       if (controller.signal.aborted) return;
       setError(requestError.message);
@@ -97,28 +177,45 @@ export default function DecideForMePage() {
 
             <button
               type="button"
-              aria-expanded={showPicker}
-              onClick={() => setShowPicker(value => !value)}
+              onClick={handleUseMyLocation}
+              disabled={locating}
             >
-              {showPicker ? "Close location picker" : "Choose location"}
+              {locating ? "Finding location…" : "Use my location"}
             </button>
+
+            <button
+              type="button"
+              aria-expanded={showPicker}
+              onClick={() => {
+
+                // Ignore a pending browser-location result.
+                locationRequestRef.current += 1;
+                setLocating(false);
+                setLocationError("");
+                setShowPicker(value => !value);
+              }}
+            >
+              {showPicker ? "Close location picker" : "Search or choose on map"}
+            </button>
+
+            {locating && <p role="status">Finding your current location…</p>}
+
+            {locationError && <p role="alert">{locationError}</p>}
 
             {showPicker && (
               <LocationPicker
                 initialLocation={location}
-                onConfirm={value => {
-                  setLocation(value);
-                  setShowPicker(false);
-                  setPool(null);
-                  setError("");
-                }}
+                onConfirm={selectLocation}
               />
             )}
 
             <p role="status">
               {location
-                ? `Selected location: ${location.latitude.toFixed(4)}, ${location.longitude.toFixed(4)}`
+                ? `Selected location: ${location.label || "Selected map location"}`
                 : "No location selected."}
+
+              {location?.accuracy != null &&
+                ` — estimated accuracy ${Math.round(location.accuracy)} m`}
             </p>
 
             <label htmlFor="decision-distance">Distance</label>
@@ -169,7 +266,7 @@ export default function DecideForMePage() {
               Open now
             </label>
 
-            <button type="submit" disabled={showPicker}>
+            <button type="submit" disabled={showPicker || locating}>
               {loading ? "Loading..." : "Load wheel options"}
             </button>
           </fieldset>
@@ -197,7 +294,7 @@ export default function DecideForMePage() {
           )}
 
           {pool !== null && pool.length > 0 && (
-            <RestaurantWheel items={pool} />
+            <RestaurantWheel />
           )}
         </div>
       </div>

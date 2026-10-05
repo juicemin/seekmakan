@@ -34,13 +34,26 @@ function formatOperatingHours(hours) {
 function RestaurantDetailsPage() {
   const {restaurantId} = useParams();
   const routeLocation = useLocation();
-  const requestedReturn = routeLocation.state?.returnTo;
+const requestedReturn = routeLocation.state?.returnTo;
 
-  const fromFood =
-  typeof requestedReturn === "string" &&
-  (requestedReturn === "/food" || requestedReturn.startsWith("/food?"));
+const returnPages = {
+  "/": "Restaurant Discovery",
+  "/restaurants": "Restaurant Discovery",
+  "/food": "Food Discovery",
+  "/decide": "Decide For Me",
+};
 
-  const returnTo = fromFood ? requestedReturn : "/restaurants";
+const returnPath =
+  typeof requestedReturn === "string"
+    ? requestedReturn.split(/[?#]/)[0]
+    : "";
+
+const validReturn = Object.hasOwn(returnPages, returnPath);
+const returnTo = validReturn ? requestedReturn : "/restaurants";
+
+const returnLabel = validReturn
+  ? returnPages[returnPath]
+  : "restaurant discovery";
   const [restaurant, setRestaurant] = useState(null);
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
@@ -78,9 +91,9 @@ function RestaurantDetailsPage() {
   }, [restaurantId]);
 
   return (
-    <main className="page">
+    <main className="page restaurant-details-page">
       <Link className="back-link" to={returnTo}>
-          {fromFood ? "← Back to food discovery" : "← Back to restaurant discovery"}
+        ← Back to {returnLabel}
       </Link>
 
       {status === "loading" && (
