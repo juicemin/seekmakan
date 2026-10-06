@@ -9,7 +9,11 @@ import LocationPicker from "./LocationPicker";
 import ResponsiveFilters from "./ResponsiveFilters";
 import ManualWheelSummary from "./ManualWheelSummary";
 
-function RestaurantDiscovery({ foodCategory = null }) {
+function RestaurantDiscovery({
+  foodCategory = null,
+  initialLocation = null,
+  initialRadius = "",
+}) {
   const isFoodDiscovery = foodCategory !== null;
   const Container = isFoodDiscovery ? "section" : "main";
   const [restaurants, setRestaurants] = useState([]);
@@ -56,10 +60,10 @@ function RestaurantDiscovery({ foodCategory = null }) {
   const closeMap = useCallback(() => {
   setMobileView("list");
 }, []);
-  const [selectedLocation, setSelectedLocation] = useState(null);
-  const [appliedLocation, setAppliedLocation] = useState(null);
-  const [selectedRadius, setSelectedRadius] = useState("");
-  const [appliedRadius, setAppliedRadius] = useState("");
+  const [selectedLocation, setSelectedLocation] = useState(initialLocation);
+  const [appliedLocation, setAppliedLocation] = useState(initialLocation);
+  const [selectedRadius, setSelectedRadius] = useState(initialRadius);
+  const [appliedRadius, setAppliedRadius] = useState(initialRadius);
   const [locationStatus, setLocationStatus] = useState("idle");
   const [locationError, setLocationError] = useState("");
   const [showLocationPicker, setShowLocationPicker] = useState(false);
@@ -207,6 +211,7 @@ function RestaurantDiscovery({ foodCategory = null }) {
           accuracy: position.coords.accuracy,
           label: "Your current location",
         });
+        setSelectedRadius(current => current === "" ? "5" : current);
         setLocationError("");
         setLocationStatus("success");
       },
@@ -238,6 +243,7 @@ function RestaurantDiscovery({ foodCategory = null }) {
     locationRequestRef.current += 1;
 
     setSelectedLocation(location);
+    setSelectedRadius(current => current === "" ? "5" : current);
     setLocationStatus("success");
     setLocationError("");
     setShowLocationPicker(false);

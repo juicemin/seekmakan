@@ -3,8 +3,10 @@ import { getDecisionCandidates } from "../api/decisions";
 import LocationPicker from "../components/LocationPicker";
 import RestaurantWheel from "../components/RestaurantWheel";
 import { useDecision } from "../context/decision-context";
+import { Link, useSearchParams } from "react-router";
+import FoodDecisionPanel from "../components/FoodDecisionPanel";
 
-export default function DecideForMePage() {
+function RestaurantDecisionPanel() {
   const [showPicker, setShowPicker] = useState(false);
   const {
   location,
@@ -399,5 +401,32 @@ export default function DecideForMePage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function DecideForMePage() {
+  const [searchParams] = useSearchParams();
+  const isFoodMode = searchParams.get("mode") === "food";
+
+  return (
+    <>
+      <nav aria-label="Decision mode">
+        <Link
+          to="/decide"
+          aria-current={!isFoodMode ? "page" : undefined}
+        >
+          Choose a restaurant
+        </Link>
+        {" | "}
+        <Link
+          to="/decide?mode=food"
+          aria-current={isFoodMode ? "page" : undefined}
+        >
+          Choose food
+        </Link>
+      </nav>
+
+      {isFoodMode ? <FoodDecisionPanel /> : <RestaurantDecisionPanel />}
+    </>
   );
 }

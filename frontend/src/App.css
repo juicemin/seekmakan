@@ -1669,3 +1669,84 @@ body:has(.manual-wheel-summary) .page {
   margin: 6px 0 0;
   font-size: 0.875rem;
 }
+
+.restaurant-actions__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.restaurant-actions__buttons > a,
+.restaurant-actions__buttons > button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #9a3412;
+  border-radius: 8px;
+  background: #fff;
+  color: #9a3412;
+  font: inherit;
+  font-size: 0.875rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.restaurant-actions__buttons > :focus-visible,
+.restaurant-actions__copy textarea:focus-visible {
+  outline: 3px solid #9a3412;
+  outline-offset: 3px;
+}
+
+.restaurant-actions__buttons > button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.restaurant-actions__hint {
+  margin-left: 4px;
+  font-size: 0.75rem;
+}
+
+.restaurant-actions__copy {
+  display: grid;
+  gap: 6px;
+}
+
+.restaurant-actions__copy textarea {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  font: inherit;
+}
+
+@media (max-width: 800px) {
+  .restaurant-actions__buttons > a,
+  .restaurant-actions__buttons > button {
+    flex: 1 1 auto;
+  }
+}
+
+.restaurant-details__header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+  max-width: 100%;
+}
+
+.restaurant-details__header-actions .restaurant-actions {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.restaurant-details__header-actions .restaurant-actions__buttons {
+  margin-top: 0;
+}
+
+.restaurant-details__header-actions .restaurant-actions > p:empty {
+  margin: 0;
+}

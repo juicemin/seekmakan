@@ -19,6 +19,15 @@ export function DecisionProvider({ children }) {
   const [options, setOptions] = useState([]);
   const [winner, setWinner] = useState(null);
   const [rotation, setRotation] = useState(0);
+  const [foodDecision, setFoodDecision] = useState({
+  source: "all",
+  location: null,
+  radius: "5",
+  pool: null,
+  options: [],
+  winner: null,
+  rotation: 0,
+});
 
   const [manualRestaurants, setManualRestaurants] = useState([]);
   const [manualExcludedIds, setManualExcludedIds] = useState([]);
@@ -172,6 +181,8 @@ function prepareDiscoveryWheel(filters) {
         setManualExcludedIds,
         setManualRestaurantChecked,
         prepareDiscoveryWheel,
+        foodDecision,
+        setFoodDecision,
       }}
     >
       {children}

@@ -41,6 +41,16 @@ function App() {
       />
 
     </Routes>
+    <footer>
+      <p>
+        Location data:{" "}
+        <a href="https://www.geoapify.com/">Geoapify</a>
+        {" · "}
+        <a href="https://www.openstreetmap.org/copyright">
+          © OpenStreetMap contributors — ODbL
+        </a>
+      </p>
+    </footer>
   </>
   );
 }

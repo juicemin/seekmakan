@@ -5,6 +5,7 @@ import OpeningStatus from "../components/OpeningStatus";
 import HiddenGemBadge from "../components/HiddenGemBadge";
 import AddToWheelButton from "../components/AddToWheelButton";
 import ManualWheelSummary from "../components/ManualWheelSummary";
+import RestaurantActions from "../components/RestaurantActions";
 const WEEKDAYS = [
   "monday",
   "tuesday",
@@ -120,13 +121,19 @@ const returnLabel = validReturn
       {status === "success" && restaurant && (
         <article className="restaurant-details">
           <header>
-            <p className="eyebrow">
-              {restaurant.verification_status}
-            </p>
 
             <div className="restaurant-details__title-row">
               <h1>{restaurant.name}</h1>
+
+              <div className="restaurant-details__header-actions">
                 <AddToWheelButton restaurant={restaurant} />
+
+                <RestaurantActions
+                  key={restaurant.id}
+                  restaurant={restaurant}
+                  variant="share"
+                />
+              </div>
             </div>
 
             <p>
@@ -143,20 +150,16 @@ const returnLabel = validReturn
 
           <section>
             <h2>Location</h2>
+
             <address>
               <p>{restaurant.address.full_address}</p>
-              
-              {restaurant.address.postcode && (
-                <p>{restaurant.address.postcode}, {" "}
-                {restaurant.address.city}</p>
-              )}
-
-              <p>
-                {restaurant.address.state}
-              </p>
-
             </address>
-          </section>
+
+            <RestaurantActions
+              key={restaurant.id}
+              restaurant={restaurant}
+            />
+      </section>
 
           <section>
             <h2>Food information</h2>

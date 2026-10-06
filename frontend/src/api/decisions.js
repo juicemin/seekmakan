@@ -1,7 +1,7 @@
 import { API_BASE_URL } from "../config";
 
-export async function getDecisionCandidates(payload, { signal } = {}) {
-  const response = await fetch(`${API_BASE_URL}/api/decisions/candidates`, {
+async function requestCandidates(path, payload, { signal } = {}) {
+  const response = await fetch(`${API_BASE_URL}/api/decisions/${path}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -28,4 +28,12 @@ export async function getDecisionCandidates(payload, { signal } = {}) {
   }
 
   return response.json();
+}
+
+export function getDecisionCandidates(payload, options = {}) {
+  return requestCandidates("candidates", payload, options);
+}
+
+export function getFoodDecisionCandidates(payload, options = {}) {
+  return requestCandidates("food-candidates", payload, options);
 }

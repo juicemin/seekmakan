@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { getRestaurantFilterOptions } from "../api/restaurants";
 import RestaurantDiscovery from "../components/RestaurantDiscovery";
 
@@ -14,6 +14,49 @@ export default function FoodDiscoveryPage() {
   const [categorySearch, setCategorySearch] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedCategory = searchParams.get("category") || null;
+  const cameFromFoodWheel = searchParams.get("from") === "food-wheel";
+  const latitudeText = searchParams.get("latitude");
+  const longitudeText = searchParams.get("longitude");
+  const radiusText = searchParams.get("radius_km");
+
+  const latitude = Number(latitudeText);
+  const longitude = Number(longitudeText);
+  const radius = Number(radiusText);
+
+  const hasNearbyCriteria =
+    latitudeText !== null &&
+    latitudeText.trim() !== "" &&
+    longitudeText !== null &&
+    longitudeText.trim() !== "" &&
+    radiusText !== null &&
+    radiusText.trim() !== "" &&
+    Number.isFinite(latitude) &&
+    latitude >= -90 &&
+    latitude <= 90 &&
+    Number.isFinite(longitude) &&
+    longitude >= -180 &&
+    longitude <= 180 &&
+    Number.isFinite(radius) &&
+    radius > 0 &&
+    radius <= 50;
+
+  const hasAnyNearbyParameter =
+    latitudeText !== null ||
+    longitudeText !== null ||
+    radiusText !== null;
+
+  const hasInvalidNearbyCriteria =
+    hasAnyNearbyParameter && !hasNearbyCriteria;
+
+  const initialLocation = hasNearbyCriteria
+    ? {
+        latitude,
+        longitude,
+        label: searchParams.get("location_label") || "Selected location",
+      }
+    : null;
+
+  const initialRadius = hasNearbyCriteria ? String(radius) : "";
 
   function setSelectedCategory(category) {
     setSearchParams(current => {
@@ -77,6 +120,13 @@ export default function FoodDiscoveryPage() {
   return (
     <main className="page discovery-page">
       <header className="page-header">
+        {cameFromFoodWheel && (
+          <p>
+            <Link to="/decide?mode=food">
+              ← Back to food wheel
+            </Link>
+          </p>
+        )}
         <p className="eyebrow">SeekMakan</p>
         <h1>Food Discovery</h1>
         <p>What would you like to eat?</p>
@@ -87,6 +137,12 @@ export default function FoodDiscoveryPage() {
         aria-labelledby="food-chooser-title"
       >
         <h2 id="food-chooser-title">Choose a food category</h2>
+        {!cameFromFoodWheel && (
+          <p>
+            Can’t decide what to eat?{" "}
+              <Link to="/decide?mode=food">Choose with the food wheel</Link>
+          </p>
+        )}
 
         <label htmlFor="food-category-search">
           Search food categories
@@ -174,7 +230,11 @@ export default function FoodDiscoveryPage() {
             >
               Clear food selection
             </button>
-            <p>Changing food category resets the restaurant filters.</p>
+            <p>
+              {hasNearbyCriteria
+                ? "Changing food category keeps the location and distance from your wheel; other restaurant filters reset."
+                : "Changing food category resets the restaurant filters."}
+            </p>
           </div>
         ) : (
           status === "success" &&
@@ -184,10 +244,44 @@ export default function FoodDiscoveryPage() {
         )}
       </section>
 
-      {selectedCategory !== null && (
+      {hasInvalidNearbyCriteria && (
+        <div role="alert">
+          <p>
+            The location or distance in this link is invalid.
+            Distance must be greater than 0 and no more than 50 km,
+            with valid latitude and longitude.
+          </p>
+
+          <button
+            type="button"
+            onClick={() => {
+              setSearchParams(current => {
+                const next = new URLSearchParams(current);
+
+                next.delete("latitude");
+                next.delete("longitude");
+                next.delete("radius_km");
+                next.delete("location_label");
+
+                return next;
+              });
+            }}
+          >
+            Remove location filter
+          </button>
+        </div>
+      )}
+
+      {selectedCategory !== null && !hasInvalidNearbyCriteria && (
         <RestaurantDiscovery
-          key={selectedCategory}
+          key={JSON.stringify([
+            selectedCategory,
+            initialLocation,
+            initialRadius,
+          ])}
           foodCategory={selectedCategory}
+          initialLocation={initialLocation}
+          initialRadius={initialRadius}
         />
       )}
     </main>
