@@ -1,0 +1,1312 @@
+{
+  "generated_at": "2026-10-06T10:02:45.116686+00:00",
+  "provider": "geoapify",
+  "records": [
+    {
+      "name": "Seremban Oakland Pork Noodle",
+      "provided_address": "552, Jalan Haruan 4/7, Pusat Komersil Oakland, 70300 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "552",
+        "street": "Jalan Haruan 4/7",
+        "postcode": "70300",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "address_matched",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "address_matched",
+          "reasons": [
+            "House number, street, postcode, city and country match. Restaurant occupancy is not verified."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70300",
+            "county": "Seremban",
+            "suburb": "Rasah",
+            "street": "Jalan Haruan 4/7",
+            "iso3166_2": "MY-05",
+            "lon": 101.9185511,
+            "lat": 2.706984,
+            "housenumber": "552",
+            "result_type": "building",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "formatted": "552 Jalan Haruan 4/7, Rasah, 70300 Seremban, NSN, Malaysia",
+            "address_line1": "552 Jalan Haruan 4/7",
+            "address_line2": "Rasah, 70300 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PW49+QC",
+            "plus_code_short": "PW49+QC Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.2204290571153735,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "511c8d8d8ac97a594059b35c363ae7a70540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323737323337",
+            "bbox": {
+              "lon1": 101.917224,
+              "lat1": 2.7069807,
+              "lon2": 101.9198869,
+              "lat2": 2.7070154
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "小舅糖水",
+      "provided_address": "161, Jalan Toman 8, Kemayan Square, 70200 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "161",
+        "street": "Jalan Toman 8",
+        "postcode": "70200",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "address_matched",
+          "reasons": [
+            "House number, street, postcode, city and country match. Restaurant occupancy is not verified."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "hamlet": "Kampung Dato Haji Mohd Said",
+            "postcode": "70200",
+            "county": "Seremban",
+            "neighbourhood": "Taman Bukit Labu",
+            "street": "Jalan Toman 8",
+            "iso3166_2": "MY-05",
+            "lon": 101.9225408,
+            "lat": 2.7168818,
+            "housenumber": "161",
+            "result_type": "building",
+            "formatted": "161 Jalan Toman 8, 70200 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "161 Jalan Toman 8",
+            "address_line2": "70200 Seremban, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PW8F+Q2",
+            "plus_code_short": "PW8F+Q2 Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.2178698934264185,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51714e91e80a7b594059e9c770862cbc0540c00203",
+            "bbox": {
+              "lon1": 101.9224128,
+              "lat1": 2.7166306,
+              "lon2": 101.9226678,
+              "lat2": 2.7171325
+            }
+          }
+        },
+        {
+          "status": "address_matched",
+          "reasons": [
+            "House number, street, postcode, city and country match. Restaurant occupancy is not verified."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70200",
+            "county": "Seremban",
+            "neighbourhood": "Taman Permai",
+            "suburb": "Lobak",
+            "street": "Jalan Toman 8",
+            "iso3166_2": "MY-05",
+            "lon": 101.9227044,
+            "lat": 2.7165618,
+            "housenumber": "161",
+            "result_type": "building",
+            "formatted": "161 Jalan Toman 8, Lobak, 70200 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "161 Jalan Toman 8",
+            "address_line2": "Lobak, 70200 Seremban, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PW8F+J3",
+            "plus_code_short": "PW8F+J3 Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.2178698934264185,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "510578c1960d7b594059ce80c4c084bb0540c00203",
+            "bbox": {
+              "lon1": 101.9226678,
+              "lat1": 2.716493,
+              "lon2": 101.9227409,
+              "lat2": 2.7166306
+            }
+          }
+        },
+        {
+          "status": "address_matched",
+          "reasons": [
+            "House number, street, postcode, city and country match. Restaurant occupancy is not verified."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "street": "Jalan Toman 8",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Seremban",
+            "lon": 101.922576,
+            "lat": 2.716812,
+            "housenumber": "161",
+            "result_type": "building",
+            "postcode": "70200",
+            "formatted": "161 Jalan Toman 8, 70200 Seremban, NSN, Malaysia",
+            "address_line1": "161 Jalan Toman 8",
+            "address_line2": "70200 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PW8F+P2",
+            "plus_code_short": "PW8F+P2 Seremban, Malaysia",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.2178698934264185,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51c504357c0b7b594059f60a0bee07bc0540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323830353130",
+            "bbox": {
+              "lon1": 101.922413,
+              "lat1": 2.716493,
+              "lon2": 101.922741,
+              "lat2": 2.717132
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "萧师奶板面专卖店",
+      "provided_address": "Taman Unian, 70200 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "",
+        "postcode": "70200",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "needs_review",
+          "reasons": [
+            "Insufficient fields: housenumber, street"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "street": "Seremban Lake Garden Park",
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Seremban",
+            "lon": 101.943923,
+            "lat": 2.723737,
+            "result_type": "amenity",
+            "postcode": "70200",
+            "formatted": "Seremban Lake Garden Park, 70200 Seremban, NSN, Malaysia",
+            "address_line1": "Seremban Lake Garden Park",
+            "address_line2": "70200 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PWFV+FH",
+            "plus_code_short": "FV+FH Seremban, Malaysia",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.2903261118766234,
+              "confidence": 1,
+              "confidence_city_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "514dbc033c697c594059c03dcf9f36ca0540f00102f90174ae6e2000000000c00201e203216f70656e7374726565746d61703a76656e75653a7761792f353434313234353332",
+            "bbox": {
+              "lon1": 101.9418747,
+              "lat1": 2.7199863,
+              "lon2": 101.9452728,
+              "lat2": 2.7272027
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "70200",
+            "ref": "70200",
+            "other_names": {
+              "ref": "70200"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "postcode": "70200",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.930645456,
+            "lat": 2.7310797879999997,
+            "result_type": "postcode",
+            "distance": 0,
+            "formatted": "70200, Negeri Sembilan, Malaysia",
+            "address_line1": "70200",
+            "address_line2": "Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PWJJ+C7",
+            "rank": {
+              "importance": 0.12000999999999995,
+              "popularity": 2.153900951461129,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_postcode"
+            },
+            "place_id": "51396cf5b18f7b5940591ad0215c40d90540c0020792030837303230302b6d79",
+            "bbox": {
+              "lon1": 101.8857193,
+              "lat1": 2.6859038,
+              "lon2": 101.9755698,
+              "lat2": 2.7762557
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Taman Dusun Setia",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "geonames",
+              "attribution": "GeoNames",
+              "license": "CC BY 4.0",
+              "url": "https://www.geonames.org/datasources/"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Taman Dusun Setia",
+            "lon": 101.9644,
+            "lat": 2.7141,
+            "result_type": "city",
+            "postcode": "70200",
+            "formatted": "70200 Taman Dusun Setia, NSN, Malaysia",
+            "address_line1": "Taman Dusun Setia",
+            "address_line2": "70200 Taman Dusun Setia, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PX77+JQ",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 1.9520924980302454,
+              "confidence": 0.125,
+              "confidence_city_level": 0.5,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "51cb10c7bab87d594059bc96900f7ab60540c0020892031154616d616e20447573756e205365746961e2031967656f6e616d65733a6c6f63616c6974793a37373936353933"
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Taman Seremban Jaya",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "geonames",
+              "attribution": "GeoNames",
+              "license": "CC BY 4.0",
+              "url": "https://www.geonames.org/datasources/"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Taman Seremban Jaya",
+            "lon": 101.97,
+            "lat": 2.6831,
+            "result_type": "city",
+            "postcode": "70200",
+            "formatted": "70200 Taman Seremban Jaya, NSN, Malaysia",
+            "address_line1": "Taman Seremban Jaya",
+            "address_line2": "70200 Taman Seremban Jaya, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3MXMC+62",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 1.9583618915852856,
+              "confidence": 0.2025,
+              "confidence_city_level": 0.81,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "51ae47e17a147e594059492eff21fd760540c0020892031354616d616e20536572656d62616e204a617961e2031967656f6e616d65733a6c6f63616c6974793a37373937323131"
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Taman Senawang Indah",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "geonames",
+              "attribution": "GeoNames",
+              "license": "CC BY 4.0",
+              "url": "https://www.geonames.org/datasources/"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Taman Senawang Indah",
+            "lon": 101.989,
+            "lat": 2.691,
+            "result_type": "city",
+            "postcode": "70200",
+            "formatted": "70200 Taman Senawang Indah, NSN, Malaysia",
+            "address_line1": "Taman Senawang Indah",
+            "address_line2": "70200 Taman Senawang Indah, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3MXRQ+CJ",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 1.918823277835775,
+              "confidence": 0.125,
+              "confidence_city_level": 0.5,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "519eefa7c64b7f594059ba490c022b870540c0020892031454616d616e2053656e6177616e6720496e646168e2031967656f6e616d65733a6c6f63616c6974793a31373334383236"
+          }
+        }
+      ]
+    },
+    {
+      "name": "be my friend cafe",
+      "provided_address": "Block A 18-1, Oakland Commercial Square, 2, Jalan Haruan 5/9, Medan Perdagangan Oakland, 70300 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "Jalan Haruan 5/9",
+        "postcode": "70300",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "70300",
+            "ref": "70300",
+            "other_names": {
+              "ref": "70300"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "postcode": "70300",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.91651594,
+            "lat": 2.698036876,
+            "result_type": "postcode",
+            "distance": 0,
+            "formatted": "70300, Negeri Sembilan, Malaysia",
+            "address_line1": "70300",
+            "address_line2": "Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3MWX8+6J",
+            "rank": {
+              "importance": 0.12000999999999995,
+              "popularity": 2.1661233628717906,
+              "confidence": 0,
+              "confidence_city_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "5103247932a87a59405979938e5b94950540c0020792030837303330302b6d79",
+            "bbox": {
+              "lon1": 101.8715904,
+              "lat1": 2.6528603,
+              "lon2": 101.9614396,
+              "lat2": 2.7432134
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "美麗都茶餐室",
+      "provided_address": "1, Jalan Utam Singh, Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "1",
+        "street": "Jalan Utam Singh",
+        "postcode": "70000",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "address_matched",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "address_matched",
+          "reasons": [
+            "House number, street, postcode, city and country match. Restaurant occupancy is not verified."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70000",
+            "county": "Seremban",
+            "suburb": "Temiang",
+            "street": "Jalan Utam Singh",
+            "housenumber": "1",
+            "iso3166_2": "MY-05",
+            "lon": 101.9373046,
+            "lat": 2.7287862,
+            "result_type": "building",
+            "formatted": "1 Jalan Utam Singh, Temiang, 70000 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "1 Jalan Utam Singh",
+            "address_line2": "Temiang, 70000 Seremban, Negeri Sembilan, Malaysia",
+            "category": "building.commercial",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PWHP+GW",
+            "plus_code_short": "HP+GW Seremban, Malaysia",
+            "rank": {
+              "importance": 4.9919127183902e-05,
+              "popularity": 2.315383669379274,
+              "confidence": 1,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "51fcd86eccfc7b5940597c35f6db8dd40540f00102f9014130315300000000c00203",
+            "bbox": {
+              "lon1": 101.9372455,
+              "lat1": 2.7286593,
+              "lon2": 101.9373636,
+              "lat2": 2.7289132
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "兄弟茶室-芙蓉森州",
+      "provided_address": "5, Jalan Kong Sang, Pusat Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "5",
+        "street": "Jalan Kong Sang",
+        "postcode": "70000",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "address_matched",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "address_matched",
+          "reasons": [
+            "House number, street, postcode, city and country match. Restaurant occupancy is not verified."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70000",
+            "county": "Seremban",
+            "suburb": "Temiang",
+            "street": "Jalan Kong Sang",
+            "housenumber": "5",
+            "iso3166_2": "MY-05",
+            "lon": 101.9371514,
+            "lat": 2.7284141,
+            "result_type": "building",
+            "formatted": "5 Jalan Kong Sang, Temiang, 70000 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "5 Jalan Kong Sang",
+            "address_line2": "Temiang, 70000 Seremban, Negeri Sembilan, Malaysia",
+            "category": "building.commercial",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PWHP+9V",
+            "plus_code_short": "HP+9V Seremban, Malaysia",
+            "rank": {
+              "importance": 4.9919127183902e-05,
+              "popularity": 2.315383669379274,
+              "confidence": 1,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "51a499dd49fa7b594059ec8f8bc5cad30540f00102f9012e30315300000000c00203",
+            "bbox": {
+              "lon1": 101.9370892,
+              "lat1": 2.7282734,
+              "lon2": 101.9372137,
+              "lat2": 2.728555
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "芙蓉阿叔滑鸡饭",
+      "provided_address": "26, Jalan Seng Meng Lee, Seremban, 70200 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "26",
+        "street": "Jalan Seng Meng Lee",
+        "postcode": "70200",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "housenumber": "26",
+            "street": "Jalan Seng Meng Lee",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "mixed"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Seremban",
+            "lon": 101.9388795,
+            "lat": 2.7346394,
+            "result_type": "building",
+            "other_names": {
+              "name:zh": "盛明利路",
+              "name:zh-Hans": "盛明利路",
+              "name:zh-Hant": "盛明利路",
+              "name": "Jalan Seng Meng Lee",
+              "name:ms": "Jalan Seng Meng Lee"
+            },
+            "postcode": "70000",
+            "suburb": "Temiang",
+            "iso3166_2": "MY-05",
+            "formatted": "26 Jalan Seng Meng Lee, Temiang, 70000 Seremban, NSN, Malaysia",
+            "address_line1": "26 Jalan Seng Meng Lee",
+            "address_line2": "Temiang, 70000 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PWMQ+VH",
+            "plus_code_short": "MQ+VH Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.1298799807285045,
+              "confidence": 1,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "51a1d80a9a167c59405912d32a9f8ae00540c00203e2031f6d697865643a616464726573733a706f6c796c696e653a3235323737323933"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Number One Top Curry House",
+      "provided_address": "15, Jalan Dato Abdul Rahman, Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "15",
+        "street": "Jalan Dato Abdul Rahman",
+        "postcode": "70000",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "address_matched",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "address_matched",
+          "reasons": [
+            "House number, street, postcode, city and country match. Restaurant occupancy is not verified."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70000",
+            "county": "Seremban",
+            "suburb": "Temiang",
+            "street": "Jalan Dato Abdul Rahman",
+            "housenumber": "15",
+            "iso3166_2": "MY-05",
+            "lon": 101.9390403,
+            "lat": 2.7272416,
+            "result_type": "building",
+            "formatted": "15 Jalan Dato Abdul Rahman, Temiang, 70000 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "15 Jalan Dato Abdul Rahman",
+            "address_line2": "Temiang, 70000 Seremban, Negeri Sembilan, Malaysia",
+            "category": "building.commercial",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PWGQ+VJ",
+            "plus_code_short": "GQ+VJ Seremban, Malaysia",
+            "rank": {
+              "importance": 4.9919127183902e-05,
+              "popularity": 2.330155320147047,
+              "confidence": 1,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "5111887c3c197c5940596253420b64d10540f00102f9011c7c2d5300000000c00203",
+            "bbox": {
+              "lon1": 101.9389711,
+              "lat1": 2.727075,
+              "lon2": 101.9391095,
+              "lat2": 2.7274081
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "宋记沙河粉雲呑面Soong Kee Ipoh Kuey Teow / Wantan Mee",
+      "provided_address": "Taman Bangawan, 70200 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "",
+        "postcode": "70200",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Taman Bangawan",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70200",
+            "county": "Seremban",
+            "neighbourhood": "Taman Bangawan",
+            "suburb": "Lobak",
+            "iso3166_2": "MY-05",
+            "district": "Taman Bangawan",
+            "lon": 101.9260011,
+            "lat": 2.7374641,
+            "result_type": "suburb",
+            "formatted": "Lobak, Taman Bangawan, 70200 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "Lobak",
+            "address_line2": "Taman Bangawan, 70200 Seremban, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PWPG+XC",
+            "plus_code_short": "PG+XC Seremban, Malaysia",
+            "rank": {
+              "importance": 0.08004991912718391,
+              "popularity": 2.1078897854357277,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "51d7231e9a437b594059e7cafb9353e60540f00103f90194d0286202000000c0020592030e54616d616e2042616e676177616e",
+            "bbox": {
+              "lon1": 101.9160011,
+              "lat1": 2.7274641,
+              "lon2": 101.9360011,
+              "lat2": 2.7474641
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Seremban",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "whosonfirst",
+              "attribution": "Who's On First",
+              "license": "CC0",
+              "url": "https://www.whosonfirst.org/docs/licenses/"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Seremban",
+            "lon": 101.95169,
+            "lat": 2.707079,
+            "result_type": "city",
+            "postcode": "70200",
+            "formatted": "70200 Seremban, NSN, Malaysia",
+            "address_line1": "Seremban",
+            "address_line2": "70200 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PX42+RM",
+            "plus_code_short": "PX42+RM Seremban, Malaysia",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.2022450347942355,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "51897b2c7de87c594059cf81e50819a80540c00208920308536572656d62616ee2031e77686f736f6e66697273743a6c6f63616c6974793a313032303233313535",
+            "bbox": {
+              "lon1": 101.793077,
+              "lat1": 2.577366,
+              "lon2": 102.044506,
+              "lat2": 2.817663
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "NUR BISTRO - NASI KANDAR ORIGINAL",
+      "provided_address": "77, Jalan S2 B19, Pusat Dagangan, 2, Seremban 2, 70300 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "77",
+        "street": "Jalan S2 B19",
+        "postcode": "70300",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "address_matched",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "address_matched",
+          "reasons": [
+            "House number, street, postcode, city and country match. Restaurant occupancy is not verified."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70300",
+            "county": "Seremban",
+            "suburb": "Seremban 2",
+            "commercial": "Centrio S2 Commercial Park",
+            "street": "Jalan S2 B19",
+            "iso3166_2": "MY-05",
+            "lon": 101.90357,
+            "lat": 2.6936773,
+            "housenumber": "77",
+            "result_type": "building",
+            "formatted": "77 Jalan S2 B19, Seremban 2, 70300 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "77 Jalan S2 B19",
+            "address_line2": "Seremban 2, 70300 Seremban, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3MWV3+FC",
+            "plus_code_short": "MWV3+FC Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.044192047526109,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "5164e94317d47959405916d22bafa68c0540c00203",
+            "bbox": {
+              "lon1": 101.9035582,
+              "lat1": 2.6925041,
+              "lon2": 101.9035791,
+              "lat2": 2.6948505
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "street": "Jalan S2 B1",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Seremban",
+            "lon": 101.917614,
+            "lat": 2.693867,
+            "housenumber": "77",
+            "result_type": "building",
+            "postcode": "70300",
+            "formatted": "77 Jalan S2 B1, 70300 Seremban, NSN, Malaysia",
+            "address_line1": "77 Jalan S2 B1",
+            "address_line2": "70300 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3MWV9+G2",
+            "plus_code_short": "MWV9+G2 Seremban, Malaysia",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.1593231135077593,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "5183161230ba7a594059663046240a8d0540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323737323733",
+            "bbox": {
+              "lon1": 101.91439,
+              "lat1": 2.692726,
+              "lon2": 101.917681,
+              "lat2": 2.693873
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "street": "Jalan S2 B16",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Seremban",
+            "lon": 101.912673,
+            "lat": 2.699171,
+            "housenumber": "77",
+            "result_type": "building",
+            "postcode": "70300",
+            "formatted": "77 Jalan S2 B16, 70300 Seremban, NSN, Malaysia",
+            "address_line1": "77 Jalan S2 B16",
+            "address_line2": "70300 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3MWX7+M3",
+            "plus_code_short": "MWX7+M3 Seremban, Malaysia",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.162720894491526,
+              "confidence": 0.3333333333333333,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.6666666666666666,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "514dbc033c697a594059317e1af7e6970540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323737323036",
+            "bbox": {
+              "lon1": 101.912529,
+              "lat1": 2.698888,
+              "lon2": 101.912816,
+              "lat2": 2.699454
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "street": "Jalan S2 B18",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Seremban",
+            "lon": 101.912269,
+            "lat": 2.698082,
+            "housenumber": "77",
+            "result_type": "building",
+            "postcode": "70300",
+            "formatted": "77 Jalan S2 B18, 70300 Seremban, NSN, Malaysia",
+            "address_line1": "77 Jalan S2 B18",
+            "address_line2": "70300 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3MWX6+6W",
+            "plus_code_short": "MWX6+6W Seremban, Malaysia",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.1608847439271797,
+              "confidence": 0.3333333333333333,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.6666666666666666,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51e509849d627a5940590169ff03ac950540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323737323035",
+            "bbox": {
+              "lon1": 101.911438,
+              "lat1": 2.698057,
+              "lon2": 101.912959,
+              "lat2": 2.699113
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "street": "Jalan S2 B17",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Seremban",
+            "lon": 101.912279,
+            "lat": 2.698722,
+            "housenumber": "77",
+            "result_type": "building",
+            "postcode": "70300",
+            "formatted": "77 Jalan S2 B17, 70300 Seremban, NSN, Malaysia",
+            "address_line1": "77 Jalan S2 B17",
+            "address_line2": "70300 Seremban, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3MWX6+FW",
+            "plus_code_short": "MWX6+FW Seremban, Malaysia",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.1608847439271797,
+              "confidence": 0.3333333333333333,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.6666666666666666,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51f77475c7627a59405938f7578ffb960540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323737323231",
+            "bbox": {
+              "lon1": 101.91184,
+              "lat1": 2.698394,
+              "lon2": 101.912816,
+              "lat2": 2.698888
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

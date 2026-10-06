@@ -50,3 +50,26 @@ def get_decision_candidates(
         "items": items,
         "total": len(items),
     }
+
+def get_food_decision_candidates(
+    database: Database,
+    request: DecisionRequest,
+) -> dict:
+    restaurant_result = get_decision_candidates(database, request)
+
+    categories = {
+        category
+        for restaurant in restaurant_result["items"]
+        for category in restaurant.get("food_categories", [])
+        if isinstance(category, str) and category.strip()
+    }
+
+    items = sorted(
+        categories,
+        key=lambda category: (category.casefold(), category),
+    )
+
+    return {
+        "items": items,
+        "total": len(items),
+    }

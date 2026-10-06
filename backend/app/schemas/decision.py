@@ -24,3 +24,7 @@ class DecisionRequest(BaseModel):
 class DecisionCandidates(BaseModel):
     items: list[RestaurantResponse]
     total: int = Field(ge=0)
+
+class FoodDecisionCandidates(BaseModel):
+    items: list[str]
+    total: int = Field(ge=0) 

@@ -1,0 +1,244 @@
+{
+  "prepared_at": "2026-10-06T10:35:16.265915+00:00",
+  "records": [
+    {
+      "restaurant": {
+        "name": "Seremban Oakland Pork Noodle",
+        "description": "Serves pork noodles and coffee.",
+        "address": {
+          "full_address": "552, Jalan Haruan 4/7, Pusat Komersil Oakland, 70300 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70300"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9185511,
+            2.706984
+          ]
+        },
+        "cuisines": [],
+        "food_categories": [
+          "Pork Noodles"
+        ],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Seremban Oakland Pork Noodle",
+        "business_details_source": "user_supplied",
+        "location_provider": "geoapify",
+        "location_place_id": "511c8d8d8ac97a594059b35c363ae7a70540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323737323337",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Restoran Melido / 美麗都茶餐室",
+        "description": "A Malaysian kopitiam with multiple food stalls. Offerings include yong tau foo, fried fish cakes, dry noodles and chicken rice.",
+        "address": {
+          "full_address": "1, Jalan Utam Singh, Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70000"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9373046,
+            2.7287862
+          ]
+        },
+        "cuisines": [],
+        "food_categories": [
+          "Yong Tau Foo",
+          "Fish Cakes",
+          "Noodles",
+          "Chicken Rice"
+        ],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "美麗都茶餐室",
+        "business_details_source": "user_supplied",
+        "location_provider": "geoapify",
+        "location_place_id": "51fcd86eccfc7b5940597c35f6db8dd40540f00102f9014130315300000000c00203",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Kedai Kopi & Makanan Saudara / 兄弟茶室",
+        "description": "A Malaysian kopitiam with multiple food stalls. Offerings include toast, Hakka mee, bagels, croissants and coffee.",
+        "address": {
+          "full_address": "5, Jalan Kong Sang, Pusat Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70000"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9371514,
+            2.7284141
+          ]
+        },
+        "cuisines": [],
+        "food_categories": [
+          "Toast",
+          "Hakka Mee",
+          "Bagels",
+          "Croissants"
+        ],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "兄弟茶室-芙蓉森州",
+        "business_details_source": "user_supplied",
+        "location_provider": "geoapify",
+        "location_place_id": "51a499dd49fa7b594059ec8f8bc5cad30540f00102f9012e30315300000000c00203",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Number One Top Curry House",
+        "description": "Serves banana leaf rice.",
+        "address": {
+          "full_address": "15, Jalan Dato Abdul Rahman, Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70000"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9390403,
+            2.7272416
+          ]
+        },
+        "cuisines": [],
+        "food_categories": [
+          "Banana Leaf Rice"
+        ],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Number One Top Curry House",
+        "business_details_source": "user_supplied",
+        "location_provider": "geoapify",
+        "location_place_id": "5111887c3c197c5940596253420b64d10540f00102f9011c7c2d5300000000c00203",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "NUR BISTRO - NASI KANDAR ORIGINAL",
+        "description": "Serves cheese naan, Maggi goreng, nasi biryani and nasi kandar.",
+        "address": {
+          "full_address": "77, Jalan S2 B19, Pusat Dagangan, 2, Seremban 2, 70300 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70300"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.90357,
+            2.6936773
+          ]
+        },
+        "cuisines": [],
+        "food_categories": [
+          "Naan",
+          "Instant Noodles",
+          "Biryani",
+          "Nasi Kandar"
+        ],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "NUR BISTRO - NASI KANDAR ORIGINAL",
+        "business_details_source": "user_supplied",
+        "location_provider": "geoapify",
+        "location_place_id": "5164e94317d47959405916d22bafa68c0540c00203",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json"
+      }
+    }
+  ]
+}

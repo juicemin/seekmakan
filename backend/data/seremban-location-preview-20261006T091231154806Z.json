@@ -1,0 +1,421 @@
+{
+  "generated_at": "2026-10-06T09:12:31.154806+00:00",
+  "location_provider": "geoapify",
+  "records": [
+    {
+      "name": "Seremban Oakland Pork Noodle",
+      "provided_address": "552, Jalan Haruan 4/7, Pusat Komersil Oakland, 70300 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "Seremban Oakland Pork Noodle, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "552, Jalan Haruan 4/7, Pusat Komersil Oakland, 70300 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "70300, Negeri Sembilan, Malaysia",
+              "latitude": 2.698036876,
+              "longitude": 101.91651594
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "小舅糖水",
+      "provided_address": "161, Jalan Toman 8, Kemayan Square, 70200 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "小舅糖水, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "161, Jalan Toman 8, Kemayan Square, 70200 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "161 Persiaran Rasah Kemayan 1, 70300 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.6893759,
+              "longitude": 101.8886919
+            },
+            {
+              "label": "161 Persiaran Rasah Kemayan 2, 70300 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.6891927,
+              "longitude": 101.8911736
+            },
+            {
+              "label": "161 Persiaran Rasah Kemayan 1, 71950 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.6886245,
+              "longitude": 101.8836809
+            },
+            {
+              "label": "70200 Seremban, NSN, Malaysia",
+              "latitude": 2.707079,
+              "longitude": 101.95169
+            },
+            {
+              "label": "Rasah Kemayan, 70300 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.6907782,
+              "longitude": 101.883214
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "萧师奶板面专卖店",
+      "provided_address": "Taman Unian, 70200 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "萧师奶板面专卖店, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "Taman Unian, 70200 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban Lake Garden Park, 70200 Seremban, NSN, Malaysia",
+              "latitude": 2.723737,
+              "longitude": 101.943923
+            },
+            {
+              "label": "70200, Negeri Sembilan, Malaysia",
+              "latitude": 2.7310797879999997,
+              "longitude": 101.930645456
+            },
+            {
+              "label": "70200 Taman Dusun Setia, NSN, Malaysia",
+              "latitude": 2.7141,
+              "longitude": 101.9644
+            },
+            {
+              "label": "70200 Taman Seremban Jaya, NSN, Malaysia",
+              "latitude": 2.6831,
+              "longitude": 101.97
+            },
+            {
+              "label": "70200 Taman Senawang Indah, NSN, Malaysia",
+              "latitude": 2.691,
+              "longitude": 101.989
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "be my friend cafe",
+      "provided_address": "Block A 18-1, Oakland Commercial Square, 2, Jalan Haruan 5/9, Medan Perdagangan Oakland, 70300 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "be my friend cafe, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "Block A 18-1, Oakland Commercial Square, 2, Jalan Haruan 5/9, Medan Perdagangan Oakland, 70300 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "70300, Negeri Sembilan, Malaysia",
+              "latitude": 2.698036876,
+              "longitude": 101.91651594
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "美麗都茶餐室",
+      "provided_address": "1, Jalan Utam Singh, Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "美麗都茶餐室, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "1, Jalan Utam Singh, Bandar Seremban, 70000 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "1 Masjid Jamek Bandar Seremban, 70200 Seremban, NSN, Malaysia",
+              "latitude": 2.730829,
+              "longitude": 101.93836
+            },
+            {
+              "label": "Jabatan Perancang Bandar Seremban, 70000 Seremban, NSN, Malaysia",
+              "latitude": 2.7239004,
+              "longitude": 101.9406832
+            },
+            {
+              "label": "1 Jalan Dato' Bandar Tunggal, Temiang, 70000 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.729106,
+              "longitude": 101.9374953
+            },
+            {
+              "label": "1 Persiaran Seremban Tiga 1, 70000 Seremban, NSN, Malaysia",
+              "latitude": 2.673993,
+              "longitude": 101.93573
+            },
+            {
+              "label": "1 Jalan Seremban Tiga 1, 70000 Seremban, NSN, Malaysia",
+              "latitude": 2.672174,
+              "longitude": 101.93069
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "兄弟茶室-芙蓉森州",
+      "provided_address": "5, Jalan Kong Sang, Pusat Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "兄弟茶室-芙蓉森州, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "5, Jalan Kong Sang, Pusat Bandar Seremban, 70000 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "5 Jalan Kong Sang, Temiang, 70000 Seremban, NSN, Malaysia",
+              "latitude": 2.7284141,
+              "longitude": 101.9371514
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "芙蓉阿叔滑鸡饭",
+      "provided_address": "26, Jalan Seng Meng Lee, Seremban, 70200 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "芙蓉阿叔滑鸡饭, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "26, Jalan Seng Meng Lee, Seremban, 70200 Seremban, Negeri Sembilan, Malaysia",
+          "status": "error",
+          "error": "Search endpoint returned HTTP 503.",
+          "items": []
+        }
+      ]
+    },
+    {
+      "name": "Number One Top Curry House",
+      "provided_address": "15, Jalan Dato Abdul Rahman, Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "Number One Top Curry House, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "15, Jalan Dato Abdul Rahman, Bandar Seremban, 70000 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "15 Masjid Jamek Bandar Seremban, 70200 Seremban, NSN, Malaysia",
+              "latitude": 2.730829,
+              "longitude": 101.93836
+            },
+            {
+              "label": "Jabatan Perancang Bandar Seremban, 70000 Seremban, NSN, Malaysia",
+              "latitude": 2.7239004,
+              "longitude": 101.9406832
+            },
+            {
+              "label": "15 Jalan Dato' Bandar Tunggal, Temiang, 70000 Seremban, NSN, Malaysia",
+              "latitude": 2.7281359,
+              "longitude": 101.9377032
+            },
+            {
+              "label": "Masjid Jamek Bandar Seremban, Jalan Seng Meng Lee, 70200 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.7308255,
+              "longitude": 101.9382584
+            },
+            {
+              "label": "Seremban City Council, Lot 24392 Persiaran Forest Heights 1, Forest Heights, 70450 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.7052284,
+              "longitude": 101.9600327
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "宋记沙河粉雲呑面Soong Kee Ipoh Kuey Teow / Wantan Mee",
+      "provided_address": "Taman Bangawan, 70200 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "宋记沙河粉雲呑面Soong Kee Ipoh Kuey Teow / Wantan Mee, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            }
+          ]
+        },
+        {
+          "query": "Taman Bangawan, 70200 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Lobak, Taman Bangawan, 70200 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.7374641,
+              "longitude": 101.9260011
+            },
+            {
+              "label": "70200 Seremban, NSN, Malaysia",
+              "latitude": 2.707079,
+              "longitude": 101.95169
+            },
+            {
+              "label": "70200 Taman Seremban Jaya, NSN, Malaysia",
+              "latitude": 2.6831,
+              "longitude": 101.97
+            },
+            {
+              "label": "70200 Taman Dusun Setia, NSN, Malaysia",
+              "latitude": 2.7141,
+              "longitude": 101.9644
+            },
+            {
+              "label": "70200 Taman Senawang Indah, NSN, Malaysia",
+              "latitude": 2.691,
+              "longitude": 101.989
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "NUR BISTRO - NASI KANDAR ORIGINAL",
+      "provided_address": "77, Jalan S2 B19, Pusat Dagangan, 2, Seremban 2, 70300 Seremban, Negeri Sembilan",
+      "review_status": "needs_review",
+      "approved_location": null,
+      "searches": [
+        {
+          "query": "NUR BISTRO - NASI KANDAR ORIGINAL, Seremban, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.723099,
+              "longitude": 101.9400601
+            },
+            {
+              "label": "Q Bistro Nasi Kandar, Bandar Sri Permaisuri, 51020 Kuala Lumpur, KUL, Malaysia",
+              "latitude": 3.098969,
+              "longitude": 101.712574
+            },
+            {
+              "label": "Q Bistro Nasi Kandar, 4 Jalan Dwitasik, Bandar Sri Permaisuri, 51020 Kuala Lumpur, Malaysia",
+              "latitude": 3.0989687,
+              "longitude": 101.7125744
+            },
+            {
+              "label": "Nasi Kandar Nur Alif, Petaling Jaya South, 46150 Petaling Jaya, SGR, Malaysia",
+              "latitude": 3.078749,
+              "longitude": 101.6254683
+            },
+            {
+              "label": "Nasi Kandar Safa Bistro, Jalan Pandan Indah 1/23A, Pandan Indah, 51500 Ampang Jaya Municipal Council, KUL, Malaysia",
+              "latitude": 3.1329787,
+              "longitude": 101.7513664
+            }
+          ]
+        },
+        {
+          "query": "77, Jalan S2 B19, Pusat Dagangan, 2, Seremban 2, 70300 Seremban, Negeri Sembilan, Malaysia",
+          "status": "ok",
+          "items": [
+            {
+              "label": "77 Jalan S2 B19, Seremban 2, 70300 Seremban, Negeri Sembilan, Malaysia",
+              "latitude": 2.6936773,
+              "longitude": 101.90357
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
