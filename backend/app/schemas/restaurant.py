@@ -96,6 +96,16 @@ Weekday = Literal[
     "sunday",
 ]
 
+class RestaurantPhoto(BaseModel):
+    url: str = Field(
+        min_length=1,
+        max_length=300,
+        pattern=r"^/images/restaurants/[A-Za-z0-9_-]+\.(jpg|jpeg|png|webp)$",
+    )
+    alt: str = Field(min_length=3, max_length=200)
+    kind: Literal["restaurant", "food"]
+    credit: str | None = Field(default=None, max_length=200)
+
 class RestaurantBase(BaseModel):
     name: str = Field(min_length=2, max_length=100)
     description: str | None = Field(
@@ -104,6 +114,10 @@ class RestaurantBase(BaseModel):
     )
     address: Address
     location: GeoLocation
+    photos: list[RestaurantPhoto] = Field(
+        default_factory=list,
+        max_length=20,
+    )
     cuisines: list[str] = Field(default_factory=list)
     food_categories: list[str] = Field(default_factory=list)
     price_range: PriceRange | None = None

@@ -28,6 +28,7 @@ def serialize_restaurant(
         "description": document.get("description"),
         "address": document["address"],
         "location": document["location"],
+        "photos": document.get("photos", []),
         "cuisines": document.get("cuisines", []),
         "food_categories": document.get("food_categories", []),
         "price_range": document.get("price_range"),

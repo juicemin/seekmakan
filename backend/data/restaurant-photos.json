@@ -1,0 +1,24 @@
+[
+  {
+    "restaurant_id": "3f107c3e8a76f23ba9a8bce2",
+    "photos": [
+      {
+        "url": "/images/restaurants/melido-noodles-fish-cake.jpg",
+        "alt": "Noodles and fish cakes at Restoran Melido",
+        "kind": "food",
+        "credit": "Photo by the project author"
+      }
+    ]
+  },
+  {
+    "restaurant_id": "c0d49ec069b7075feca99435",
+    "photos": [
+      {
+        "url": "/images/restaurants/seremban-oakland-pork-noodle.jpg",
+        "alt": "Pork noodles at Seremban Oakland Pork Noodle",
+        "kind": "food",
+        "credit": "Photo by the project author"
+      }
+    ]
+  }
+]

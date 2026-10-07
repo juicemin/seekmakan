@@ -7,12 +7,39 @@ from app.routers.restaurants import router as restaurant_router
 from app.routers.decisions import router as decision_router
 from app.routers.locations import router as location_router
 from app.config import settings
+from app.routers.auth import router as auth_router
+from fastapi import Request
+from fastapi.exceptions import RequestValidationError
+from fastapi.exception_handlers import request_validation_exception_handler
+from fastapi.responses import JSONResponse
 
 app = FastAPI(
     title = "SeekMakan API",
     description = "Backend API for SeekMakan",
     version = "0.1.0",
 )
+
+@app.exception_handler(RequestValidationError)
+async def handle_request_validation(
+    request: Request,
+    error: RequestValidationError,
+):
+    if request.url.path.startswith("/api/auth/"):
+        return JSONResponse(
+            status_code=422,
+            content={
+                "detail": [
+                    {
+                        "loc": list(item["loc"]),
+                        "msg": item["msg"],
+                        "type": item["type"],
+                    }
+                    for item in error.errors()
+                ]
+            },
+        )
+
+    return await request_validation_exception_handler(request, error)
 
 app.add_middleware(
     CORSMiddleware,
@@ -27,6 +54,8 @@ app.include_router(restaurant_router)
 app.include_router(decision_router)
 
 app.include_router(location_router)
+
+app.include_router(auth_router)
 
 @app.get("/")
 def root() -> dict[str, str]:

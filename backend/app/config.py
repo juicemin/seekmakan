@@ -6,10 +6,17 @@ class Settings(BaseSettings):
     mongodb_database: str = "seekmakan"
     mongodb_timeout_ms: int = 5000
     geoapify_api_key: SecretStr = SecretStr("")
+    mailjet_api_key: SecretStr = SecretStr("")
+    mailjet_secret_key: SecretStr = SecretStr("")
+    mailjet_sender_email: str = ""
+    mailjet_sender_name: str = "SeekMakan"
+    session_cookie_secure: bool = True
 
     cors_origins: str = (
         "http://localhost:5173,http://127.0.0.1:5173"
     )
+
+    frontend_url: str = "http://localhost:5173"
 
     model_config = SettingsConfigDict(
         env_file=".env",
