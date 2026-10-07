@@ -7,6 +7,8 @@ import DecideForMePage from "./pages/DecideForMePage";
 import { VerifyEmailPage } from "./pages/AuthPages";
 import AuthAccess from "./components/AuthAccess";
 import { ResetPasswordPage } from "./pages/PasswordRecovery";
+import ProfilePage from "./pages/ProfilePage";
+import FavouritesPage from "./pages/FavouritesPage";
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
         <NavLink to="/restaurants">Restaurant Discovery</NavLink>
         <NavLink to="/food">Food Discovery</NavLink>
         <NavLink to="/decide">Decide For Me</NavLink>
+        <NavLink to="/favourites">Favourites</NavLink>
         <AuthAccess />
       </nav>
 
@@ -61,6 +64,14 @@ function App() {
       <Route 
       path="/reset-password" 
       element={<ResetPasswordPage />} />
+
+      <Route 
+      path="/profile" 
+      element={<ProfilePage />} />
+
+      <Route 
+      path="/favourites" 
+      element={<FavouritesPage />} />
 
     </Routes>
     <footer>

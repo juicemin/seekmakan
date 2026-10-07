@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { getSession, postAuth } from "../api/auth";
 import { RegisterForm } from "../pages/AuthPages";
 import PasswordInput from "./PasswordInput";
@@ -151,7 +151,13 @@ export default function AuthAccess() {
       }
 
       setUser(result.user);
+      window.dispatchEvent(new Event("seekmakan:session-changed"));
       closePopup();
+
+      if (result.user.preference_setup === "not_started") {
+        navigate("/profile?setup=1");
+      }
+
     } catch (requestError) {
       setError(requestError.message);
     } finally {
@@ -170,6 +176,7 @@ export default function AuthAccess() {
     try {
       await postAuth("logout");
       setUser(null);
+      window.dispatchEvent(new Event("seekmakan:session-changed"));
       closePopup();
     } catch (requestError) {
       setError(requestError.message);
@@ -210,7 +217,7 @@ export default function AuthAccess() {
       <div className="account-access">
         {user ? (
           <>
-            <span>Hello, {user.display_name}</span>
+            <Link to="/profile">Profile</Link>
             <button type="button" onClick={handleLogout} disabled={busy}>
               {busy ? "Please wait…" : "Log out"}
             </button>
@@ -269,9 +276,16 @@ export default function AuthAccess() {
             ) : mode === "register" ? (
               <>
                 <RegisterForm />
-                <button type="button" onClick={() => switchMode("login")}>
-                  Already have an account? Log in
-                </button>
+                <p className="auth-signup-prompt">
+                  Already have an account?{" "}
+                  <button
+                    type="button"
+                    className="auth-text-link"
+                    onClick={() => switchMode("login")}
+                  > 
+                    <strong>Log in</strong>
+                  </button>
+                </p>
               </>
             ) : (
               <>
@@ -294,26 +308,32 @@ export default function AuthAccess() {
                     required
                   />
 
+                  <button
+                    type="button"
+                    className="auth-text-link"
+                    onClick={() => switchMode("forgot")}
+                    disabled={busy}
+                  >
+                    Forgot password?
+                  </button>
+
                   <button type="submit" disabled={busy}>
                     {busy ? "Logging in…" : "Log in"}
                   </button>
                 </form>
 
-                <details>
-                  <summary>Forgot your email?</summary>
-                  <p>
-                    Check your inboxes for a SeekMakan verification email
-                    to identify the address you registered with.
-                  </p>
-                </details>
+                <p className="auth-signup-prompt">
+                  New to SeekMakan?{" "}
+                  <button
+                    type="button"
+                    className="auth-text-link"
+                    onClick={() => switchMode("register")}
+                    disabled={busy}
+                  >
+                    <strong>Sign up</strong>
+                  </button>
+                </p>
 
-                <button type="button" onClick={() => switchMode("forgot")}>
-                  Forgot password?
-                </button>
-
-                <button type="button" onClick={() => switchMode("register")}>
-                  New to SeekMakan? Sign up
-                </button>
               </>
             )}
 

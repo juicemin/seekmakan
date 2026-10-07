@@ -23,7 +23,7 @@ async function parseResponse(response) {
 
 export async function getRestaurants({
   page = 1,
-  pageSize = 20,
+  pageSize = 10,
   search = "",
   cuisines = [],
   foodCategories = [],

@@ -28,7 +28,9 @@ async function requestAuth(path, options = {}) {
       message = data.detail.map(item => item.msg).join(" ");
     }
 
-    throw new Error(message);
+    const error = new Error(message);
+    error.status = response.status;
+    throw error;
   }
 
   return data;
@@ -43,4 +45,8 @@ export function postAuth(path, body = {}) {
 
 export function getSession() {
   return requestAuth("me");
+}
+
+export function getProfile() {
+  return requestAuth("profile");
 }

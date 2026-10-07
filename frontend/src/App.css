@@ -1926,3 +1926,112 @@ body:has(.manual-wheel-summary) .page {
     padding: 18px;
   }
 }
+
+.profile-page {
+  max-width: 720px;
+}
+
+.profile-form {
+  display: grid;
+  gap: 20px;
+}
+
+.profile-fields {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  padding: 18px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.profile-fields > input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  font: inherit;
+}
+
+.profile-fields > input[readonly] {
+  background: #f3f4f6;
+}
+
+.profile-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-actions button {
+  padding: 10px 16px;
+}
+
+.auth-dialog .auth-text-link {
+  display: inline;
+  width: auto;
+  justify-self: start;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #9a3412;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.auth-dialog .auth-text-link:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.auth-email-help > summary::-webkit-details-marker {
+  display: none;
+}
+
+.auth-email-help p {
+  margin: 8px 0 0;
+}
+
+.auth-signup-prompt {
+  margin: 0;
+  text-align: center;
+}
+
+.auth-text-link:focus-visible,
+.auth-email-help > summary:focus-visible {
+  outline: 2px solid #9a3412;
+  outline-offset: 4px;
+}
+
+.favourite-control {
+  display: grid;
+  gap: 6px;
+}
+
+.favourite-control button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.favourite-control button[aria-pressed="true"] {
+  background: #fff1e8;
+  border-color: #9a3412;
+  color: #9a3412;
+}
+
+.favourite-control small {
+  color: #b91c1c;
+}
+
+.restaurant-card__actions,
+.restaurant-details__header-actions {
+  flex-wrap: wrap;
+  gap: 10px;
+}

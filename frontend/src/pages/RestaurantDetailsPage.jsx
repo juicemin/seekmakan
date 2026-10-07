@@ -7,6 +7,7 @@ import AddToWheelButton from "../components/AddToWheelButton";
 import ManualWheelSummary from "../components/ManualWheelSummary";
 import RestaurantActions from "../components/RestaurantActions";
 import RestaurantPhotoGallery from "../components/RestaurantPhotoGallery";
+import FavouriteButton from "../components/FavouriteButton";
 const WEEKDAYS = [
   "monday",
   "tuesday",
@@ -45,6 +46,7 @@ const returnPages = {
   "/restaurants": "Restaurant Discovery",
   "/food": "Food Discovery",
   "/decide": "Decide For Me",
+  "/favourites": "Favourites",
 };
 
 const returnPath =
@@ -134,6 +136,8 @@ const returnLabel = validReturn
                   restaurant={restaurant}
                   variant="share"
                 />
+
+                <FavouriteButton restaurantId={restaurant.id} />
               </div>
             </div>
 

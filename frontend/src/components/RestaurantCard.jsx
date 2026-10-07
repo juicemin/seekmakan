@@ -3,6 +3,7 @@ import OpeningStatus from "./OpeningStatus";
 import HiddenGemBadge from "./HiddenGemBadge";
 import AddToWheelButton from "./AddToWheelButton";
 import RestaurantPhoto from "./RestaurantPhoto";
+import FavouriteButton from "./FavouriteButton";
 
 function RestaurantCard({restaurant, isSelected = false, allowAddToWheel = true}) {
   const routeLocation = useLocation();
@@ -89,6 +90,8 @@ function RestaurantCard({restaurant, isSelected = false, allowAddToWheel = true}
         {allowAddToWheel && (
           <AddToWheelButton restaurant={restaurant} />
         )}
+
+        <FavouriteButton restaurantId={restaurant.id} />
         </div>
       </div>
     </article>
