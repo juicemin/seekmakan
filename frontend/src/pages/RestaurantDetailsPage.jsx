@@ -6,6 +6,7 @@ import HiddenGemBadge from "../components/HiddenGemBadge";
 import AddToWheelButton from "../components/AddToWheelButton";
 import ManualWheelSummary from "../components/ManualWheelSummary";
 import RestaurantActions from "../components/RestaurantActions";
+import RestaurantPhotoGallery from "../components/RestaurantPhotoGallery";
 const WEEKDAYS = [
   "monday",
   "tuesday",
@@ -148,6 +149,12 @@ const returnLabel = validReturn
             </p>
           </header>
 
+          <RestaurantPhotoGallery
+            photos={restaurant.photos ?? []}
+            kind="restaurant"
+            title="Restaurant photos"
+          />
+
           <section>
             <h2>Location</h2>
 
@@ -183,6 +190,12 @@ const returnLabel = validReturn
               {restaurant.price_range ?? "Unavailable"}
             </p>
           </section>
+
+          <RestaurantPhotoGallery
+            photos={restaurant.photos ?? []}
+            kind="food"
+            title="Food photos"
+          />
 
           <section>
             <h2>Opening hours</h2>

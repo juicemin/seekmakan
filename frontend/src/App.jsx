@@ -1,9 +1,12 @@
 import "./App.css";
-import { NavLink, Route, Routes } from "react-router";
+import { NavLink, Navigate, Route, Routes } from "react-router";
 import RestaurantDiscoveryPage from "./components/RestaurantDiscovery";
 import RestaurantDetailsPage from "./pages/RestaurantDetailsPage";
 import FoodDiscoveryPage from "./pages/FoodDiscoveryPage";
 import DecideForMePage from "./pages/DecideForMePage";
+import { VerifyEmailPage } from "./pages/AuthPages";
+import AuthAccess from "./components/AuthAccess";
+import { ResetPasswordPage } from "./pages/PasswordRecovery";
 
 function App() {
   return (
@@ -12,6 +15,7 @@ function App() {
         <NavLink to="/restaurants">Restaurant Discovery</NavLink>
         <NavLink to="/food">Food Discovery</NavLink>
         <NavLink to="/decide">Decide For Me</NavLink>
+        <AuthAccess />
       </nav>
 
     <Routes>
@@ -39,6 +43,24 @@ function App() {
       path="/decide" 
       element={<DecideForMePage />} 
       />
+
+      <Route
+      path="/login"
+      element={<Navigate to="/restaurants?auth=login" replace />}
+      />
+
+      <Route
+      path="/register"
+      element={<Navigate to="/restaurants?auth=register" replace />}
+      />
+
+      <Route 
+      path="/verify-email" 
+      element={<VerifyEmailPage />} />
+
+      <Route 
+      path="/reset-password" 
+      element={<ResetPasswordPage />} />
 
     </Routes>
     <footer>

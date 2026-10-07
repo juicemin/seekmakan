@@ -2,9 +2,13 @@ import { Link, useLocation } from "react-router";
 import OpeningStatus from "./OpeningStatus";
 import HiddenGemBadge from "./HiddenGemBadge";
 import AddToWheelButton from "./AddToWheelButton";
+import RestaurantPhoto from "./RestaurantPhoto";
 
 function RestaurantCard({restaurant, isSelected = false, allowAddToWheel = true}) {
   const routeLocation = useLocation();
+  const coverPhoto = restaurant.photos?.find(
+    photo => photo.kind === "restaurant",
+  );
 
   const cuisines = 
     restaurant.cuisines?.length > 0
@@ -35,6 +39,13 @@ function RestaurantCard({restaurant, isSelected = false, allowAddToWheel = true}
         >
           {restaurant.name}
         </h2>
+
+        {coverPhoto && (
+          <RestaurantPhoto
+            photo={coverPhoto}
+            className="restaurant-card__photo"
+          />
+        )}
 
         <p className="restaurant-badges">
           <OpeningStatus status={restaurant.opening_status} />
