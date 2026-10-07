@@ -12,6 +12,7 @@ from fastapi import Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.exception_handlers import request_validation_exception_handler
 from fastapi.responses import JSONResponse
+from app.routers.favourites import router as favourites_router
 
 app = FastAPI(
     title = "SeekMakan API",
@@ -56,6 +57,8 @@ app.include_router(decision_router)
 app.include_router(location_router)
 
 app.include_router(auth_router)
+
+app.include_router(favourites_router)
 
 @app.get("/")
 def root() -> dict[str, str]:

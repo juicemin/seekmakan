@@ -41,6 +41,15 @@ from app.services.sessions import (
 from app.schemas.auth import ResendVerificationRequest
 from app.repositories.users import renew_verification_token
 
+from app.models.enums import PriceRange
+from app.schemas.profile import ProfileUpdate
+from app.repositories.profiles import (
+    serialize_profile,
+    save_profile,
+    skip_preference_setup,
+)
+from app.services.sessions import get_current_user
+
 router = APIRouter(
     prefix="/api/auth",
     tags=["Authentication"],
@@ -397,3 +406,66 @@ def reset_password(
             "Password updated. Please log in with your new password."
         )
     }
+
+@router.get("/profile")
+def retrieve_profile(
+    response: Response,
+    user: dict = Depends(get_current_user),
+) -> dict:
+    response.headers["Cache-Control"] = "no-store"
+
+    return {
+        "profile": serialize_profile(user),
+        "price_options": [option.value for option in PriceRange],
+    }
+
+
+@router.post(
+    "/profile",
+    dependencies=[Depends(require_browser_request)],
+)
+def update_profile(
+    data: ProfileUpdate,
+    response: Response,
+    user: dict = Depends(get_current_user),
+    database: Database = Depends(get_database),
+) -> dict:
+    response.headers["Cache-Control"] = "no-store"
+
+    try:
+        profile = save_profile(database, user["_id"], data)
+    except PyMongoError:
+        raise HTTPException(
+            status_code=503,
+            detail="Your profile could not be saved. Please try again.",
+        ) from None
+
+    if profile is None:
+        raise HTTPException(
+            status_code=401,
+            detail="Please log in again.",
+        )
+
+    return {
+        "message": "Your profile and preferences have been saved.",
+        "profile": profile,
+    }
+
+
+@router.post(
+    "/skip-preferences",
+    dependencies=[Depends(require_browser_request)],
+)
+def skip_preferences(
+    user: dict = Depends(get_current_user),
+    database: Database = Depends(get_database),
+) -> dict[str, str]:
+    try:
+        skip_preference_setup(database, user["_id"])
+    except PyMongoError:
+        raise HTTPException(
+            status_code=503,
+            detail="Could not save your choice. Please try again.",
+        ) from None
+
+    return {"message": "You can set your preferences later from Profile."}
