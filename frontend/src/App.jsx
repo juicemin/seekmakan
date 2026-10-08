@@ -10,6 +10,7 @@ import { ResetPasswordPage } from "./pages/PasswordRecovery";
 import ProfilePage from "./pages/ProfilePage";
 import FavouritesPage from "./pages/FavouritesPage";
 import CommunityPage from "./pages/CommunityPage";
+import AdminSubmissionsPage from "./pages/AdminSubmissionsPage";
 
 function App() {
   return (
@@ -78,6 +79,10 @@ function App() {
       <Route 
       path="/community" 
       element={<CommunityPage />} />
+
+      <Route 
+      path="/admin/submissions" 
+      element={<AdminSubmissionsPage />} />
 
     </Routes>
     <footer>

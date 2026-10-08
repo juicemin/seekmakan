@@ -2520,3 +2520,74 @@ body:has(.manual-wheel-summary) .page {
   max-height: 240px;
   overflow-y: auto;
 }
+
+.admin-submissions .submission-item {
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.admin-submissions dl {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.admin-submissions dt {
+  font-weight: 600;
+}
+
+.admin-submissions dd {
+  margin: 0 0 0.65rem;
+  overflow-wrap: anywhere;
+}
+
+.admin-review-actions {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.admin-review-actions label {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.admin-review-actions textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-review-actions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.admin-location {
+  margin-top: 1rem;
+}
+
+.admin-location fieldset {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+  margin-top: 0.75rem;
+}
+
+.admin-location label {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.admin-location input:not([type="checkbox"]),
+.admin-location textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.admin-location input[type="checkbox"] {
+  width: auto;
+  justify-self: start;
+}

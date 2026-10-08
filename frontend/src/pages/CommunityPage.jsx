@@ -149,6 +149,10 @@ function CommunityContent() {
                       </strong>
                     </p>
 
+                    {item.review_reason && (
+                        <p>Review note: {item.review_reason}</p>
+                    )}
+
                     {!showForm &&
                         ["pending", "changes_requested"].includes(item.status) && (
                             <WithdrawSubmissionButton
