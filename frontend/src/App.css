@@ -2364,3 +2364,159 @@ body:has(.manual-wheel-summary) .page {
   width: auto;
   flex: 0 0 auto;
 }
+
+.restaurant-check {
+  display: grid;
+  gap: 1rem;
+}
+
+.restaurant-check > h3,
+.restaurant-check > p {
+  margin: 0;
+}
+
+.restaurant-check__form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.5rem 0.75rem;
+  align-items: end;
+}
+
+.restaurant-check__form label {
+  grid-column: 1 / -1;
+}
+
+.restaurant-check__form input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.restaurant-check > ul {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.restaurant-check > ul > li {
+  padding: 0.85rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.restaurant-check > button {
+  justify-self: start;
+}
+
+@media (max-width: 480px) {
+  .restaurant-check__form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.restaurant-name-input .contribution-lookup__results {
+  position: static;
+  max-height: 240px;
+  overflow-y: auto;
+  margin: 0.75rem 0;
+}
+
+.favourites-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.favourites-list .restaurant-card {
+  min-width: 0;
+}
+
+.favourites-list .restaurant-card__content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+  align-items: start;
+  gap: 0.6rem 1.25rem;
+  height: auto;
+}
+
+.favourites-list .restaurant-card__content > * {
+  grid-column: 1;
+  min-width: 0;
+  margin: 0;
+}
+
+.favourites-list .restaurant-card__content > .restaurant-card__photo {
+  grid-column: 2;
+  grid-row: 1 / span 5;
+  width: 100%;
+}
+
+.favourites-list .restaurant-card__photo img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+
+.favourites-list .restaurant-card__actions {
+  grid-column: 1 / -1;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+}
+
+.favourites-list .restaurant-card__content:not(
+  :has(.restaurant-card__photo)
+) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 600px) {
+  .favourites-list .restaurant-card__content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .favourites-list .restaurant-card__content > .restaurant-card__photo {
+    grid-column: 1;
+    grid-row: auto;
+    max-width: 240px;
+  }
+}
+
+.restaurant-name-input {
+  display: grid;
+  gap: 0.65rem;
+  margin-bottom: 1rem;
+}
+
+.restaurant-name-input > input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.restaurant-name-input > button {
+  justify-self: start;
+  margin: 0;
+}
+
+.restaurant-name-input > small {
+  display: block;
+  line-height: 1.5;
+}
+
+.submission-address-lookup {
+  display: grid;
+  gap: 0.65rem;
+  margin: 0.75rem 0;
+}
+
+.submission-address-lookup > button {
+  justify-self: start;
+}
+
+.submission-address-lookup .contribution-lookup__results {
+  position: static;
+  max-height: 240px;
+  overflow-y: auto;
+}

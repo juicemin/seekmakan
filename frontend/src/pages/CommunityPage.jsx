@@ -136,6 +136,10 @@ function CommunityContent() {
                   <article className="submission-item" key={item.id}>
                     <h3>{item.restaurant.name}</h3>
                     <p>{item.restaurant.address.full_address}</p>
+
+                    {!item.restaurant.location && (
+                        <p>Location awaiting confirmation</p>
+                    )}
                     <p>
                       Status:{" "}
                       <strong>

@@ -2,7 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import LocationSearch from "./LocationSearch";
 import L from "leaflet";
 
-export default function LocationPicker({ initialLocation, onConfirm }) {
+export default function LocationPicker({
+  initialLocation,
+  onConfirm,
+  showSearch = true,
+}) {
   const containerRef = useRef(null);
   const mapRef = useRef(null);
   const initialLocationRef = useRef(initialLocation);
@@ -94,11 +98,13 @@ export default function LocationPicker({ initialLocation, onConfirm }) {
 
   return (
     <section aria-label="Choose a search location">
-      <LocationSearch onSelect={handleSearchLocation} />
+      {showSearch && <LocationSearch onSelect={handleSearchLocation} />}
 
       <p id="location-picker-help">
-        Search for a location, or move the map to position the crosshair.
-        Then choose Use this location.
+        {showSearch
+          ? "Search for a location, or move the map to position the crosshair."
+          : "Move the map or click to position the crosshair at the restaurant."}
+        {" "}Then choose Use this location.
       </p>
 
       {tileError && (

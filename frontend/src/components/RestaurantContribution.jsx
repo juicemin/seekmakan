@@ -35,9 +35,9 @@ export default function RestaurantContribution(props) {
   if (adding) return <RestaurantSubmissionForm {...props} initialName={checkedName} />;
 
   return (
-    <section>
+    <section className="restaurant-check">
       <h3>Is the restaurant already on SeekMakan?</h3>
-      <form onSubmit={check}>
+      <form className="restaurant-check__form" onSubmit={check}>
         <label htmlFor="check-restaurant-name">Restaurant name</label>
         <input id="check-restaurant-name" value={query} minLength={2}
           maxLength={100} required onChange={event => {
@@ -56,7 +56,7 @@ export default function RestaurantContribution(props) {
           <Link to={`/restaurants/${item.id}`} state={{ returnTo: "/community" }}>View restaurant</Link>
         </li>)}</ul>
         <button type="button" onClick={() => setAdding(true)}>
-          {items.length ? "Not the restaurant I mean — add a new restaurant" : "Add a new restaurant"}
+          Add a new restaurant
         </button>
       </>}
     </section>

@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import LocationPicker from "./LocationPicker";
 import { submitRestaurant } from "../api/submissions";
 import ContributionTags from "./ContributionTags";
 import { getRestaurantFilterOptions } from "../api/restaurants";
 import SubmissionRestaurantInfo from "./SubmissionRestaurantInfo";
-import RestaurantCandidatePicker from "./RestaurantCandidatePicker";
+import RestaurantNameInput from "./RestaurantNameInput";
 
 const DAYS = [
   "monday", "tuesday", "wednesday", "thursday",
@@ -14,11 +13,11 @@ const DAYS = [
 export default function RestaurantSubmissionForm({
   onSubmitted,
   onSessionExpired,
+  initialName = "",
   initialCandidate = null,
-  initialArea = null,
 }) {
     const [restaurantInfo, setRestaurantInfo] = useState(() => ({
-        name: initialCandidate?.name ?? "",
+        name: initialCandidate?.name ?? initialName,
         full_address: initialCandidate?.full_address ?? "",
         city: initialCandidate?.city ?? "",
         state: initialCandidate?.state ?? "",
@@ -31,12 +30,7 @@ export default function RestaurantSubmissionForm({
         food_categories: [],
     });
     const [optionsWarning, setOptionsWarning] = useState("");
-    const [showRestaurantSearch, setShowRestaurantSearch] = useState(
-        !initialCandidate
-    );
-    const [detailsReady, setDetailsReady] = useState(Boolean(initialCandidate));
-    const [searchArea, setSearchArea] = useState(initialArea);
-    
+  
     useEffect(() => {
         const controller = new AbortController();
 
@@ -66,7 +60,7 @@ export default function RestaurantSubmissionForm({
         }
       : null
   );
-  const [showMap, setShowMap] = useState(false);
+
   const [hours, setHours] = useState({});
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -90,7 +84,7 @@ function updateHours(day, field, value) {
     }));
   }
 
-function selectRestaurant(candidate, area) {
+function selectRestaurant(candidate) {
   setRestaurantInfo({
     name: candidate.name ?? "",
     full_address: candidate.full_address ?? "",
@@ -105,40 +99,43 @@ function selectRestaurant(candidate, area) {
     label: candidate.name,
   });
 
-  setSearchArea(area);
-  setDetailsReady(true);
-  setShowRestaurantSearch(false);
-  setShowMap(false);
-  setError("");
-}
-
-function enterManually(area) {
-  setSearchArea(area);
-  setDetailsReady(true);
-  setShowRestaurantSearch(false);
-  setShowMap(!location);
   setError("");
 }
 
   async function handleSubmit(event) {
     event.preventDefault();
 
-    if (!detailsReady || showRestaurantSearch) {
-        setError("Select a restaurant or choose manual entry first.");
-        return;
-    }
-    
     if (submitting.current) return;
 
     setError("");
 
-    if (!location) {
-      setError("Choose the restaurant’s exact location on the map.");
-      return;
+    const form = event.currentTarget;
+
+    const invalidField = Array.from(form.elements).find(
+        element => element.willValidate && !element.validity.valid
+    );
+
+    if (invalidField) {
+        const section = invalidField.closest("details");
+        if (section) section.open = true;
+
+        const label =
+            invalidField.labels?.[0]?.textContent?.trim() ||
+            invalidField.name ||
+            "A required field";
+
+        setError(`${label}: ${invalidField.validationMessage}`);
+
+        invalidField.focus();
+        invalidField.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+        });
+        return;
     }
 
-    const form = event.currentTarget;
     const fields = new FormData(form);
+
     const read = name => String(fields.get(name) ?? "").trim();
     const info = Object.fromEntries(
         Object.entries(restaurantInfo).map(([key, value]) => [
@@ -148,22 +145,23 @@ function enterManually(area) {
     );
 
     const requiredFields = [
-        ["name", 2, 100],
-        ["full_address", 5, 300],
-        ["city", 2, 100],
-        ["state", 2, 100],
+        ["name", "Restaurant name", 2, 100],
+        ["full_address", "Full address", 5, 300],
+        ["city", "City / town", 2, 100],
+        ["state", "State", 2, 100],
     ];
 
-    if (
-    requiredFields.some(
-        ([key, minimum, maximum]) =>
-        info[key].length < minimum || info[key].length > maximum
-    ) ||
-    (info.postcode && !/^[0-9]{5}$/.test(info.postcode))
-) {
-  setError("Check the restaurant name and address details before submitting.");
-  return;
-}
+    for (const [key, label, minimum, maximum] of requiredFields) {
+        if (info[key].length < minimum || info[key].length > maximum) {
+            setError(`${label} must contain ${minimum}–${maximum} characters.`);
+            return;
+        }
+    }
+
+    if (info.postcode && !/^[0-9]{5}$/.test(info.postcode)) {
+        setError("Postcode must contain exactly 5 digits, or be left blank.");
+        return;
+    }
 
     const operatingHours = {};
 
@@ -209,10 +207,12 @@ function enterManually(area) {
         state: info.state,
         postcode: info.postcode || null,
     },
-      location: {
-        type: "Point",
-        coordinates: [location.longitude, location.latitude],
-      },
+    location: location
+        ? {
+            type: "Point",
+            coordinates: [location.longitude, location.latitude],
+        }   
+        : null,
       cuisines,
       food_categories: foodCategories,
       price_range: read("price_range") || null,
@@ -231,7 +231,6 @@ function enterManually(area) {
       setHours({});
       setCuisines([]);
       setFoodCategories([]);
-      setShowMap(false);
       onSubmitted(result.message);
     } catch (requestError) {
       if (!active.current) return;
@@ -248,30 +247,43 @@ function enterManually(area) {
   }
 
   return (
-    <form className="submission-form" onSubmit={handleSubmit}>
+    <form
+        className="submission-form"
+        onSubmit={handleSubmit}
+        noValidate
+    >
       <fieldset disabled={busy}>
         <legend>Restaurant information</legend>
 
-        {showRestaurantSearch ? (
-            <RestaurantCandidatePicker
-                onSelect={selectRestaurant}
-                onManual={enterManually}
-            />
-        ) : (
-            <button
-                type="button"
-                onClick={() => setShowRestaurantSearch(true)}
-            >
-                Search for a different restaurant
-            </button>
-        )}
+        <RestaurantNameInput
+            value={restaurantInfo.name}
+            onChange={name =>
+                setRestaurantInfo(current => ({ ...current, name }))
+            }
+            onSelect={selectRestaurant}
+        />
 
-        {detailsReady && (
-            <SubmissionRestaurantInfo
-                value={restaurantInfo}
-                onChange={setRestaurantInfo}
-            />
-        )}
+        <SubmissionRestaurantInfo
+            value={restaurantInfo}
+            onChange={setRestaurantInfo}
+            onAddressSelected={selected => {
+                setRestaurantInfo(current => ({
+                    ...current,
+                    full_address: selected.label,
+                    city: selected.city ?? "",
+                    state: selected.state ?? "",
+                    postcode: selected.postcode ?? "",
+                }));
+
+                setLocation({
+                    latitude: selected.latitude,
+                    longitude: selected.longitude,
+                    label: selected.label,
+                });
+
+                setError("");
+            }}
+        />
 
         <details>
             <summary>Add a description — optional</summary>
@@ -288,39 +300,6 @@ function enterManually(area) {
                 placeholder="For example, a kopitiam with several food stalls."
             />
         </details>
-
-        <p>
-          Choose the restaurant’s exact position, not just its town centre.
-        </p>
-
-        <button
-          type="button"
-          aria-expanded={showMap}
-          onClick={() => setShowMap(current => !current)}
-        >
-          {showMap
-            ? "Close map"
-            : location
-                ? "Check or adjust restaurant location"
-                : "Choose restaurant location"}
-        </button>
-
-        {location && (
-          <p>
-            Selected point: {location.latitude.toFixed(5)},{" "}
-            {location.longitude.toFixed(5)}
-          </p>
-        )}
-
-        {showMap && (
-          <LocationPicker
-            initialLocation={location ?? searchArea}
-            onConfirm={selected => {
-              setLocation(selected);
-              setShowMap(false);
-            }}
-          />
-        )}
 
         {optionsWarning && <p role="status">{optionsWarning}</p>}
 
@@ -411,23 +390,29 @@ function enterManually(area) {
           })}
         </details>
 
+        {!location && (
+            <p role="status">
+                Map location hasn’t been identified. You can still submit the
+                restaurant for review using its full address. Its location must
+                be confirmed before publication.
+            </p>
+        )}
+
         <label className="submission-confirmation">
           <input type="checkbox" required />
           <span>
-            I have checked the address and map position, and the
+            I have checked the restaurant name and address, and the
             information is accurate to the best of my knowledge.
           </span>
         </label>
 
-        <button
-            type="submit"
-            disabled={!detailsReady || showRestaurantSearch}
-        >
+        {error && <p role="alert">{error}</p>}
+
+        <button type="submit" disabled={busy}>
             {busy ? "Submitting…" : "Submit restaurant"}
         </button>
       </fieldset>
 
-      {error && <p role="alert">{error}</p>}
     </form>
   );
 }

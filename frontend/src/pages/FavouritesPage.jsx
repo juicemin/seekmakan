@@ -109,7 +109,7 @@ export default function FavouritesPage() {
         <>
           <p>{data.total} saved restaurants</p>
 
-          <section className="restaurant-grid" aria-label="Favourite restaurants">
+          <section className="favourites-list" aria-label="Favourite restaurants">
             {data.items.map(item =>
               item.restaurant ? (
                 <RestaurantCard

@@ -1,58 +1,32 @@
-import { useState } from "react";
+import SubmissionAddressLookup from "./SubmissionAddressLookup";
 
 const FIELDS = [
-  { key: "name", label: "Restaurant name", min: 2, max: 100 },
   { key: "full_address", label: "Full address", min: 5, max: 300 },
   { key: "city", label: "City / town", min: 2, max: 100 },
   { key: "state", label: "State", min: 2, max: 100 },
   { key: "postcode", label: "Postcode", optional: true },
 ];
 
-function isValid(field, value) {
-  const text = value.trim();
-
-  if (field.key === "postcode") {
-    return text === "" || /^[0-9]{5}$/.test(text);
-  }
-
-  return text.length >= field.min && text.length <= field.max;
-}
-
-export default function SubmissionRestaurantInfo({ value, onChange }) {
-  const [editing, setEditing] = useState(false);
-  const missingDetails = FIELDS.some(
-    field => !isValid(field, value[field.key])
-  );
+export default function SubmissionRestaurantInfo({
+  value,
+  onChange,
+  onAddressSelected,
+}) {
 
   function updateField(key, text) {
-    setEditing(true);
     onChange(current => ({ ...current, [key]: text }));
-  }
+}
 
   return (
     <section className="submission-restaurant-info">
       <h3>Restaurant details</h3>
 
       <div>
-        <strong>{value.name || "Restaurant name not provided"}</strong>
         <p>{value.full_address || "Address not provided"}</p>
       </div>
 
-      <button
-        type="button"
-        aria-expanded={editing}
-        onClick={() => setEditing(current => !current)}
-      >
-        {editing ? "Finish editing" : "Edit restaurant details"}
-      </button>
-
-      {missingDetails && (
-        <p>Please complete the missing or invalid details below.</p>
-      )}
-
       {FIELDS.map(field => {
         // Valid information stays in state without showing another input.
-        if (!editing && isValid(field, value[field.key])) return null;
 
         const id = `submission-info-${field.key}`;
 
@@ -90,6 +64,13 @@ export default function SubmissionRestaurantInfo({ value, onChange }) {
                   field.key === "postcode" ? "[0-9]{5}" : undefined
                 }
                 required={!field.optional}
+              />
+            )}
+
+            {field.key === "full_address" && (
+              <SubmissionAddressLookup
+                address={value.full_address}
+                onSelect={onAddressSelected}
               />
             )}
           </div>
