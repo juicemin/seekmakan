@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 import { postAuth } from "../api/auth";
 import PasswordInput from "../components/PasswordInput";
+import AuthForm from "../components/AuthForm";
 
 export function RegisterForm() {
   const [message, setMessage] = useState("");
@@ -152,7 +153,7 @@ export function RegisterForm() {
     <section>
       <p>Verify your email to activate your SeekMakan account.</p>
 
-      <form className="auth-form" onSubmit={handleSubmit}>
+      <AuthForm onSubmit={handleSubmit}>
         <label htmlFor="register-name">Display name</label>
         <input
           id="register-name"
@@ -176,13 +177,13 @@ export function RegisterForm() {
             id="register-password"
             name="password"
             autoComplete="new-password"
-            minLength={12}
+            minLength={10}
             maxLength={128}
             aria-describedby="password-help"
             required
         />
         <small id="password-help">
-          12–128 characters. No whitespace. Numbers and symbols are optional.
+          10–128 characters. No whitespace. Numbers and symbols are optional.
         </small>
 
         <label htmlFor="register-confirmation">Confirm password</label>
@@ -190,15 +191,13 @@ export function RegisterForm() {
             id="register-confirmation"
             name="confirmation"
             autoComplete="new-password"
-            minLength={12}
-            maxLength={128}
             required
         />
 
         <button type="submit" disabled={busy}>
           {busy ? "Submitting…" : "Create account"}
         </button>
-      </form>
+      </AuthForm>
 
       {error && <p role="alert">{error}</p>}
       {message && <p role="status">{message}</p>}
@@ -216,6 +215,31 @@ export function VerifyEmailPage() {
   const [busy, setBusy] = useState(false);
   const [verified, setVerified] = useState(false);
   const submitting = useRef(false);
+  const [resendEmail, setResendEmail] = useState("");
+  const [resendMessage, setResendMessage] = useState("");
+
+  async function handleResendVerification(event) {
+  event.preventDefault();
+  if (submitting.current) return;
+
+  submitting.current = true;
+  setBusy(true);
+  setError("");
+  setResendMessage("");
+
+  try {
+    const result = await postAuth("resend-verification", {
+      email: resendEmail.trim(),
+    });
+
+    setResendMessage(result.message);
+  } catch (requestError) {
+    setError(requestError.message);
+  } finally {
+    submitting.current = false;
+    setBusy(false);
+  }
+}
 
   async function handleVerify() {
     if (submitting.current || verified) return;
@@ -273,10 +297,34 @@ export function VerifyEmailPage() {
         </p>
     )}
 
-      <p>
-        <Link to="/register">Register or request a new verification link</Link>
-      </p>
-      <p><Link to="/restaurants">Browse restaurants</Link></p>
+    {!verified && (
+      <details>
+        <summary>Request a new verification link</summary>
+
+        <AuthForm onSubmit={handleResendVerification}>
+          <label htmlFor="verification-resend-email">
+            Email used to register
+          </label>
+
+          <input
+            id="verification-resend-email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            value={resendEmail}
+            onChange={event => setResendEmail(event.target.value)}
+            disabled={busy}
+            required
+          />
+
+          <button type="submit" disabled={busy}>
+            {busy ? "Sending…" : "Send verification link"}
+          </button>
+        </AuthForm>
+
+        {resendMessage && <p role="status">{resendMessage}</p>}
+      </details>
+    )}
     </main>
   );
 }

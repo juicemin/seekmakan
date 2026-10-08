@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { postAuth } from "../api/auth";
 import PasswordInput from "../components/PasswordInput";
+import AuthForm from "../components/AuthForm";
 
 export function ForgotPasswordForm() {
   const [busy, setBusy] = useState(false);
@@ -35,7 +36,7 @@ export function ForgotPasswordForm() {
     <section>
       <p>Enter your registered email to request a password reset link.</p>
 
-      <form className="auth-form" onSubmit={handleSubmit}>
+      <AuthForm onSubmit={handleSubmit}>
         <label htmlFor="recovery-email">Email</label>
         <input
           id="recovery-email"
@@ -48,7 +49,7 @@ export function ForgotPasswordForm() {
         <button type="submit" disabled={busy}>
           {busy ? "Requesting…" : "Send reset link"}
         </button>
-      </form>
+      </AuthForm>
 
       {message && <p role="status">{message}</p>}
       {error && <p role="alert">{error}</p>}
@@ -122,33 +123,31 @@ export function ResetPasswordPage() {
       {!token ? (
         <p>Open the reset link from your email to continue.</p>
       ) : !complete ? (
-        <form className="auth-form" onSubmit={handleSubmit}>
+        <AuthForm onSubmit={handleSubmit}>
           <label htmlFor="reset-password">New password</label>
           <PasswordInput
             id="reset-password"
             name="password"
             autoComplete="new-password"
-            minLength={12}
+            minLength={10}
             maxLength={128}
             required
           />
 
-          <small>12–128 characters, without whitespace.</small>
+          <small>10–128 characters, without whitespace.</small>
 
           <label htmlFor="reset-confirmation">Confirm new password</label>
           <PasswordInput
             id="reset-confirmation"
             name="confirmation"
             autoComplete="new-password"
-            minLength={12}
-            maxLength={128}
             required
           />
 
           <button type="submit" disabled={busy}>
             {busy ? "Updating…" : "Update password"}
           </button>
-        </form>
+        </AuthForm>
       ) : null}
 
       {error && <p role="alert">{error}</p>}

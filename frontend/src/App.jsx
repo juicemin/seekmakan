@@ -9,6 +9,7 @@ import AuthAccess from "./components/AuthAccess";
 import { ResetPasswordPage } from "./pages/PasswordRecovery";
 import ProfilePage from "./pages/ProfilePage";
 import FavouritesPage from "./pages/FavouritesPage";
+import CommunityPage from "./pages/CommunityPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <NavLink to="/food">Food Discovery</NavLink>
         <NavLink to="/decide">Decide For Me</NavLink>
         <NavLink to="/favourites">Favourites</NavLink>
+        <NavLink to="/community">Community</NavLink>
         <AuthAccess />
       </nav>
 
@@ -72,6 +74,10 @@ function App() {
       <Route 
       path="/favourites" 
       element={<FavouritesPage />} />
+
+      <Route 
+      path="/community" 
+      element={<CommunityPage />} />
 
     </Routes>
     <footer>

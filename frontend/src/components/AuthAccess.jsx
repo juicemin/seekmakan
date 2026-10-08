@@ -4,6 +4,7 @@ import { getSession, postAuth } from "../api/auth";
 import { RegisterForm } from "../pages/AuthPages";
 import PasswordInput from "./PasswordInput";
 import { ForgotPasswordForm } from "../pages/PasswordRecovery";
+import AuthForm from "./AuthForm";
 
 const PROMPT_KEY = "seekmakan-auth-prompt-seen";
 
@@ -167,7 +168,11 @@ export default function AuthAccess() {
   }
 
   async function handleLogout() {
-    if (submitting.current) return;
+  if (submitting.current) return;
+
+  if (!window.confirm("Are you sure you want to log out?")) {
+    return;
+  }
 
     submitting.current = true;
     setBusy(true);
@@ -289,7 +294,7 @@ export default function AuthAccess() {
               </>
             ) : (
               <>
-                <form className="auth-form" onSubmit={handleLogin}>
+                <AuthForm onSubmit={handleLogin}>
                   <label htmlFor="login-email">Email</label>
                   <input
                     id="login-email"
@@ -320,7 +325,7 @@ export default function AuthAccess() {
                   <button type="submit" disabled={busy}>
                     {busy ? "Logging in…" : "Log in"}
                   </button>
-                </form>
+                </AuthForm>
 
                 <p className="auth-signup-prompt">
                   New to SeekMakan?{" "}

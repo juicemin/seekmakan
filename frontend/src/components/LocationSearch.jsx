@@ -1,7 +1,10 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { searchLocations } from "../api/locations";
 
-export default function LocationSearch({ onSelect }) {
+export default function LocationSearch({
+  onSelect,
+  resultHint = "Choose a result to move the map.",
+}) {
   const inputId = useId();
   const controllerRef = useRef(null);
 
@@ -105,7 +108,7 @@ export default function LocationSearch({ onSelect }) {
           <p>
             {items.length === 0
               ? "No locations found. Try adding a town or state."
-              : "Choose a result to move the map."}
+              : resultHint}
           </p>
         )}
       </div>

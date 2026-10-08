@@ -8,6 +8,7 @@ import ManualWheelSummary from "../components/ManualWheelSummary";
 import RestaurantActions from "../components/RestaurantActions";
 import RestaurantPhotoGallery from "../components/RestaurantPhotoGallery";
 import FavouriteButton from "../components/FavouriteButton";
+import RestaurantReviews from "../components/RestaurantReviews";
 const WEEKDAYS = [
   "monday",
   "tuesday",
@@ -39,27 +40,28 @@ function formatOperatingHours(hours) {
 function RestaurantDetailsPage() {
   const {restaurantId} = useParams();
   const routeLocation = useLocation();
-const requestedReturn = routeLocation.state?.returnTo;
+  const requestedReturn = routeLocation.state?.returnTo;
 
-const returnPages = {
-  "/": "Restaurant Discovery",
-  "/restaurants": "Restaurant Discovery",
-  "/food": "Food Discovery",
-  "/decide": "Decide For Me",
-  "/favourites": "Favourites",
-};
+  const returnPages = {
+    "/": "Restaurant Discovery",
+    "/restaurants": "Restaurant Discovery",
+    "/food": "Food Discovery",
+    "/decide": "Decide For Me",
+    "/favourites": "Favourites",
+    "/community": "Community",
+  };
 
-const returnPath =
-  typeof requestedReturn === "string"
-    ? requestedReturn.split(/[?#]/)[0]
-    : "";
+  const returnPath =
+    typeof requestedReturn === "string"
+      ? requestedReturn.split(/[?#]/)[0]
+      : "";
 
-const validReturn = Object.hasOwn(returnPages, returnPath);
-const returnTo = validReturn ? requestedReturn : "/restaurants";
+  const validReturn = Object.hasOwn(returnPages, returnPath);
+  const returnTo = validReturn ? requestedReturn : "/restaurants";
 
-const returnLabel = validReturn
-  ? returnPages[returnPath]
-  : "restaurant discovery";
+  const returnLabel = validReturn
+    ? returnPages[returnPath]
+    : "restaurant discovery";
   const [restaurant, setRestaurant] = useState(null);
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
@@ -95,6 +97,11 @@ const returnLabel = validReturn
       controller.abort();
     };
   }, [restaurantId]);
+
+  async function refreshRestaurantAfterReview() {
+  const updated = await getRestaurant(restaurantId);
+  setRestaurant(updated);
+}
 
   return (
     <main className="page restaurant-details-page">
@@ -233,6 +240,12 @@ const returnLabel = validReturn
                 : "No reviews yet."}
             </p>
           </section>
+
+          <RestaurantReviews
+            key={restaurant.id}
+            restaurantId={restaurant.id}
+            onRestaurantRefresh={refreshRestaurantAfterReview}
+          />
         </article>
       )}
       <ManualWheelSummary />
