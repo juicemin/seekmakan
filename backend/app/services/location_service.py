@@ -138,11 +138,24 @@ def search_locations(text: str) -> list[LocationResult]:
             ):
                 continue
 
+            address_fields = {
+                key: value.strip()
+                for key, value in result.items()
+                if isinstance(value, str)
+            }
+
             try:
                 item = LocationResult(
                     label=label,
                     latitude=float(latitude),
                     longitude=float(longitude),
+                    city=(
+                        address_fields.get("city", "")
+                        or address_fields.get("town", "")
+                        or address_fields.get("village", "")
+                    ),
+                    state=address_fields.get("state", ""),
+                    postcode=address_fields.get("postcode", ""),
                 )
             except ValidationError:
                 continue

@@ -13,7 +13,7 @@ router = APIRouter(
 
 @router.get("/search", response_model=LocationSearchResponse)
 def search_location(
-    q: str = Query(min_length=3, max_length=150),
+    q: str = Query(min_length=3, max_length=300),
 ) -> dict:
     try:
         return {"items": search_locations(q)}

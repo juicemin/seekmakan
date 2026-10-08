@@ -39,7 +39,7 @@ class RestaurantSubmissionInput(BaseModel):
     name: str = Field(min_length=2, max_length=100)
     description: str | None = Field(default=None, max_length=1000)
     address: SubmissionAddress
-    location: SubmissionLocation
+    location: SubmissionLocation | None = None
 
     cuisines: list[Tag] = Field(default_factory=list, max_length=20)
     food_categories: list[Tag] = Field(
