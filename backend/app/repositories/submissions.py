@@ -47,6 +47,7 @@ def serialize_submission(document: dict) -> dict:
             }
             for photo in document.get("photos", [])
         ],
+        "review_reason": document.get("review_reason", ""),
     }
 
 def create_submission(

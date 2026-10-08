@@ -16,6 +16,7 @@ from app.routers.favourites import router as favourites_router
 from app.routers.reviews import router as reviews_router
 from app.routers.submissions import router as submissions_router
 from app.routers.submission_photos import router as submission_photos_router
+from app.routers.admin_submissions import router as admin_submissions_router
 
 app = FastAPI(
     title = "SeekMakan API",
@@ -68,6 +69,8 @@ app.include_router(reviews_router)
 app.include_router(submissions_router)
 
 app.include_router(submission_photos_router)
+
+app.include_router(admin_submissions_router)
 
 @app.get("/")
 def root() -> dict[str, str]:

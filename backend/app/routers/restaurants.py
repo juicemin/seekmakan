@@ -3,6 +3,8 @@ from fastapi import APIRouter, Depends, HTTPException, Query, status
 from pymongo.database import Database
 from app.database import get_database
 from app.models.enums import PriceRange
+from app.services.admin import require_admin
+from app.services.sessions import require_browser_request
 
 from app.schemas.restaurant import (
     RestaurantCreate,
@@ -104,6 +106,10 @@ def retrieve_restaurant(
 def create_new_restaurant(
     payload: RestaurantCreate,
     database: DatabaseDependency,
+    dependencies=[
+        Depends(require_admin),
+        Depends(require_browser_request),
+    ],
 ) -> dict:
     return add_restaurant(
         database,
