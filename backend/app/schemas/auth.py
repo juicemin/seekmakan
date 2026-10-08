@@ -24,7 +24,7 @@ class RegisterRequest(BaseModel):
 
     display_name: str = Field(min_length=1, max_length=80)
     email: EmailStr
-    password: SecretStr = Field(min_length=12, max_length=128)
+    password: SecretStr = Field(min_length=10, max_length=128)
 
     @field_validator("display_name", mode="before")
     @classmethod
@@ -72,7 +72,7 @@ class ForgotPasswordRequest(BaseModel):
     email: EmailStr
 
 class ResetPasswordRequest(VerifyEmailRequest):
-    new_password: SecretStr = Field(min_length=12, max_length=128)
+    new_password: SecretStr = Field(min_length=10, max_length=128)
 
     @field_validator("new_password")
     @classmethod

@@ -53,7 +53,7 @@ def test_reject_invalid_registration(changes: dict) -> None:
 
 @pytest.mark.parametrize(
     ("length", "accepted"),
-    [(11, False), (12, True)],
+    [(9, False), (10, True)],
 )
 def test_password_minimum_length(length: int, accepted: bool) -> None:
     data = {
