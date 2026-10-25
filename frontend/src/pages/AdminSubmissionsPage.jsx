@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../config";
 import AdminReviewActions from "../components/AdminReviewActions";
 import AdminLocationConfirmation from "../components/AdminLocationConfirmation";
+import { formatOperatingHours } from "../utils/formatOperatingHours";
 
 export default function AdminSubmissionsPage() {
   const [page, setPage] = useState(1);
@@ -131,11 +132,7 @@ export default function AdminSubmissionsPage() {
                         ([day, hours]) => (
                           <p key={day}>
                             {day}:{" "}
-                            {hours.status === "closed"
-                              ? "Closed"
-                              : hours.status === "open_24_hours"
-                                ? "Open 24 hours"
-                                : `${hours.open}–${hours.close}`}
+                            {formatOperatingHours(hours)}
                           </p>
                         )
                       )}

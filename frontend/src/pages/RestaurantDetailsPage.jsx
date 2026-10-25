@@ -9,6 +9,7 @@ import RestaurantActions from "../components/RestaurantActions";
 import RestaurantPhotoGallery from "../components/RestaurantPhotoGallery";
 import FavouriteButton from "../components/FavouriteButton";
 import RestaurantReviews from "../components/RestaurantReviews";
+import { formatOperatingHours } from "../utils/formatOperatingHours";
 const WEEKDAYS = [
   "monday",
   "tuesday",
@@ -18,24 +19,6 @@ const WEEKDAYS = [
   "saturday",
   "sunday",
 ];
-
-function formatOperatingHours(hours) {
-  if (!hours) return "Not provided";
-
-  if (hours.status === "closed") {
-    return "Closed";
-  }
-
-  if (hours.status === "open_24_hours") {
-    return "Open 24 hours";
-  }
-
-  if (!hours.open || !hours.close) {
-    return "Not provided";
-  }
-
-  return `${hours.open} – ${hours.close}`;
-}
 
 function RestaurantDetailsPage() {
   const {restaurantId} = useParams();
