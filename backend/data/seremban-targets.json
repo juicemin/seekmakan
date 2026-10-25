@@ -9,11 +9,111 @@
   },
   {
     "name": "Restoran Hua Hua Pan Mee / 华华面粉糕",
-    "address": "Jalan TBK 5/2, Taman Bukit Kepayang, 70200 Seremban, Negeri Sembilan"
+    "address": "Jalan TBK 5/2, Taman Bukit Kepayang, 70200 Seremban, Negeri Sembilan",
+    "postcode": "70200",
+    "manual_location": {
+      "latitude": 2.7168506019906418, 
+      "longitude": 101.9089339846588,
+      "source": "Google Maps, manually consulted",
+      "checked_on": "2026-10-25"
+    },
+    "description": "A restaurant that serves handmade traditional pan mee noodles. The ingredients and soup are prepared fresh daily, the noodle comes with handmade meatballs, minced pork, and other toppings. The restaurant is known for its authentic taste and quality.",
+    "cuisines": ["Chinese"],
+    "food_categories": ["Pan Mee", "Noodles", "Soup", "Dried Noodles"],
+    "price_range": "RM1-RM20",
+    "operating_hours": {
+      "monday": {
+        "status": "closed",
+        "open": null,
+        "close": null
+      },
+      "tuesday": {
+        "status": "open",
+        "open": "16:00",
+        "close": "21:00"
+      },
+      "wednesday": {
+        "status": "open",
+        "open": "16:00",
+        "close": "21:00"
+      },
+      "thursday": {
+        "status": "open",
+        "open": "16:00",
+        "close": "21:00"
+      },
+      "friday": {
+        "status": "open",
+        "open": "16:00",
+        "close": "21:00"
+      },
+      "saturday": {
+        "status": "open",
+        "open": "16:00",
+        "close": "21:00"
+      },
+      "sunday": {
+        "status": "open",
+        "open": "16:00",
+        "close": "21:00"
+      }
+    },
+    "information_source": "Google Maps, manually consulted",
+    "information_checked_on": "2026-10-25"
   },
   {
     "name": "be my friend cafe",
-    "address": "Block A 18-1, Oakland Commercial Square, 2, Jalan Haruan 5/9, Medan Perdagangan Oakland, 70300 Seremban, Negeri Sembilan"
+    "address": "Block A 18-1, Oakland Commercial Square, 2, Jalan Haruan 5/9, Medan Perdagangan Oakland, 70300 Seremban, Negeri Sembilan",
+    "postcode": "70300",
+    "manual_location": {
+      "latitude": 2.701423089022772, 
+      "longitude": 101.91833642698819,
+      "source": "Google Maps, manually consulted",
+      "checked_on": "2026-10-25"
+    },
+    "description": "A Western and Mexican fusion small restaurant located on the second floor, so hidden that people rarely notice it's there. It serves a wide variety of items including pizzas, pastas, rice bowls, and Mexican favorites.",
+    "cuisines": ["Western", "Mexican"],
+    "food_categories": ["Pizza", "Pasta", "Rice", "Burrito", "Burger", "Salad", "Seafood", "Poultry", "Meat"],
+    "price_range": "RM21-RM50",
+    "operating_hours": {
+      "monday": {
+        "status": "open",
+        "open": "12:00",
+        "close": "22:00"
+      },
+      "tuesday": {
+      "status": "closed",
+      "open": null,
+      "close": null
+      },
+      "wednesday": {
+        "status": "open",
+        "open": "12:00",
+        "close": "22:00"
+      },
+      "thursday": {
+        "status": "open",
+        "open": "12:00",
+        "close": "22:00"
+      },
+      "friday": {
+        "status": "open",
+        "open": "12:00",
+        "close": "22:00"
+      },
+      "saturday": {
+        "status": "open",
+        "open": "12:00",
+        "close": "22:00"
+      },
+      "sunday": {
+        "status": "open",
+        "open": "12:00",
+        "close": "22:00"
+      }
+    },
+    "information_source": "Google Maps, manually consulted",
+    "information_checked_on": "2026-10-25"
   },
   {
     "name": "美麗都茶餐室",
@@ -40,7 +140,57 @@
   },
   {
     "name": "宋记沙河粉雲呑面Soong Kee Ipoh Kuey Teow / Wantan Mee",
-    "address": "Taman Bangawan, 70200 Seremban, Negeri Sembilan"
+    "address": "Taman Bangawan, 70200 Seremban, Negeri Sembilan",
+    "postcode": "70200",
+    "manual_location": {
+      "latitude": 2.7365439126767326,
+      "longitude": 101.93123305264744,
+      "source": "Google Maps, manually consulted",
+      "checked_on": "2026-10-25"
+    },
+    "description": "A long-established restaurant that serves Ipoh-style kuey teow and wantan mee for over 50 years. The restaurant is famous for its Wan Tan Mee, which served with charsiu and vegetables. It also serves Ipoh-style kuey teow and dumplings.",
+    "cuisines": ["Chinese"],
+    "food_categories": ["Noodles", "Dumplings", "Soup", "Wan Tan Mee", "Kuey Teow"],
+    "price_range": "RM1-RM20",
+    "operating_hours": {
+      "monday": {
+        "status": "closed",
+        "open": null,
+        "close": null
+      },
+      "tuesday": {
+        "status": "open",
+        "open": "07:00",
+        "close": "14:00"
+      },
+      "wednesday": {
+        "status": "open",
+        "open": "07:00",
+        "close": "14:00"
+      },
+      "thursday": {
+        "status": "open",
+        "open": "07:00",
+        "close": "14:00"
+      },
+      "friday": {
+        "status": "open",
+        "open": "07:00",
+        "close": "14:00"
+      },
+      "saturday": {
+        "status": "open",
+        "open": "07:00",
+        "close": "14:00"
+      },
+      "sunday": {
+        "status": "open",
+        "open": "07:00",
+        "close": "14:00"
+      }
+    },
+    "information_source": "Google Maps, manually consulted",
+    "information_checked_on": "2026-10-25"
   },
   {
     "name": "NUR BISTRO - NASI KANDAR ORIGINAL",

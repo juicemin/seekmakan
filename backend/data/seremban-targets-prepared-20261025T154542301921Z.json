@@ -1,0 +1,648 @@
+{
+  "prepared_at": "2026-10-25T15:45:42.301921+00:00",
+  "records": [
+    {
+      "restaurant": {
+        "name": "Seremban Oakland Pork Noodle",
+        "description": null,
+        "address": {
+          "full_address": "552, Jalan Haruan 4/7, Pusat Komersil Oakland, 70300 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70300"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9185511,
+            2.706984
+          ]
+        },
+        "photos": [],
+        "cuisines": [],
+        "food_categories": [],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Seremban Oakland Pork Noodle",
+        "business_details_source": "user_supplied",
+        "information_checked_on": null,
+        "location_provider": "geoapify",
+        "location_place_id": "511c8d8d8ac97a594059b35c363ae7a70540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323737323337",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "location_review": null,
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json",
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "小舅糖水",
+        "description": null,
+        "address": {
+          "full_address": "161, Jalan Toman 8, Kemayan Square, 70200 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70200"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.922576,
+            2.716812
+          ]
+        },
+        "photos": [],
+        "cuisines": [],
+        "food_categories": [],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "小舅糖水",
+        "business_details_source": "user_supplied",
+        "information_checked_on": null,
+        "location_provider": "geoapify",
+        "location_place_id": "51c504357c0b7b594059f60a0bee07bc0540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323830353130",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "manually_reviewed",
+        "location_review": {
+          "latitude": 2.716812,
+          "longitude": 101.922576,
+          "candidate_place_id": "51c504357c0b7b594059f60a0bee07bc0540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323830353130",
+          "review_method": "personal_visit_knowledge",
+          "review_note": "Project author recognises candidate C as the shop location from a previous visit.",
+          "reviewed_on": "2026-10-24"
+        },
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json",
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Restoran Hua Hua Pan Mee / 华华面粉糕",
+        "description": "A restaurant that serves handmade traditional pan mee noodles. The ingredients and soup are prepared fresh daily, the noodle comes with handmade meatballs, minced pork, and other toppings. The restaurant is known for its authentic taste and quality.",
+        "address": {
+          "full_address": "Jalan TBK 5/2, Taman Bukit Kepayang, 70200 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70200"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9089339846588,
+            2.7168506019906418
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Chinese"
+        ],
+        "food_categories": [
+          "Pan Mee",
+          "Noodles",
+          "Soup",
+          "Dried Noodles"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "closed",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "16:00",
+            "close": "21:00",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "16:00",
+            "close": "21:00",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "16:00",
+            "close": "21:00",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "16:00",
+            "close": "21:00",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "16:00",
+            "close": "21:00",
+            "periods": []
+          },
+          "sunday": {
+            "status": "open",
+            "open": "16:00",
+            "close": "21:00",
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Restoran Hua Hua Pan Mee / 华华面粉糕",
+        "business_details_source": "Google Maps, manually consulted",
+        "information_checked_on": null,
+        "location_provider": "Google Maps, manually consulted",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.7168506019906418,
+          "longitude": 101.9089339846588,
+          "source": "Google Maps, manually consulted",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "be my friend cafe",
+        "description": "A Western and Mexican fusion small restaurant located on the second floor, so hidden that people rarely notice it's there. It serves a wide variety of items including pizzas, pastas, rice bowls, and Mexican favorites.",
+        "address": {
+          "full_address": "Block A 18-1, Oakland Commercial Square, 2, Jalan Haruan 5/9, Medan Perdagangan Oakland, 70300 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70300"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.91833642698819,
+            2.701423089022772
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Western",
+          "Mexican"
+        ],
+        "food_categories": [
+          "Pizza, Pasta",
+          "Rice",
+          "Burrito",
+          "Burger",
+          "Salad",
+          "Seafood",
+          "Poultry",
+          "Meat"
+        ],
+        "price_range": "RM21-RM50",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": "12:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "tuesday": {
+            "status": "closed",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "12:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "12:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "12:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "12:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "sunday": {
+            "status": "open",
+            "open": "12:00",
+            "close": "22:00",
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "be my friend cafe",
+        "business_details_source": "Google Maps, manually consulted",
+        "information_checked_on": null,
+        "location_provider": "Google Maps, manually consulted",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.701423089022772,
+          "longitude": 101.91833642698819,
+          "source": "Google Maps, manually consulted",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "美麗都茶餐室",
+        "description": null,
+        "address": {
+          "full_address": "1, Jalan Utam Singh, Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70000"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9373046,
+            2.7287862
+          ]
+        },
+        "photos": [],
+        "cuisines": [],
+        "food_categories": [],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "美麗都茶餐室",
+        "business_details_source": "user_supplied",
+        "information_checked_on": null,
+        "location_provider": "geoapify",
+        "location_place_id": "51fcd86eccfc7b5940597c35f6db8dd40540f00102f9014130315300000000c00203",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "location_review": null,
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json",
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "兄弟茶室-芙蓉森州",
+        "description": null,
+        "address": {
+          "full_address": "5, Jalan Kong Sang, Pusat Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70000"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9371514,
+            2.7284141
+          ]
+        },
+        "photos": [],
+        "cuisines": [],
+        "food_categories": [],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "兄弟茶室-芙蓉森州",
+        "business_details_source": "user_supplied",
+        "information_checked_on": null,
+        "location_provider": "geoapify",
+        "location_place_id": "51a499dd49fa7b594059ec8f8bc5cad30540f00102f9012e30315300000000c00203",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "location_review": null,
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json",
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "芙蓉阿叔滑鸡饭",
+        "description": null,
+        "address": {
+          "full_address": "26, Jalan Seng Meng Lee, Seremban, 70200 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70200"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.94054753988945,
+            2.734037600523562
+          ]
+        },
+        "photos": [],
+        "cuisines": [],
+        "food_categories": [],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "芙蓉阿叔滑鸡饭",
+        "business_details_source": "user_supplied",
+        "information_checked_on": null,
+        "location_provider": "Google Maps, manually consulted",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.734037600523562,
+          "longitude": 101.94054753988945,
+          "source": "Google Maps, manually consulted",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Number One Top Curry House",
+        "description": null,
+        "address": {
+          "full_address": "15, Jalan Dato Abdul Rahman, Bandar Seremban, 70000 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70000"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.9390403,
+            2.7272416
+          ]
+        },
+        "photos": [],
+        "cuisines": [],
+        "food_categories": [],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Number One Top Curry House",
+        "business_details_source": "user_supplied",
+        "information_checked_on": null,
+        "location_provider": "geoapify",
+        "location_place_id": "5111887c3c197c5940596253420b64d10540f00102f9011c7c2d5300000000c00203",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "location_review": null,
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json",
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "宋记沙河粉雲呑面Soong Kee Ipoh Kuey Teow / Wantan Mee",
+        "description": "A long-established restaurant that serves Ipoh-style kuey teow and wantan mee for over 50 years. The restaurant is famous for its Wan Tan Mee, which served with charsiu and vegetables. It also serves Ipoh-style kuey teow and dumplings.",
+        "address": {
+          "full_address": "Taman Bangawan, 70200 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70200"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.93123305264744,
+            2.7365439126767326
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Chinese"
+        ],
+        "food_categories": [
+          "Noodles, Dumplings",
+          "Soup",
+          "Wan Tan Mee",
+          "Kuey Teow"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "closed",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "14:00",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "14:00",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "14:00",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "14:00",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "14:00",
+            "periods": []
+          },
+          "sunday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "14:00",
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "宋记沙河粉雲呑面Soong Kee Ipoh Kuey Teow / Wantan Mee",
+        "business_details_source": "Google Maps, manually consulted",
+        "information_checked_on": null,
+        "location_provider": "Google Maps, manually consulted",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.7365439126767326,
+          "longitude": 101.93123305264744,
+          "source": "Google Maps, manually consulted",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "seremban-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "NUR BISTRO - NASI KANDAR ORIGINAL",
+        "description": null,
+        "address": {
+          "full_address": "77, Jalan S2 B19, Pusat Dagangan, 2, Seremban 2, 70300 Seremban, Negeri Sembilan",
+          "city": "Seremban",
+          "state": "Negeri Sembilan",
+          "postcode": "70300"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.90357,
+            2.6936773
+          ]
+        },
+        "photos": [],
+        "cuisines": [],
+        "food_categories": [],
+        "price_range": null,
+        "operating_hours": {},
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "NUR BISTRO - NASI KANDAR ORIGINAL",
+        "business_details_source": "user_supplied",
+        "information_checked_on": null,
+        "location_provider": "geoapify",
+        "location_place_id": "5164e94317d47959405916d22bafa68c0540c00203",
+        "location_datasource": {
+          "sourcename": "openstreetmap",
+          "attribution": "© OpenStreetMap contributors",
+          "license": "Open Database License",
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "location_match_status": "address_matched",
+        "location_review": null,
+        "business_verified": false,
+        "review_file": "seremban-address-review-20261006T100245116686Z.json",
+        "targets_file": "seremban-targets.json"
+      }
+    }
+  ],
+  "skipped": []
+}
