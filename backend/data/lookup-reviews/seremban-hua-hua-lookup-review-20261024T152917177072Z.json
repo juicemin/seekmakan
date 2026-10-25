@@ -1,0 +1,307 @@
+{
+  "generated_at": "2026-10-24T15:29:17.177072+00:00",
+  "provider": "geoapify",
+  "records": [
+    {
+      "name": "Restoran Hua Hua Pan Mee / 华华面粉糕",
+      "provided_address": "Jalan TBK 5/2, Taman Bukit Kepayang, 70200 Seremban, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "Jalan TBK 5/2",
+        "postcode": "70200",
+        "city": "Seremban",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70200",
+            "county": "Seremban",
+            "neighbourhood": "Kepayang Residence",
+            "street": "Jalan TBK 4-2",
+            "iso3166_2": "MY-05",
+            "lon": 101.902524,
+            "lat": 2.7183705,
+            "housenumber": "5/2",
+            "result_type": "building",
+            "formatted": "5/2 Jalan TBK 4-2, 70200 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "5/2 Jalan TBK 4-2",
+            "address_line2": "70200 Seremban, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PW93+82",
+            "plus_code_short": "PW93+82 Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.0419540578890323,
+              "confidence": 0.405,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.81,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51baf605f4c279594059124a5f0839bf0540c00203",
+            "bbox": {
+              "lon1": 101.9003269,
+              "lat1": 2.7165304,
+              "lon2": 101.9041598,
+              "lat2": 2.7184006
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street, postcode"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "hamlet": "Kampung Dato Haji Mohd Said",
+            "postcode": "70300",
+            "county": "Seremban",
+            "suburb": "Kepayang C28 Business Centre",
+            "street": "Jalan TBK 5/4",
+            "iso3166_2": "MY-05",
+            "lon": 101.9088618,
+            "lat": 2.7175113,
+            "housenumber": "5/2",
+            "result_type": "building",
+            "formatted": "5/2 Jalan TBK 5/4, Kepayang C28 Business Centre, 70300 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "5/2 Jalan TBK 5/4",
+            "address_line2": "Kepayang C28 Business Centre, 70300 Seremban, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PW95+2G",
+            "plus_code_short": "PW95+2G Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.054202665897677,
+              "confidence": 0.405,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.81,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "515be5aeca2a7a5940596415809076bd0540c00203",
+            "bbox": {
+              "lon1": 101.9085462,
+              "lat1": 2.716743,
+              "lon2": 101.9094904,
+              "lat2": 2.7176477
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street, postcode"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70300",
+            "county": "Seremban",
+            "neighbourhood": "Kepayang Heights",
+            "suburb": "Lobak",
+            "street": "Jalan TBK 7/2",
+            "iso3166_2": "MY-05",
+            "lon": 101.9103346,
+            "lat": 2.712145,
+            "housenumber": "5/2",
+            "result_type": "building",
+            "formatted": "5/2 Jalan TBK 7/2, Lobak, 70300 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "5/2 Jalan TBK 7/2",
+            "address_line2": "Lobak, 70300 Seremban, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PW66+V4",
+            "plus_code_short": "PW66+V4 Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.1817755981254665,
+              "confidence": 0.405,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.81,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51b4da0dec427a5940595114e81379b20540c00203",
+            "bbox": {
+              "lon1": 101.9094324,
+              "lat1": 2.7119233,
+              "lon2": 101.9112852,
+              "lat2": 2.7125858
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street, postcode"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70300",
+            "county": "Seremban",
+            "neighbourhood": "Taman Rimbun Kiara",
+            "suburb": "Lobak",
+            "street": "Jalan TBK 6/5",
+            "iso3166_2": "MY-05",
+            "lon": 101.9105566,
+            "lat": 2.7132667,
+            "housenumber": "5/2",
+            "result_type": "building",
+            "formatted": "5/2 Jalan TBK 6/5, Lobak, 70300 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "5/2 Jalan TBK 6/5",
+            "address_line2": "Lobak, 70300 Seremban, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PW76+86",
+            "plus_code_short": "PW76+86 Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.1761733627496875,
+              "confidence": 0.405,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.81,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "510c8a308f467a594059549bee2bc5b40540c00203",
+            "bbox": {
+              "lon1": 101.9098981,
+              "lat1": 2.7129655,
+              "lon2": 101.9112128,
+              "lat2": 2.7135626
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: street"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Seremban",
+            "postcode": "70200",
+            "county": "Seremban",
+            "street": "Jalan TBK 2/18",
+            "iso3166_2": "MY-05",
+            "lon": 101.9016094,
+            "lat": 2.7216774,
+            "housenumber": "5/2",
+            "result_type": "building",
+            "formatted": "5/2 Jalan TBK 2/18, 70200 Seremban, Negeri Sembilan, Malaysia",
+            "address_line1": "5/2 Jalan TBK 2/18",
+            "address_line2": "70200 Seremban, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PWC2+MJ",
+            "plus_code_short": "PWC2+MJ Seremban, Malaysia",
+            "rank": {
+              "importance": 0.05338325246051725,
+              "popularity": 2.0419540578890323,
+              "confidence": 0.405,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.81,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "5109b1e9f7b3795940593619faccfec50540c00203",
+            "bbox": {
+              "lon1": 101.9008501,
+              "lat1": 2.7213243,
+              "lon2": 101.9023681,
+              "lat2": 2.7220291
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "input_file": "seremban-hua-hua-lookup.json",
+  "city": "Seremban",
+  "state": "Negeri Sembilan"
+}

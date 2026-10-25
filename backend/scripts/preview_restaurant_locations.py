@@ -2,6 +2,7 @@ import json
 import math
 import re
 import sys
+import argparse
 from datetime import datetime, timezone
 from pathlib import Path
 from time import sleep
@@ -9,10 +10,7 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlencode
 from urllib.request import urlopen
 
-
 BACKEND_DIR = Path(__file__).resolve().parents[1]
-INPUT_FILE = BACKEND_DIR / "data" / "seremban-targets.json"
-
 
 def normalise(value: object) -> str:
     """Ignore case and spacing, but preserve street-number separators."""
@@ -21,8 +19,11 @@ def normalise(value: object) -> str:
     return " ".join(text.split())
 
 
-def expected_address(address: str) -> dict:
-    """Conservative extraction for this Seremban dataset."""
+def expected_address(
+    address: str,
+    city: str = "Seremban",
+) -> dict:
+    """Extract address components for conservative matching."""
     house = re.match(r"^\s*(\d+[A-Za-z]?)\s*,", address)
     street = re.search(r"\bJalan\s+[^,]+", address, re.IGNORECASE)
     postcode = re.search(r"\b\d{5}\b", address)
@@ -31,7 +32,7 @@ def expected_address(address: str) -> dict:
         "housenumber": house.group(1) if house else "",
         "street": street.group(0).strip() if street else "",
         "postcode": postcode.group(0) if postcode else "",
-        "city": "Seremban",
+        "city": city,
         "country_code": "my",
     }
 
@@ -94,7 +95,12 @@ def assess_candidate(expected: dict, candidate: dict) -> dict:
     return result("address_matched")
 
 
-def fetch_candidates(expected: dict, address: str, api_key: str) -> list:
+def fetch_candidates(
+    expected: dict,
+    address: str,
+    api_key: str,
+    state: str,
+) -> list:
     parameters = {
         "apiKey": api_key,
         "format": "json",
@@ -108,7 +114,7 @@ def fetch_candidates(expected: dict, address: str, api_key: str) -> list:
             "housenumber": expected["housenumber"],
             "street": expected["street"],
             "city": expected["city"],
-            "state": "Negeri Sembilan",
+            "state": state,
             "country": "Malaysia",
         })
 
@@ -179,12 +185,31 @@ def main() -> None:
     # Imported here so offline checks do not require application settings.
     from app.config import settings
 
+    parser = argparse.ArgumentParser(
+        description="Preview restaurant address matches without database writes."
+    )
+    parser.add_argument("file", type=Path)
+    parser.add_argument("--city", required=True)
+    parser.add_argument("--state", required=True)
+    args = parser.parse_args()
+
+    input_file = args.file.resolve()
+
+    if not input_file.is_file():
+        raise SystemExit(f"Input file not found: {input_file}")
+
+    city = args.city.strip()
+    state = args.state.strip()
+
+    if not city or not state:
+        raise SystemExit("City and state must not be blank.")
+
     api_key = settings.geoapify_api_key.get_secret_value()
 
     if not api_key:
         raise SystemExit("Geoapify API key is missing from backend settings.")
 
-    with INPUT_FILE.open(encoding="utf-8-sig") as file:
+    with input_file.open(encoding="utf-8-sig") as file:
         targets = json.load(file)
 
     if not isinstance(targets, list) or not targets:
@@ -201,13 +226,16 @@ def main() -> None:
     records = []
 
     for index, target in enumerate(targets, start=1):
-        expected = expected_address(target["address"])
+        expected = expected_address(target["address"], city=city)
         checks = []
         error_message = None
 
         try:
             candidates = fetch_candidates(
-                expected, target["address"], api_key
+                expected,
+                target["address"],
+                api_key,
+                state=state,
             )
             checks = [
                 assess_candidate(expected, candidate)
@@ -248,8 +276,12 @@ def main() -> None:
         sleep(1.1)
 
     now = datetime.now(timezone.utc)
-    output = BACKEND_DIR / "data" / (
-        f"seremban-address-review-{now:%Y%m%dT%H%M%S%fZ}.json"
+
+    review_directory = BACKEND_DIR / "data" / "lookup-reviews"
+    review_directory.mkdir(parents=True, exist_ok=True)
+
+    output = review_directory / (
+        f"{input_file.stem}-review-{now:%Y%m%dT%H%M%S%fZ}.json"
     )
 
     with output.open("x", encoding="utf-8") as file:
@@ -258,6 +290,9 @@ def main() -> None:
                 "generated_at": now.isoformat(),
                 "provider": "geoapify",
                 "records": records,
+                "input_file": input_file.name,
+                "city": city,
+                "state": state,
             },
             file,
             ensure_ascii=False,

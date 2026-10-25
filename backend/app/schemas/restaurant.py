@@ -47,9 +47,29 @@ class GeoLocation(BaseModel):
 
         return coordinates
 
+class OperatingPeriod(BaseModel):
+    open: str = Field(
+        pattern=r"^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+    )
+    close: str = Field(
+        pattern=r"^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
+    )
+
+    @model_validator(mode="after")
+    def validate_period(self) -> "OperatingPeriod":
+        if self.open == self.close:
+            raise ValueError(
+                "Opening and closing times must differ. "
+                "Use open_24_hours for all-day operation."
+            )
+
+        return self
+
+
 class DailyOperatingHours(BaseModel):
     status: Literal["open", "closed", "open_24_hours"] = "open"
 
+    # Keep supporting existing single-period records.
     open: str | None = Field(
         default=None,
         pattern=r"^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
@@ -59,24 +79,62 @@ class DailyOperatingHours(BaseModel):
         pattern=r"^(?:[01][0-9]|2[0-3]):[0-5][0-9]$",
     )
 
+    # New format for one or more opening periods.
+    periods: list[OperatingPeriod] = Field(default_factory=list)
+
     @model_validator(mode="after")
     def validate_hours(self) -> "DailyOperatingHours":
-        if self.status == "open":
-            if self.open is None or self.close is None:
+        has_legacy_times = self.open is not None or self.close is not None
+
+        if self.status != "open":
+            if has_legacy_times or self.periods:
                 raise ValueError(
-                    "Open days require both opening and closing times."
+                    "Closed and 24-hour days must not contain "
+                    "opening periods or opening/closing times."
+                )
+            return self
+
+        if self.periods:
+            if has_legacy_times:
+                raise ValueError(
+                    "Use either periods or open/close, not both."
                 )
 
-            if self.open == self.close:
-                raise ValueError(
-                    "Opening and closing times must differ. "
-                    "Use open_24_hours for all-day operation."
-                )
+            intervals = []
 
-        elif self.open is not None or self.close is not None:
+            for period in self.periods:
+                start_hour, start_minute = map(int, period.open.split(":"))
+                end_hour, end_minute = map(int, period.close.split(":"))
+
+                start = start_hour * 60 + start_minute
+                end = end_hour * 60 + end_minute
+
+                # A closing time earlier than opening means next day.
+                if end < start:
+                    end += 24 * 60
+
+                intervals.append((start, end))
+
+            intervals.sort()
+
+            for previous, current in zip(intervals, intervals[1:]):
+                if current[0] < previous[1]:
+                    raise ValueError(
+                        "Opening periods within the same day must not overlap."
+                    )
+
+            return self
+
+        if self.open is None or self.close is None:
             raise ValueError(
-                "Closed and 24-hour days must not contain opening "
-                "or closing times."
+                "Open days require both opening and closing times, "
+                "or at least one opening period."
+            )
+
+        if self.open == self.close:
+            raise ValueError(
+                "Opening and closing times must differ. "
+                "Use open_24_hours for all-day operation."
             )
 
         return self

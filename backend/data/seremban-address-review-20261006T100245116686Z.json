@@ -87,7 +87,14 @@
         "country_code": "my"
       },
       "review_status": "needs_review",
-      "approved_location": null,
+      "approved_location": {
+      "latitude": 2.716812,
+      "longitude": 101.922576,
+      "candidate_place_id": "51c504357c0b7b594059f60a0bee07bc0540c00203e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323830353130",
+      "review_method": "personal_visit_knowledge",
+      "review_note": "Project author recognises candidate C as the shop location from a previous visit.",
+      "reviewed_on": "2026-10-24"
+    },
       "error": null,
       "candidate_checks": [
         {

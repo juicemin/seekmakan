@@ -25,68 +25,107 @@ def build_open_now_query(now: datetime) -> dict[str, Any]:
     yesterday = WEEKDAYS[(local_now.weekday() - 1) % 7]
     current_time = local_now.strftime("%H:%M")
 
-    today_path = f"operating_hours.{today}"
-    yesterday_path = f"operating_hours.{yesterday}"
+    today_path = f"$operating_hours.{today}"
+    yesterday_path = f"$operating_hours.{yesterday}"
 
-    def scheduled_day(path: str) -> dict[str, Any]:
+    def matching_period(path: str, previous_day: bool) -> dict[str, Any]:
+        # Prefer the new periods list; otherwise use legacy open/close.
+        periods = {
+            "$cond": [
+                {"$isArray": f"{path}.periods"},
+                f"{path}.periods",
+                [],
+            ]
+        }
+
+        input_periods = {
+            "$cond": [
+                {"$gt": [{"$size": periods}, 0]},
+                periods,
+                [
+                    {
+                        "open": f"{path}.open",
+                        "close": f"{path}.close",
+                    }
+                ],
+            ]
+        }
+
+        if previous_day:
+            # Yesterday's overnight period, after midnight.
+            time_matches = {
+                "$and": [
+                    {"$lt": ["$$period.close", "$$period.open"]},
+                    {"$gt": ["$$period.close", current_time]},
+                ]
+            }
+        else:
+            time_matches = {
+                "$or": [
+                    # Same-day period.
+                    {
+                        "$and": [
+                            {"$lt": ["$$period.open", "$$period.close"]},
+                            {"$lte": ["$$period.open", current_time]},
+                            {"$gt": ["$$period.close", current_time]},
+                        ]
+                    },
+                    # Today's overnight period, before midnight.
+                    {
+                        "$and": [
+                            {"$lt": ["$$period.close", "$$period.open"]},
+                            {"$lte": ["$$period.open", current_time]},
+                        ]
+                    },
+                ]
+            }
+
         return {
-            # Support older records without an explicit status.
-            "$or": [
-                {f"{path}.status": "open"},
-                {f"{path}.status": {"$exists": False}},
-            ],
-            f"{path}.open": {"$type": "string"},
-            f"{path}.close": {"$type": "string"},
+            "$and": [
+                {
+                    "$eq": [
+                        {"$ifNull": [f"{path}.status", "open"]},
+                        "open",
+                    ]
+                },
+                {
+                    "$anyElementTrue": [
+                        {
+                            "$map": {
+                                "input": input_periods,
+                                "as": "period",
+                                "in": {
+                                    "$and": [
+                                        {
+                                            "$eq": [
+                                                {"$type": "$$period.open"},
+                                                "string",
+                                            ]
+                                        },
+                                        {
+                                            "$eq": [
+                                                {"$type": "$$period.close"},
+                                                "string",
+                                            ]
+                                        },
+                                        time_matches,
+                                    ]
+                                },
+                            }
+                        }
+                    ]
+                },
+            ]
         }
 
     return {
-        "$or": [
-            # Open throughout today.
-            {f"{today_path}.status": "open_24_hours"},
-
-            # Normal same-day hours, example: 08:00–22:00.
-            {
-                "$and": [
-                    scheduled_day(today_path),
-                    {
-                        f"{today_path}.open": {"$lte": current_time},
-                        f"{today_path}.close": {"$gt": current_time},
-                    },
-                ]
-            },
-
-            # Today's overnight interval, before midnight.
-            {
-                "$and": [
-                    scheduled_day(today_path),
-                    {
-                        f"{today_path}.open": {"$lte": current_time},
-                        "$expr": {
-                            "$lt": [
-                                f"${today_path}.close",
-                                f"${today_path}.open",
-                            ]
-                        },
-                    },
-                ]
-            },
-
-            # Yesterday's overnight interval, after midnight.
-            {
-                "$and": [
-                    scheduled_day(yesterday_path),
-                    {
-                        f"{yesterday_path}.close": {"$gt": current_time},
-                        "$expr": {
-                            "$lt": [
-                                f"${yesterday_path}.close",
-                                f"${yesterday_path}.open",
-                            ]
-                        },
-                    },
-                ]
-            },
-        ]
+        "$expr": {
+            "$or": [
+                {"$eq": [f"{today_path}.status", "open_24_hours"]},
+                matching_period(today_path, previous_day=False),
+                matching_period(yesterday_path, previous_day=True),
+            ]
+        }
     }
 
 OpeningStatus = Literal["open", "closed", "unknown"]
@@ -106,36 +145,66 @@ def calculate_opening_status(
         WEEKDAYS[(local_now.weekday() - 1) % 7]
     )
 
-    def is_scheduled(hours):
-        return (
-            hours is not None
-            and hours.get("status", "open") == "open"
-            and isinstance(hours.get("open"), str)
-            and isinstance(hours.get("close"), str)
-        )
+    def get_periods(hours: Any) -> list[dict[str, str]]:
+        if not isinstance(hours, dict):
+            return []
 
-    if today is not None:
+        if hours.get("status", "open") != "open":
+            return []
+
+        periods = hours.get("periods")
+
+        # Existing records use open/close directly.
+        if not isinstance(periods, list) or not periods:
+            periods = [
+                {
+                    "open": hours.get("open"),
+                    "close": hours.get("close"),
+                }
+            ]
+
+        valid_periods: list[dict[str, str]] = []
+        for period in periods:
+            if not isinstance(period, dict):
+                continue
+
+            opening = period.get("open")
+            closing = period.get("close")
+            if (
+                isinstance(opening, str)
+                and isinstance(closing, str)
+                and opening != closing
+            ):
+                valid_periods.append({"open": opening, "close": closing})
+
+        return valid_periods
+
+    if isinstance(today, dict):
         if today.get("status") == "open_24_hours":
             return "open"
 
-        if is_scheduled(today):
-            opening = today["open"]
-            closing = today["close"]
+    for period in get_periods(today):
+        opening = period["open"]
+        closing = period["close"]
 
-            if opening < closing:
-                if opening <= current_time < closing:
-                    return "open"
-            elif closing < opening:
-                if current_time >= opening:
-                    return "open"
-
-    # A previous day's overnight interval may still be running.
-    if yesterday is not None and is_scheduled(yesterday):
-        if yesterday["close"] < yesterday["open"]:
-            if current_time < yesterday["close"]:
+        if opening < closing:
+            # Same-day period: opening included, closing excluded.
+            if opening <= current_time < closing:
+                return "open"
+        else:
+            # Overnight period: today's portion before midnight.
+            if current_time >= opening:
                 return "open"
 
-    # Without both days, cannot confidently rule out an interval.
+    for period in get_periods(yesterday):
+        opening = period["open"]
+        closing = period["close"]
+
+        # Yesterday's overnight period may still be running today.
+        if closing < opening and current_time < closing:
+            return "open"
+
+    # Preserve the existing rule for incomplete weekly schedules.
     if today is None or yesterday is None:
         return "unknown"
 

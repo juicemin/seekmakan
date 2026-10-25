@@ -8,8 +8,8 @@
     "address": "161, Jalan Toman 8, Kemayan Square, 70200 Seremban, Negeri Sembilan"
   },
   {
-    "name": "萧师奶板面专卖店",
-    "address": "Taman Unian, 70200 Seremban, Negeri Sembilan"
+    "name": "Restoran Hua Hua Pan Mee / 华华面粉糕",
+    "address": "Jalan TBK 5/2, Taman Bukit Kepayang, 70200 Seremban, Negeri Sembilan"
   },
   {
     "name": "be my friend cafe",
@@ -25,7 +25,14 @@
   },
   {
     "name": "芙蓉阿叔滑鸡饭",
-    "address": "26, Jalan Seng Meng Lee, Seremban, 70200 Seremban, Negeri Sembilan"
+    "address": "26, Jalan Seng Meng Lee, Seremban, 70200 Seremban, Negeri Sembilan",
+    "postcode": "70200",
+    "manual_location": {
+    "latitude": 2.734037600523562,
+    "longitude": 101.94054753988945,
+    "source": "Google Maps, manually consulted",
+    "checked_on": "2026-10-25"
+    }
   },
   {
     "name": "Number One Top Curry House",

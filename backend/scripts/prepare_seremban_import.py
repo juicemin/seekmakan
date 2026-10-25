@@ -1,4 +1,6 @@
+import argparse
 import json
+import math
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -6,98 +8,217 @@ from app.schemas.restaurant import RestaurantCreate
 
 
 BACKEND_DIR = Path(__file__).resolve().parents[1]
-REVIEW_FILE = BACKEND_DIR / "data" / (
-    "seremban-address-review-20261006T100245116686Z.json"
+
+DETAIL_FIELDS = (
+    "description",
+    "cuisines",
+    "food_categories",
+    "price_range",
+    "operating_hours",
+    "photos",
 )
 
-# Names and offerings supplied by the project owner.
-# These are not independently verified restaurant listings.
-DETAILS = {
-    "Seremban Oakland Pork Noodle": {
-        "name": "Seremban Oakland Pork Noodle",
-        "description": "Serves pork noodles and coffee.",
-        "food_categories": ["Pork Noodles"],
-    },
-    "美麗都茶餐室": {
-        "name": "Restoran Melido / 美麗都茶餐室",
-        "description": (
-            "A Malaysian kopitiam with multiple food stalls. "
-            "Offerings include yong tau foo, fried fish cakes, "
-            "dry noodles and chicken rice."
-        ),
-        "food_categories": [
-            "Yong Tau Foo", "Fish Cakes", "Noodles", "Chicken Rice",
-        ],
-    },
-    "兄弟茶室-芙蓉森州": {
-        "name": "Kedai Kopi & Makanan Saudara / 兄弟茶室",
-        "description": (
-            "A Malaysian kopitiam with multiple food stalls. "
-            "Offerings include toast, Hakka mee, bagels, "
-            "croissants and coffee."
-        ),
-        "food_categories": [
-            "Toast", "Hakka Mee", "Bagels", "Croissants",
-        ],
-    },
-    "Number One Top Curry House": {
-        "name": "Number One Top Curry House",
-        "description": "Serves banana leaf rice.",
-        "food_categories": ["Banana Leaf Rice"],
-    },
-    "NUR BISTRO - NASI KANDAR ORIGINAL": {
-        "name": "NUR BISTRO - NASI KANDAR ORIGINAL",
-        "description": (
-            "Serves cheese naan, Maggi goreng, "
-            "nasi biryani and nasi kandar."
-        ),
-        "food_categories": [
-            "Naan", "Instant Noodles", "Biryani", "Nasi Kandar",
-        ],
-    },
-}
+
+def read_json(path: Path):
+    with path.open(encoding="utf-8-sig") as file:
+        return json.load(file)
+
+
+def index_by_name(records: list, label: str) -> dict:
+    indexed = {}
+
+    for record in records:
+        if not isinstance(record, dict):
+            raise ValueError(f"{label}: each record must be an object.")
+
+        name = record.get("name")
+
+        if not isinstance(name, str) or not name.strip():
+            raise ValueError(f"{label}: each record needs a name.")
+
+        if name in indexed:
+            raise ValueError(f"{label}: duplicate name: {name}")
+
+        indexed[name] = record
+
+    return indexed
 
 
 def main() -> None:
-    with REVIEW_FILE.open(encoding="utf-8") as file:
-        review = json.load(file)
+    parser = argparse.ArgumentParser(
+        description="Prepare validated restaurant records without database writes."
+    )
+    parser.add_argument("targets", type=Path)
+    parser.add_argument("review", type=Path)
+    parser.add_argument("--city", required=True)
+    parser.add_argument("--state", required=True)
+    args = parser.parse_args()
+
+    city = args.city.strip()
+    state = args.state.strip()
+
+    if not city or not state:
+        raise ValueError("City and state must not be blank.")
+
+    targets = read_json(args.targets)
+    review = read_json(args.review)
+
+    if not isinstance(targets, list) or not targets:
+        raise ValueError("Targets must be a non-empty list.")
+
+    if (
+        not isinstance(review, dict)
+        or not isinstance(review.get("records"), list)
+    ):
+        raise ValueError("Review file must contain a records list.")
+
+    # Newer review files include their lookup area.
+    for field, expected in (("city", city), ("state", state)):
+        recorded = review.get(field)
+        if recorded is not None and recorded != expected:
+            raise ValueError(f"Review file has a different {field}.")
+
+    target_index = index_by_name(targets, "Targets")
+    review_index = index_by_name(review["records"], "Review")
 
     prepared = []
-    used_names = set()
+    skipped = []
 
-    for record in review["records"]:
-        original_name = record["name"]
+    for name, target in target_index.items():
+        address = target.get("address")
 
-        if original_name not in DETAILS:
-            continue
+        if not isinstance(address, str) or not address.strip():
+            raise ValueError(f"Missing address: {name}")
 
-        if original_name in used_names:
-            raise ValueError(f"Duplicate input: {original_name}")
+        manual_location = target.get("manual_location")
 
-        if record["review_status"] != "address_matched":
-            raise ValueError(f"Address is unresolved: {original_name}")
+        if manual_location is not None:
+            if not isinstance(manual_location, dict):
+                raise ValueError(f"Invalid manual_location: {name}")
 
-        matches = [
-            check["candidate"]
-            for check in record["candidate_checks"]
-            if check["status"] == "address_matched"
-        ]
+            latitude = manual_location.get("latitude")
+            longitude = manual_location.get("longitude")
 
-        if len(matches) != 1:
-            raise ValueError(
-                f"Expected one address match: {original_name}"
-            )
+            for label, value, minimum, maximum in (
+                ("latitude", latitude, -90, 90),
+                ("longitude", longitude, -180, 180),
+            ):
+                if (
+                    isinstance(value, bool)
+                    or not isinstance(value, (int, float))
+                    or not math.isfinite(value)
+                    or not minimum <= value <= maximum
+                ):
+                    raise ValueError(f"Invalid {label}: {name}")
 
-        candidate = matches[0]
-        details = DETAILS[original_name]
+            for field in ("source", "checked_on"):
+                value = manual_location.get(field)
+                if not isinstance(value, str) or not value.strip():
+                    raise ValueError(
+                        f"Manual location needs {field}: {name}"
+                    )
+
+            candidate = {
+                "lat": latitude,
+                "lon": longitude,
+                "postcode": target.get("postcode"),
+            }
+            approval = dict(manual_location)
+            location_match_status = "manually_supplied"
+
+        else:    
+
+            record = review_index.get(name)
+
+            if record is None:
+                reason = "No saved lookup result."
+                skipped.append({"name": name, "reason": reason})
+                print(f"SKIP: {name} — {reason}")
+                continue
+
+            if record.get("provided_address") != address:
+                reason = "Address changed since lookup; run a new lookup."
+                skipped.append({"name": name, "reason": reason})
+                print(f"SKIP: {name} — {reason}")
+                continue
+
+            approval = record.get("approved_location")
+            location_match_status = "address_matched"
+
+            if approval is not None:
+                if not isinstance(approval, dict):
+                    raise ValueError(f"Invalid location approval: {name}")
+
+                required_text = (
+                    "candidate_place_id",
+                    "review_method",
+                    "review_note",
+                    "reviewed_on",
+                )
+
+                if any(
+                    not isinstance(approval.get(field), str)
+                    or not approval[field].strip()
+                    for field in required_text
+                ):
+                    raise ValueError(f"Incomplete location approval: {name}")
+
+                matches = [
+                    check["candidate"]
+                    for check in record.get("candidate_checks", [])
+                    if check["candidate"].get("place_id")
+                    == approval["candidate_place_id"]
+                ]
+
+                if len(matches) != 1:
+                    raise ValueError(
+                        f"Approved candidate ID is missing or ambiguous: {name}"
+                    )
+
+                candidate = matches[0]
+
+                if (
+                    approval.get("latitude") != candidate.get("lat")
+                    or approval.get("longitude") != candidate.get("lon")
+                ):
+                    raise ValueError(
+                        f"Approved coordinates differ from the candidate: {name}"
+                    )
+
+                location_match_status = "manually_reviewed"
+
+            else:
+                matches = [
+                    check["candidate"]
+                    for check in record.get("candidate_checks", [])
+                    if check.get("status") == "address_matched"
+                ]
+
+                if (
+                    record.get("review_status") != "address_matched"
+                    or len(matches) != 1
+                ):
+                    reason = "Location still needs review."
+                    skipped.append({"name": name, "reason": reason})
+                    print(f"SKIP: {name} — {reason}")
+                    continue
+
+                candidate = matches[0]
+
+        details = {
+            field: target[field]
+            for field in DETAIL_FIELDS
+            if field in target
+        }
 
         restaurant = RestaurantCreate.model_validate({
             **details,
+            "name": target.get("display_name", name),
             "address": {
-                "full_address": record["provided_address"],
-                "city": "Seremban",
-                "state": "Negeri Sembilan",
-                "postcode": candidate["postcode"],
+                "full_address": address,
+                "city": city,
+                "state": state,
+                "postcode": candidate.get("postcode") or None,
             },
             "location": {
                 "type": "Point",
@@ -106,9 +227,6 @@ def main() -> None:
                     candidate["lat"],
                 ],
             },
-            "cuisines": [],
-            "price_range": None,
-            "operating_hours": {},
             "verification_status": "seeded",
             "source": {
                 "type": "manual",
@@ -120,27 +238,35 @@ def main() -> None:
         prepared.append({
             "restaurant": restaurant.model_dump(mode="json"),
             "provenance": {
-                "original_name": original_name,
-                "business_details_source": "user_supplied",
-                "location_provider": "geoapify",
+                "original_name": name,
+                "business_details_source": target.get(
+                    "information_source", "user_supplied"
+                ),
+                "information_checked_on": target.get(
+                    "information_checked_on"
+                ),
+                "location_provider": (
+                    manual_location["source"]
+                    if manual_location is not None
+                    else review.get("provider")
+                ),
                 "location_place_id": candidate.get("place_id"),
                 "location_datasource": candidate.get("datasource"),
-                "location_match_status": "address_matched",
+                "location_match_status": location_match_status,
+                "location_review": approval,
                 "business_verified": False,
-                "review_file": REVIEW_FILE.name,
+                "review_file": (
+                    None if manual_location is not None else args.review.name
+                ),
+                "targets_file": args.targets.name,
             },
         })
 
-        used_names.add(original_name)
-        print(f"Prepared: {restaurant.name}")
-
-    if used_names != set(DETAILS):
-        missing = set(DETAILS) - used_names
-        raise ValueError(f"Missing expected restaurants: {sorted(missing)}")
+        print(f"PREPARED: {restaurant.name}")
 
     now = datetime.now(timezone.utc)
     output = BACKEND_DIR / "data" / (
-        f"seremban-import-ready-{now:%Y%m%dT%H%M%S%fZ}.json"
+        f"{args.targets.stem}-prepared-{now:%Y%m%dT%H%M%S%fZ}.json"
     )
 
     with output.open("x", encoding="utf-8") as file:
@@ -148,6 +274,7 @@ def main() -> None:
             {
                 "prepared_at": now.isoformat(),
                 "records": prepared,
+                "skipped": skipped,
             },
             file,
             ensure_ascii=False,
@@ -155,9 +282,12 @@ def main() -> None:
             allow_nan=False,
         )
 
-    print(f"\nValidated {len(prepared)} restaurant records.")
+    print(f"\nPrepared: {len(prepared)}; skipped: {len(skipped)}")
     print(f"Saved: {output}")
     print("No API calls or database writes were made.")
+
+    if not prepared:
+        print("Nothing is ready to import yet.")
 
 
 if __name__ == "__main__":

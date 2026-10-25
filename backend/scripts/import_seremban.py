@@ -35,11 +35,68 @@ def prepare_records(path: Path) -> list[dict]:
         restaurant = RestaurantCreate.model_validate(record["restaurant"])
         provenance = record["provenance"]
 
+        match_status = provenance.get("location_match_status")
+
         if (
-            provenance.get("location_match_status") != "address_matched"
+            match_status not in {
+                "address_matched",
+                "manually_reviewed",
+                "manually_supplied",
+            }
             or provenance.get("business_verified") is not False
         ):
             raise ValueError("Unexpected provenance; review the input file.")
+
+        if match_status == "manually_reviewed":
+            approval = provenance.get("location_review")
+
+            if not isinstance(approval, dict):
+                raise ValueError("Manual location review is missing.")
+
+            for field in (
+                "candidate_place_id",
+                "review_method",
+                "review_note",
+                "reviewed_on",
+            ):
+                value = approval.get(field)
+                if not isinstance(value, str) or not value.strip():
+                    raise ValueError(f"Missing manual-review field: {field}")
+
+            if (
+                approval["candidate_place_id"]
+                != provenance.get("location_place_id")
+                or approval.get("longitude")
+                != restaurant.location.coordinates[0]
+                or approval.get("latitude")
+                != restaurant.location.coordinates[1]
+            ):
+                raise ValueError(
+                    "Manual review does not match the prepared location."
+                )
+
+            if match_status == "manually_supplied":
+                approval = provenance.get("location_review")
+
+                if not isinstance(approval, dict):
+                    raise ValueError("Manual location information is missing.")
+
+                for field in ("source", "checked_on"):
+                    value = approval.get(field)
+                    if not isinstance(value, str) or not value.strip():
+                        raise ValueError(f"Missing manual-location field: {field}")
+
+                if (
+                    approval.get("longitude")
+                    != restaurant.location.coordinates[0]
+                    or approval.get("latitude")
+                    != restaurant.location.coordinates[1]
+                    or approval.get("source")
+                    != provenance.get("location_provider")
+                ):
+                    raise ValueError(
+                        "Manual location does not match the prepared record."
+                    )
 
         original_name = provenance["original_name"]
 
