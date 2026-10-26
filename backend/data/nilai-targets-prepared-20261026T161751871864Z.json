@@ -1,0 +1,1065 @@
+{
+  "prepared_at": "2026-10-26T16:17:51.871864+00:00",
+  "records": [
+    {
+      "restaurant": {
+        "name": "Wok In Cafe",
+        "description": "A kopitiam serving mixed rice, malay cuisine, and local delicacies. It is known for its affordable prices and variety of dishes.",
+        "address": {
+          "full_address": "LK3 G-10 Putra Nilai, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.75683300000001,
+            2.8120403591721437
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Chinese",
+          "Malay"
+        ],
+        "food_categories": [
+          "Mixed Rice",
+          "Malay Cuisine",
+          "Stir-Fried Dishes"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "07:30",
+            "close": "22:00",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "07:30",
+            "close": "22:00",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "07:30",
+            "close": "22:00",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "07:30",
+            "close": "22:00",
+            "periods": []
+          },
+          "sunday": {
+            "status": "closed",
+            "open": null,
+            "close": null,
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Wok In Cafe",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.8120403591721437,
+          "longitude": 101.75683300000001,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Ah Wong Mee Shop",
+        "description": "A noodle shop that serves a variety of local dishes, including noodles, fried rice and chicken rice.",
+        "address": {
+          "full_address": "633, Taman Desa Melati Fasa 3, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.76197696043484,
+            2.8162993763484194
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Chinese"
+        ],
+        "food_categories": [
+          "Rice",
+          "Noodles",
+          "Fried Rice",
+          "Chicken Rice",
+          "Hakka Mee",
+          "Curry Noodles"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "17:30",
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "17:30",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "17:30",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "17:30",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "17:30",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "17:30",
+            "periods": []
+          },
+          "sunday": {
+            "status": "closed",
+            "open": null,
+            "close": null,
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Ah Wong Mee Shop",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.8162993763484194,
+          "longitude": 101.76197696043484,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Aiyunie Seafood",
+        "description": "A malay restaurant that serves Malaysian-Thai cuisine, Tom Yum and seafood dishes.",
+        "address": {
+          "full_address": "55 jalan melati square putra nilai, Melati Square Putra Nilai, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.76227983594804,
+            2.81471152582704
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Malay",
+          "Malaysian"
+        ],
+        "food_categories": [
+          "Seafood",
+          "Tom Yum",
+          "Fried Rice",
+          "Malay Cuisine"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": "16:30",
+            "close": "02:30",
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "16:30",
+            "close": "02:30",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "16:30",
+            "close": "02:30",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "16:30",
+            "close": "02:30",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "16:30",
+            "close": "02:30",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "16:30",
+            "close": "02:30",
+            "periods": []
+          },
+          "sunday": {
+            "status": "open",
+            "open": "16:30",
+            "close": "02:30",
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Aiyunie Seafood",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.81471152582704,
+          "longitude": 101.76227983594804,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Restoran Al-Rizwath",
+        "description": "A Mamak restaurant that serves a variety of local dishes, including roti canai, maggi goreng, and nasi lemak. Besides that, they also serve pizza, murtabak, shawarma and burger.",
+        "address": {
+          "full_address": "Melati Square Putra Nilai, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.76281182455547,
+            2.812932992131751
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Mamak",
+          "Indian-Muslim",
+          "Middle Eastern",
+          "Western"
+        ],
+        "food_categories": [
+          "Roti Canai",
+          "Maggi Goreng",
+          "Nasi Lemak",
+          "Pizza",
+          "Murtabak",
+          "Shawarma",
+          "Burger"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "02:00",
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "02:00",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "02:00",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "02:00",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "02:00",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "02:00",
+            "periods": []
+          },
+          "sunday": {
+            "status": "open",
+            "open": "07:00",
+            "close": "02:00",
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Restoran Al-Rizwath",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.812932992131751,
+          "longitude": 101.76281182455547,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Loumazi Noodle • 姥妈子面馆 • Nilai",
+        "description": "A Chinese restaurant that serves Pan Mee and rice dishes.",
+        "address": {
+          "full_address": "NO PT 7559 JALAN BBN 4/1A DESA JASMIN PUTRA NILAI, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.8014917679889,
+            2.8111274360535825
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Chinese"
+        ],
+        "food_categories": [
+          "Pan Mee",
+          "Rice Dishes"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "17:00",
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "17:00",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "17:00",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "17:00",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "17:00",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "17:00",
+            "periods": []
+          },
+          "sunday": {
+            "status": "open",
+            "open": "08:00",
+            "close": "17:00",
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Loumazi Noodle • 姥妈子面馆 • Nilai",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.8111274360535825,
+          "longitude": 101.8014917679889,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Nasi Kandar Al Fariz Maju (Uni Square)",
+        "description": "A Mamak restaurant that serves a variety of local dishes, including nasi kandar, roti canai, and maggi goreng.",
+        "address": {
+          "full_address": "NO 21, JALAN ILMU 1 , DATARAN UNIVERSITI, Putra Nilai, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.78482599497725,
+            2.8293563862405935
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Mamak",
+          "Indian-Muslim"
+        ],
+        "food_categories": [
+          "Nasi Kandar",
+          "Roti Canai",
+          "Maggi Goreng",
+          "Fried Rice",
+          "Nasi Lemak",
+          "Murtabak",
+          "Naan"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "thursday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": null,
+            "close": null,
+            "periods": [
+              {
+                "open": "00:00",
+                "close": "13:00"
+              },
+              {
+                "open": "14:00",
+                "close": "23:30"
+              }
+            ]
+          },
+          "saturday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "sunday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Nasi Kandar Al Fariz Maju (Uni Square)",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.8293563862405935,
+          "longitude": 101.78482599497725,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "SHARING Cafe @ Nilai BBN",
+        "description": "A Western and fusion cafe that serves a variety of dishes, including pasta, rice, and Western cuisine.",
+        "address": {
+          "full_address": "PT7193 Jalan BBN 1/2E, Putra Point Bandar Baru NIlai, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.79262575080068,
+            2.814299430999692
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Western"
+        ],
+        "food_categories": [
+          "Pasta",
+          "Rice",
+          "Western Cuisine",
+          "Salad",
+          "Soup",
+          "Poultry",
+          "Seafood",
+          "Meat",
+          "Fish"
+        ],
+        "price_range": "RM21-RM50",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": "11:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "11:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "11:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "11:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "11:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "saturday": {
+            "status": "open",
+            "open": "11:00",
+            "close": "22:00",
+            "periods": []
+          },
+          "sunday": {
+            "status": "open",
+            "open": "11:00",
+            "close": "22:00",
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "SHARING Cafe @ Nilai BBN",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.814299430999692,
+          "longitude": 101.79262575080068,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Restoran Kopitiam Lorong 3",
+        "description": "A local kopitiam that serves Nasi Lemak, Zi Char, and other local dishes.",
+        "address": {
+          "full_address": "Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.76037766983607,
+            2.8129246358041535
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Chinese",
+          "Malaysian"
+        ],
+        "food_categories": [
+          "Nasi Lemak",
+          "Zi Char",
+          "Fried Rice",
+          "Noodles",
+          "Chicken Rice"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "21:30",
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "21:30",
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "21:30",
+            "periods": []
+          },
+          "thursday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "21:30",
+            "periods": []
+          },
+          "friday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "21:30",
+            "periods": []
+          },
+          "saturday": {
+            "status": "closed",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "sunday": {
+            "status": "open",
+            "open": "06:30",
+            "close": "21:30",
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Restoran Kopitiam Lorong 3",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.8129246358041535,
+          "longitude": 101.76037766983607,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "Rich Village Restaurant 聚满家乡饭店 (Restoran Rich Village)",
+        "description": "A neighborhood Chinese restaurant serving authentic home-cooked flavors and zi char classics. Items on the menu range from hearty meat and seafood dishes to everyday tofu and vegetable comfort meals.",
+        "address": {
+          "full_address": "89, Kampung Baharu Nilai, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.80383375449493,
+            2.808669272598683
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Chinese"
+        ],
+        "food_categories": [
+          "Meat",
+          "Seafood",
+          "Tofu",
+          "Vegetables",
+          "Zi Char",
+          "Rice"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open",
+            "open": null,
+            "close": null,
+            "periods": [
+              {
+                "open": "11:30",
+                "close": "22:30"
+              }
+            ]
+          },
+          "tuesday": {
+            "status": "open",
+            "open": null,
+            "close": null,
+            "periods": [
+              {
+                "open": "12:00",
+                "close": "14:30"
+              },
+              {
+                "open": "17:00",
+                "close": "23:00"
+              }
+            ]
+          },
+          "wednesday": {
+            "status": "open",
+            "open": null,
+            "close": null,
+            "periods": [
+              {
+                "open": "12:00",
+                "close": "14:30"
+              },
+              {
+                "open": "17:00",
+                "close": "23:00"
+              }
+            ]
+          },
+          "thursday": {
+            "status": "open",
+            "open": null,
+            "close": null,
+            "periods": [
+              {
+                "open": "12:00",
+                "close": "14:30"
+              },
+              {
+                "open": "17:00",
+                "close": "23:00"
+              }
+            ]
+          },
+          "friday": {
+            "status": "open",
+            "open": null,
+            "close": null,
+            "periods": [
+              {
+                "open": "12:00",
+                "close": "14:30"
+              },
+              {
+                "open": "17:00",
+                "close": "23:00"
+              }
+            ]
+          },
+          "saturday": {
+            "status": "open",
+            "open": null,
+            "close": null,
+            "periods": [
+              {
+                "open": "12:00",
+                "close": "14:30"
+              },
+              {
+                "open": "17:00",
+                "close": "23:00"
+              }
+            ]
+          },
+          "sunday": {
+            "status": "closed",
+            "open": null,
+            "close": null,
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "Rich Village Restaurant 聚满家乡饭店 (Restoran Rich Village)",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.808669272598683,
+          "longitude": 101.80383375449493,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    },
+    {
+      "restaurant": {
+        "name": "McDonald's Putra Nilai DT",
+        "description": "A fast-food restaurant chain known for its hamburgers, fries, and fried chicken.",
+        "address": {
+          "full_address": "PT 1134, Persiaran Pusat Bandar, Putra Point, 71800 Nilai, Negeri Sembilan",
+          "city": "Nilai",
+          "state": "Negeri Sembilan",
+          "postcode": "71800"
+        },
+        "location": {
+          "type": "Point",
+          "coordinates": [
+            101.79371453545949,
+            2.822799397708238
+          ]
+        },
+        "photos": [],
+        "cuisines": [
+          "Fast Food",
+          "American"
+        ],
+        "food_categories": [
+          "Burger",
+          "Fries",
+          "Fried Chicken"
+        ],
+        "price_range": "RM1-RM20",
+        "operating_hours": {
+          "monday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "tuesday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "wednesday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "thursday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "friday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "saturday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          },
+          "sunday": {
+            "status": "open_24_hours",
+            "open": null,
+            "close": null,
+            "periods": []
+          }
+        },
+        "verification_status": "seeded",
+        "source": {
+          "type": "manual",
+          "external_id": null,
+          "last_checked_at": null
+        }
+      },
+      "provenance": {
+        "original_name": "McDonald's Putra Nilai DT",
+        "business_details_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+        "information_checked_on": "2026-10-25",
+        "location_provider": "ACTUAL SOURCE OF COORDINATES",
+        "location_place_id": null,
+        "location_datasource": null,
+        "location_match_status": "manually_supplied",
+        "location_review": {
+          "latitude": 2.822799397708238,
+          "longitude": 101.79371453545949,
+          "source": "ACTUAL SOURCE OF COORDINATES",
+          "checked_on": "2026-10-25"
+        },
+        "business_verified": false,
+        "review_file": null,
+        "targets_file": "nilai-targets.json"
+      }
+    }
+  ],
+  "skipped": []
+}

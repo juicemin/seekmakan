@@ -1,0 +1,2119 @@
+{
+  "generated_at": "2026-10-26T16:02:33.587388+00:00",
+  "provider": "geoapify",
+  "records": [
+    {
+      "name": "Wok In Cafe",
+      "provided_address": "LK3 G-10 Putra Nilai, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Nilai",
+            "other_names": {
+              "name:zh": "汝来",
+              "name:zh-Hans": "汝来",
+              "name:zh-Hant": "汝來"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.7981676,
+            "lat": 2.8020988,
+            "result_type": "city",
+            "distance": 0,
+            "formatted": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Nilai",
+            "address_line2": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ2X+R7",
+            "rank": {
+              "importance": 0.4096924117123553,
+              "popularity": 1.9591028003799664,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "5184ae8e2d1573594059694991c6b26a0640f00103f9013be06a2100000000c002089203054e696c6169",
+            "bbox": {
+              "lon1": 101.7581676,
+              "lat1": 2.7620988,
+              "lon2": 101.8381676,
+              "lat2": 2.8420988
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Ninso",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Johor",
+            "city": "Kulai",
+            "postcode": "81000",
+            "county": "Kulai",
+            "suburb": "Bandar Putra Kulai",
+            "street": "Lebuh Putra Utama",
+            "housenumber": "G-7-1/2/3/3A/5/6/7/8/9/10/11/12/13/13A",
+            "iso3166_2": "MY-01",
+            "lon": 103.627611,
+            "lat": 1.6478375,
+            "state_code": "JHR",
+            "county_code": "KU",
+            "result_type": "building",
+            "formatted": "Ninso, G-7-1/2/3/3A/5/6/7/8/9/10/11/12/13/13A Lebuh Putra Utama, Bandar Putra Kulai, 81000 Kulai, JHR, Malaysia",
+            "address_line1": "Ninso",
+            "address_line2": "G-7-1/2/3/3A/5/6/7/8/9/10/11/12/13/13A Lebuh Putra Utama, Bandar Putra Kulai, 81000 Kulai, JHR, Malaysia",
+            "category": "commercial.discount_store",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PH5JJXH+42",
+            "plus_code_short": "JJXH+42 Kulai, Malaysia",
+            "rank": {
+              "importance": 5.3739986266834784e-05,
+              "popularity": 2.1170669517185634,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "match_type": "match_by_building"
+            },
+            "place_id": "5108e753c72ae85940595af5b9da8a5dfa3ff00103f901d041803a02000000c002039203054e696e736fe203256f70656e7374726565746d61703a616464726573733a6e6f64652f39353731343138353736",
+            "bbox": {
+              "lon1": 103.627561,
+              "lat1": 1.6477875,
+              "lon2": 103.627661,
+              "lat2": 1.6478875
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Ah Wong Mee Shop",
+      "provided_address": "633, Taman Desa Melati Fasa 3, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "633",
+        "street": "",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "needs_review",
+          "reasons": [
+            "Insufficient fields: housenumber, street"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "street": "Taman Permainan Desa Jati",
+            "postcode": "71800",
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Nilai",
+            "lon": 101.788596,
+            "lat": 2.835127,
+            "result_type": "amenity",
+            "formatted": "Taman Permainan Desa Jati, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Taman Permainan Desa Jati",
+            "address_line2": "71800 Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQPQ+3C",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.361966723363534,
+              "confidence": 1,
+              "confidence_city_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "5169705b5b7872594059800d881057ae0640f00102f90191f7a02900000000c00201e203216f70656e7374726565746d61703a76656e75653a7761792f363938343134393933",
+            "bbox": {
+              "lon1": 101.7877811,
+              "lat1": 2.8349251,
+              "lon2": 101.7891539,
+              "lat2": 2.8353423
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Nilai",
+            "other_names": {
+              "name:zh": "汝来",
+              "name:zh-Hans": "汝来",
+              "name:zh-Hant": "汝來"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.7981676,
+            "lat": 2.8020988,
+            "result_type": "city",
+            "distance": 0,
+            "formatted": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Nilai",
+            "address_line2": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ2X+R7",
+            "rank": {
+              "importance": 0.4096924117123553,
+              "popularity": 1.9591028003799664,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "5184ae8e2d1573594059694991c6b26a0640f00103f9013be06a2100000000c002089203054e696c6169",
+            "bbox": {
+              "lon1": 101.7581676,
+              "lat1": 2.7620988,
+              "lon2": 101.8381676,
+              "lat2": 2.8420988
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Taman Desa Mayang Sari",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "hamlet": "Kampung Momo",
+            "postcode": "71800",
+            "county": "Seremban",
+            "neighbourhood": "Taman Desa Mayang Sari",
+            "iso3166_2": "MY-05",
+            "district": "Taman Desa Mayang Sari",
+            "lon": 101.8085081,
+            "lat": 2.8068363,
+            "result_type": "suburb",
+            "formatted": "Taman Desa Mayang Sari, Kampung Momo, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Taman Desa Mayang Sari",
+            "address_line2": "Kampung Momo, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RR45+PC",
+            "rank": {
+              "importance": 0.08005144197756921,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "514503c298be735940591fce0d9766740640f00101f9014735ac0000000000c0020592031654616d616e2044657361204d6179616e672053617269",
+            "bbox": {
+              "lon1": 101.8053616,
+              "lat1": 2.8035303,
+              "lon2": 101.8108151,
+              "lat2": 2.8106322
+            }
+          }
+        },
+        {
+          "status": "needs_review",
+          "reasons": [
+            "Insufficient fields: housenumber, street"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Taman Desa Mayang Sari",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "postcode": "71800",
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Nilai",
+            "lon": 101.806155,
+            "lat": 2.808799,
+            "result_type": "amenity",
+            "formatted": "Taman Desa Mayang Sari, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Taman Desa Mayang Sari",
+            "address_line2": "71800 Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RR54+GF",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 1.945074151897777,
+              "confidence": 0,
+              "confidence_city_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "517120240b9873594059cf4c309c6b780640f00101f9014735ac0000000000c0020192031654616d616e2044657361204d6179616e672053617269e203256f70656e7374726565746d61703a76656e75653a72656c6174696f6e2f3131323835383331",
+            "bbox": {
+              "lon1": 101.8053616,
+              "lat1": 2.8035303,
+              "lon2": 101.8106722,
+              "lat2": 2.8106322
+            }
+          }
+        },
+        {
+          "status": "needs_review",
+          "reasons": [
+            "Insufficient fields: housenumber, street"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Taman Permainan Desa Jati",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.7884658,
+            "lat": 2.8352198,
+            "result_type": "amenity",
+            "formatted": "Taman Permainan Desa Jati, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Taman Permainan Desa Jati",
+            "address_line2": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "leisure.park",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQPQ+39",
+            "rank": {
+              "importance": 0.0800613542381933,
+              "confidence": 0,
+              "confidence_city_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "51ed4042397672594059f6c5efb787ae0640f00102f90191f7a02900000000c0020192031954616d616e205065726d61696e616e2044657361204a617469",
+            "bbox": {
+              "lon1": 101.7877811,
+              "lat1": 2.8349251,
+              "lon2": 101.7891539,
+              "lat2": 2.8353423
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Aiyunie Seafood",
+      "provided_address": "55 jalan melati square putra nilai, Melati Square Putra Nilai, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "jalan melati square putra nilai",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Nilai",
+            "other_names": {
+              "name:zh": "汝来",
+              "name:zh-Hans": "汝来",
+              "name:zh-Hant": "汝來"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.7981676,
+            "lat": 2.8020988,
+            "result_type": "city",
+            "distance": 0,
+            "formatted": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Nilai",
+            "address_line2": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ2X+R7",
+            "rank": {
+              "importance": 0.4096924117123553,
+              "popularity": 1.9591028003799664,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "5184ae8e2d1573594059694991c6b26a0640f00103f9013be06a2100000000c002089203054e696c6169",
+            "bbox": {
+              "lon1": 101.7581676,
+              "lat1": 2.7620988,
+              "lon2": 101.8381676,
+              "lat2": 2.8420988
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Restoran Al-Rizwath",
+      "provided_address": "Melati Square Putra Nilai, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Nilai",
+            "other_names": {
+              "name:zh": "汝来",
+              "name:zh-Hans": "汝来",
+              "name:zh-Hant": "汝來"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.7981676,
+            "lat": 2.8020988,
+            "result_type": "city",
+            "distance": 0,
+            "formatted": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Nilai",
+            "address_line2": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ2X+R7",
+            "rank": {
+              "importance": 0.4096924117123553,
+              "popularity": 1.9591028003799664,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "5184ae8e2d1573594059694991c6b26a0640f00103f9013be06a2100000000c002089203054e696c6169",
+            "bbox": {
+              "lon1": 101.7581676,
+              "lat1": 2.7620988,
+              "lon2": 101.8381676,
+              "lat2": 2.8420988
+            }
+          }
+        },
+        {
+          "status": "needs_review",
+          "reasons": [
+            "Insufficient fields: housenumber, street"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Blue Dynamic Resource Myhighst",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "neighbourhood": "Bayu 1",
+            "street": "Jalan Melati 23",
+            "housenumber": "635",
+            "iso3166_2": "MY-05",
+            "lon": 101.761957,
+            "lat": 2.8132587,
+            "state_code": "NSN",
+            "county_code": "SE",
+            "result_type": "building",
+            "formatted": "Blue Dynamic Resource Myhighst, 635 Jalan Melati 23, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Blue Dynamic Resource Myhighst",
+            "address_line2": "635 Jalan Melati 23, 71800 Nilai, NSN, Malaysia",
+            "category": "commercial.food_and_drink.drinks",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ76+8Q",
+            "rank": {
+              "importance": 6.13542381932863e-05,
+              "popularity": 2.494236886502135,
+              "confidence": 0.6561000000000001,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.6561000000000001,
+              "match_type": "inner_part"
+            },
+            "place_id": "5154fd4ae7c370594059f37ffdc68d810640f00103f90132e1bc7602000000c0020392031e426c75652044796e616d6963205265736f75726365204d79686967687374e203266f70656e7374726565746d61703a616464726573733a6e6f64652f3130353832303234343938",
+            "bbox": {
+              "lon1": 101.761907,
+              "lat1": 2.8132087,
+              "lon2": 101.762007,
+              "lat2": 2.8133087
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Jalan Nilai Square",
+            "street": "Jalan Nilai Square",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Nilai",
+            "lon": 101.791772,
+            "lat": 2.822204,
+            "result_type": "street",
+            "postcode": "71800",
+            "formatted": "Jalan Nilai Square, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Jalan Nilai Square",
+            "address_line2": "71800 Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQCR+VP",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.3906127224400437,
+              "confidence": 0,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51dd787764ac72594059821fd5b0df930640c002049203124a616c616e204e696c616920537175617265e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323531383639",
+            "bbox": {
+              "lon1": 101.789684,
+              "lat1": 2.821803,
+              "lon2": 101.794372,
+              "lat2": 2.823593
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Jalan Nilai Square 4",
+            "street": "Jalan Nilai Square 4",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Nilai",
+            "lon": 101.792563,
+            "lat": 2.823489,
+            "result_type": "street",
+            "postcode": "71800",
+            "formatted": "Jalan Nilai Square 4, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Jalan Nilai Square 4",
+            "address_line2": "71800 Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQFV+92",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.385645520525342,
+              "confidence": 0,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "514241295ab9725940590bed9c6681960640c002049203144a616c616e204e696c6169205371756172652034e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323531383638",
+            "bbox": {
+              "lon1": 101.792208,
+              "lat1": 2.822964,
+              "lon2": 101.792917,
+              "lat2": 2.824013
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Jalan Nilai Square 6",
+            "street": "Jalan Nilai Square 6",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Nilai",
+            "lon": 101.793954,
+            "lat": 2.823846,
+            "result_type": "street",
+            "postcode": "71800",
+            "formatted": "Jalan Nilai Square 6, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Jalan Nilai Square 6",
+            "address_line2": "71800 Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQFV+GH",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.3856656404471517,
+              "confidence": 0,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51d1217024d072594059f98557923c970640c002049203144a616c616e204e696c6169205371756172652036e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323536393032",
+            "bbox": {
+              "lon1": 101.79374,
+              "lat1": 2.823528,
+              "lon2": 101.794168,
+              "lat2": 2.824163
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Loumazi Noodle • 姥妈子面馆 • Nilai",
+      "provided_address": "NO PT 7559 JALAN BBN 4/1A DESA JASMIN PUTRA NILAI, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "JALAN BBN 4/1A DESA JASMIN PUTRA NILAI",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Nilai",
+            "other_names": {
+              "name:zh": "汝来",
+              "name:zh-Hans": "汝来",
+              "name:zh-Hant": "汝來"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.7981676,
+            "lat": 2.8020988,
+            "result_type": "city",
+            "distance": 0,
+            "formatted": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Nilai",
+            "address_line2": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ2X+R7",
+            "rank": {
+              "importance": 0.4096924117123553,
+              "popularity": 1.9591028003799664,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "5184ae8e2d1573594059694991c6b26a0640f00103f9013be06a2100000000c002089203054e696c6169",
+            "bbox": {
+              "lon1": 101.7581676,
+              "lat1": 2.7620988,
+              "lon2": 101.8381676,
+              "lat2": 2.8420988
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Kampong Baharu Nilai",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "whosonfirst",
+              "attribution": "Who's On First",
+              "license": "CC0",
+              "url": "https://www.whosonfirst.org/docs/licenses/"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "city": "Nilai",
+            "lon": 101.7972,
+            "lat": 2.8033,
+            "result_type": "city",
+            "postcode": "71800",
+            "formatted": "71800 Nilai, NSN, Malaysia",
+            "address_line1": "71800 Nilai",
+            "address_line2": "NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ3W+8V",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 1.9596826374002863,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "51c21726530573594059b003e78c286d0640c002089203144b616d706f6e6720426168617275204e696c6169e2031f77686f736f6e66697273743a6c6f63616c6974793a31313235383637353639",
+            "bbox": {
+              "lon1": 101.7772,
+              "lat1": 2.7833,
+              "lon2": 101.8172,
+              "lat2": 2.8233
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Bbr Baru Nilai",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "whosonfirst",
+              "attribution": "Who's On First",
+              "license": "CC0",
+              "url": "https://www.whosonfirst.org/docs/licenses/"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "city": "Bbr Baru Nilai",
+            "lon": 101.782718,
+            "lat": 2.845072,
+            "result_type": "city",
+            "postcode": "71800",
+            "formatted": "71800 Bbr Baru Nilai, NSN, Malaysia",
+            "address_line1": "Bbr Baru Nilai",
+            "address_line2": "71800 Bbr Baru Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQWM+23",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.358343198405882,
+              "confidence": 0.2025,
+              "confidence_city_level": 0.81,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "5165ff3c0d18725940595c1fd61bb5c20640c0020892030e4262722042617275204e696c6169e2031e77686f736f6e66697273743a6c6f63616c6974793a383930343839323833",
+            "bbox": {
+              "lon1": 101.762718,
+              "lat1": 2.825072,
+              "lon2": 101.802718,
+              "lat2": 2.865072
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Nasi Kandar Al Fariz Maju (Uni Square)",
+      "provided_address": "NO 21, JALAN ILMU 1 , DATARAN UNIVERSITI, Putra Nilai, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "JALAN ILMU 1",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "needs_review",
+          "reasons": [
+            "Insufficient fields: housenumber, street"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Dataran Universiti Putra Nilai",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "county": "Seremban",
+            "suburb": "Bandar Baru Nilai",
+            "commercial": "Dataran Universiti Putra Nilai",
+            "iso3166_2": "MY-05",
+            "lon": 101.7857741,
+            "lat": 2.8296319,
+            "result_type": "amenity",
+            "postcode": "71800",
+            "formatted": "Dataran Universiti Putra Nilai, Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Dataran Universiti Putra Nilai",
+            "address_line2": "Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQHP+V8",
+            "rank": {
+              "importance": 0.0800613542381933,
+              "popularity": 2.3727184587891297,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "match_type": "inner_part"
+            },
+            "place_id": "51ce62731f4a725940592abfb10c16a30640f00102f9012e1a634000000000c0020192031e4461746172616e20556e6976657273697469205075747261204e696c6169",
+            "bbox": {
+              "lon1": 101.7844809,
+              "lat1": 2.828755,
+              "lon2": 101.7870518,
+              "lat2": 2.8300503
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Desa Kolej Putra Nilai",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "neighbourhood": "Desa Kolej Putra Nilai",
+            "suburb": "Bandar Baru Nilai",
+            "iso3166_2": "MY-05",
+            "district": "Desa Kolej Putra Nilai",
+            "lon": 101.7772081,
+            "lat": 2.8138223,
+            "result_type": "suburb",
+            "formatted": "Desa Kolej Putra Nilai, Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Desa Kolej Putra Nilai",
+            "address_line2": "Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ7G+GV",
+            "rank": {
+              "importance": 0.0800613542381933,
+              "popularity": 2.5066367508658667,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "51eceb0ac7bd71594059440b1a44b5820640f00103f9011c7326fb02000000c0020592031644657361204b6f6c656a205075747261204e696c6169",
+            "bbox": {
+              "lon1": 101.7672081,
+              "lat1": 2.8038223,
+              "lon2": 101.7872081,
+              "lat2": 2.8238223
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "SHARING Cafe @ Nilai BBN",
+      "provided_address": "PT7193 Jalan BBN 1/2E, Putra Point Bandar Baru NIlai, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "Jalan BBN 1/2E",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Jalan BBN 1/2E",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "suburb": "Bandar Baru Nilai",
+            "street": "Jalan BBN 1/2E",
+            "iso3166_2": "MY-05",
+            "lon": 101.792451,
+            "lat": 2.8141018,
+            "result_type": "street",
+            "formatted": "Jalan BBN 1/2E, Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Jalan BBN 1/2E",
+            "address_line2": "Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ7R+JX",
+            "rank": {
+              "importance": 0.05339468757152663,
+              "popularity": 2.388104481587846,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "match_type": "match_by_street"
+            },
+            "place_id": "51ae2b6684b772594059f9eaf4cd47830640f00102f901c9299d0200000000c0020492030e4a616c616e2042424e20312f3245",
+            "bbox": {
+              "lon1": 101.7917613,
+              "lat1": 2.8133297,
+              "lon2": 101.7924772,
+              "lat2": 2.8145331
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Jalan BBN 1/2E",
+            "street": "Jalan BBN 1/2E",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Nilai",
+            "lon": 101.79241,
+            "lat": 2.814188,
+            "result_type": "street",
+            "suburb": "Bandar Baru Nilai",
+            "postcode": "71800",
+            "formatted": "Jalan BBN 1/2E, Bandar Baru Nilai, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Jalan BBN 1/2E",
+            "address_line2": "Bandar Baru Nilai, 71800 Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ7R+MX",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.390278870414045,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "confidence_street_level": 1,
+              "match_type": "match_by_street"
+            },
+            "place_id": "517fc16ed8b6725940597d5d86ff74830640c0020492030e4a616c616e2042424e20312f3245e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323531383333",
+            "bbox": {
+              "lon1": 101.79172,
+              "lat1": 2.81333,
+              "lon2": 101.792477,
+              "lat2": 2.814719
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Restoran Kopitiam Lorong 3",
+      "provided_address": "Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Bandar Baru Nilai",
+            "other_names": {
+              "name:zh": "汝来新镇"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "suburb": "Bandar Baru Nilai",
+            "iso3166_2": "MY-05",
+            "lon": 101.7856037,
+            "lat": 2.8153992,
+            "result_type": "suburb",
+            "formatted": "Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Bandar Baru Nilai",
+            "address_line2": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ8P+56",
+            "rank": {
+              "importance": 0.14672802090485995,
+              "popularity": 2.375957015469753,
+              "confidence": 0.5,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "5176c7bd544772594059fc790904f0850640f00103f90196b7da4501000000c0020592031142616e6461722042617275204e696c6169",
+            "bbox": {
+              "lon1": 101.7656037,
+              "lat1": 2.7953992,
+              "lon2": 101.8056037,
+              "lat2": 2.8353992
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Jalan Bandar Wawasan 2",
+            "street": "Jalan Bandar Wawasan 2",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Nilai",
+            "lon": 101.797848,
+            "lat": 2.821681,
+            "result_type": "street",
+            "suburb": "Bandar Baru Nilai",
+            "postcode": "71800",
+            "formatted": "Jalan Bandar Wawasan 2, Bandar Baru Nilai, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Jalan Bandar Wawasan 2",
+            "address_line2": "Bandar Baru Nilai, 71800 Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQCX+M4",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.3893453967666383,
+              "confidence": 0.2222222222222222,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0.2222222222222222,
+              "match_type": "full_match"
+            },
+            "place_id": "5175cb0ef10f73594059e4f4f57ccd920640c002049203164a616c616e2042616e646172205761776173616e2032e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323538303433",
+            "bbox": {
+              "lon1": 101.797079,
+              "lat1": 2.821347,
+              "lon2": 101.798552,
+              "lat2": 2.822382
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Bandar Enstek Mosque",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "postcode": "71760",
+            "county": "Seremban",
+            "suburb": "Bandar Enstek",
+            "street": "Persiaran Milenia",
+            "iso3166_2": "MY-05",
+            "lon": 101.7630032,
+            "lat": 2.7449729,
+            "result_type": "amenity",
+            "city": "Kampung Baharu Nilai",
+            "formatted": "Bandar Enstek Mosque, Persiaran Milenia, Bandar Enstek, 71760 Kampung Baharu Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Bandar Enstek Mosque",
+            "address_line2": "Persiaran Milenia, Bandar Enstek, 71760 Kampung Baharu Nilai, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3PQV7+X6",
+            "plus_code_short": "PQV7+X6 Kampung Baharu Nilai, Seremban, Malaysia",
+            "rank": {
+              "importance": 5.14419775691923e-05,
+              "confidence": 0.2025,
+              "confidence_city_level": 0.81,
+              "confidence_street_level": 0.2025,
+              "match_type": "inner_part"
+            },
+            "place_id": "5193af5f0bd5705940590f400f5ab4f50540f00102f9017a52e04d00000000c0020192031442616e64617220456e7374656b204d6f73717565",
+            "bbox": {
+              "lon1": 101.762654,
+              "lat1": 2.7447332,
+              "lon2": 101.7633677,
+              "lat2": 2.7453578
+            }
+          }
+        },
+        {
+          "status": "needs_review",
+          "reasons": [
+            "Insufficient fields: housenumber, street"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Nilai",
+            "ref": "215",
+            "other_names": {
+              "ref": "215"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "suburb": "Bandar Baru Nilai",
+            "street": "North–South Expressway",
+            "iso3166_2": "MY-05",
+            "lon": 101.7950178,
+            "lat": 2.8264345,
+            "result_type": "amenity",
+            "formatted": "Nilai, North–South Expressway, Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Nilai",
+            "address_line2": "North–South Expressway, Bandar Baru Nilai, 71800 Nilai, Negeri Sembilan, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQGW+H2",
+            "rank": {
+              "importance": 6.13542381932863e-05,
+              "popularity": 2.3856656404471517,
+              "confidence": 0,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0,
+              "match_type": "inner_part"
+            },
+            "place_id": "5139af5692e172594059f549eeb0899c0640f00103f90161682bc200000000c002019203054e696c6169",
+            "bbox": {
+              "lon1": 101.7949678,
+              "lat1": 2.8263845,
+              "lon2": 101.7950678,
+              "lat2": 2.8264845
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Jalan Bandar Belia",
+            "street": "Jalan Bandar Belia",
+            "country": "Malaysia",
+            "county": "Seremban",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Negeri Sembilan",
+            "state_code": "NSN",
+            "county_code": "SE",
+            "city": "Nilai",
+            "lon": 101.794963,
+            "lat": 2.821171,
+            "result_type": "street",
+            "suburb": "Bandar Baru Nilai",
+            "postcode": "71800",
+            "formatted": "Jalan Bandar Belia, Bandar Baru Nilai, 71800 Nilai, NSN, Malaysia",
+            "address_line1": "Jalan Bandar Belia",
+            "address_line2": "Bandar Baru Nilai, 71800 Nilai, NSN, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQCV+FX",
+            "iso3166_2": "MY-NSN",
+            "rank": {
+              "popularity": 2.39081998024114,
+              "confidence": 0,
+              "confidence_city_level": 1,
+              "confidence_street_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51eca17dace0725940599163eb19c2910640c002049203124a616c616e2042616e6461722042656c6961e203266f70656e7374726565746d61703a7374726565743a706f6c796c696e653a3235323538313137",
+            "bbox": {
+              "lon1": 101.794377,
+              "lat1": 2.820765,
+              "lon2": 101.79555,
+              "lat2": 2.821575
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Rich Village Restaurant 聚满家乡饭店 (Restoran Rich Village)",
+      "provided_address": "89, Kampung Baharu Nilai, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "89",
+        "street": "",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Selangor",
+            "city": "Kajang Municipal Council",
+            "town": "Bangi Lama",
+            "postcode": "43000",
+            "county": "Hulu Langat",
+            "suburb": "Bandar Puteri Bangi",
+            "street": "Jalan Puteri 5E/7",
+            "housenumber": "89",
+            "iso3166_2": "MY-10",
+            "lon": 101.7962086,
+            "lat": 2.8693,
+            "state_code": "NSN",
+            "county_code": "SE",
+            "result_type": "building",
+            "formatted": "89 Jalan Puteri 5E/7, Bandar Puteri Bangi, 43000 Kajang Municipal Council, NSN, Malaysia",
+            "address_line1": "89 Jalan Puteri 5E/7",
+            "address_line2": "Bandar Puteri Bangi, 43000 Kajang Municipal Council, NSN, Malaysia",
+            "category": "building.residential",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3VQ9W+PF",
+            "rank": {
+              "importance": 6.13542381932863e-05,
+              "popularity": 2.3479961989025786,
+              "confidence": 0.09031138392857144,
+              "confidence_city_level": 0.7290000000000001,
+              "confidence_street_level": 0.27337500000000003,
+              "confidence_building_level": 0.27337500000000003,
+              "match_type": "full_match"
+            },
+            "place_id": "51d072ea14f5725940596a4df38e53f40640f00102f901191ed93700000000c00203e203236f70656e7374726565746d61703a616464726573733a7761792f393336393735383937",
+            "bbox": {
+              "lon1": 101.7961954,
+              "lat1": 2.8692127,
+              "lon2": 101.7962215,
+              "lat2": 2.8693857
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Titi",
+            "postcode": "71650",
+            "county": "Jelebu",
+            "neighbourhood": "Taman Titi",
+            "street": "Jalan 1",
+            "housenumber": "89",
+            "iso3166_2": "MY-05",
+            "lon": 102.0678229,
+            "lat": 2.9829985,
+            "state_code": "NSN",
+            "county_code": "JL",
+            "result_type": "building",
+            "formatted": "89 Jalan 1, 71650 Titi, NSN, Malaysia",
+            "address_line1": "89 Jalan 1",
+            "address_line2": "71650 Titi, NSN, Malaysia",
+            "category": "building.commercial",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ4X3M9+54",
+            "rank": {
+              "importance": 4.890135042339235e-05,
+              "popularity": 1.4086558264694629,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "confidence_building_level": 1,
+              "match_type": "full_match"
+            },
+            "place_id": "51df5adc355784594059ee224c512edd0740f00102f9016673b05100000000c00203e203246f70656e7374726565746d61703a616464726573733a7761792f31333730353138333734",
+            "bbox": {
+              "lon1": 102.0677302,
+              "lat1": 2.9829194,
+              "lon2": 102.0679157,
+              "lat2": 2.9830775
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Kampung Seperi Tengah",
+            "postcode": "71650",
+            "county": "Jelebu",
+            "neighbourhood": "Taman Irama",
+            "housenumber": "89",
+            "iso3166_2": "MY-05",
+            "lon": 102.0614055,
+            "lat": 2.9680241,
+            "street": "Taman Irama",
+            "state_code": "NSN",
+            "county_code": "JL",
+            "result_type": "building",
+            "formatted": "89 Taman Irama, 71650 Kampung Seperi Tengah, NSN, Malaysia",
+            "address_line1": "89 Taman Irama",
+            "address_line2": "71650 Kampung Seperi Tengah, NSN, Malaysia",
+            "category": "building.residential",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ4X396+6H",
+            "rank": {
+              "importance": 4.890135042339235e-05,
+              "popularity": 1.4095785859524597,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "confidence_street_level": 0,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51da925511ee835940592eeb596b83be0740f00102f901de10b55100000000c00203e203246f70656e7374726565746d61703a616464726573733a7761792f31333730383230383330",
+            "bbox": {
+              "lon1": 102.0613398,
+              "lat1": 2.9679874,
+              "lon2": 102.0614711,
+              "lat2": 2.9680609
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "FELDA Titi",
+            "postcode": "71650",
+            "county": "Jelebu",
+            "neighbourhood": "Taman Bukit Kempas",
+            "street": "Jalan BK7",
+            "housenumber": "89",
+            "iso3166_2": "MY-05",
+            "lon": 102.0648276,
+            "lat": 2.9823239,
+            "state_code": "NSN",
+            "county_code": "JL",
+            "result_type": "building",
+            "formatted": "89 Jalan BK7, 71650 FELDA Titi, NSN, Malaysia",
+            "address_line1": "89 Jalan BK7",
+            "address_line2": "71650 FELDA Titi, NSN, Malaysia",
+            "category": "building.residential",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ4X3J7+WW",
+            "rank": {
+              "importance": 4.890135042339235e-05,
+              "popularity": 1.4086558264694629,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "confidence_street_level": 0,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "513478a922268459405926a204a2ccdb0740f00102f901563aac5100000000c00203e203246f70656e7374726565746d61703a616464726573733a7761792f31333730323431363232",
+            "bbox": {
+              "lon1": 102.0647629,
+              "lat1": 2.9822409,
+              "lon2": 102.0648924,
+              "lat2": 2.9824068
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Titi",
+            "postcode": "71650",
+            "county": "Jelebu",
+            "neighbourhood": "Taman Nagamas",
+            "housenumber": "89",
+            "iso3166_2": "MY-05",
+            "lon": 102.0691033,
+            "lat": 2.9848078,
+            "street": "Taman Nagamas",
+            "state_code": "NSN",
+            "county_code": "JL",
+            "result_type": "building",
+            "formatted": "89 Taman Nagamas, 71650 Titi, NSN, Malaysia",
+            "address_line1": "89 Taman Nagamas",
+            "address_line2": "71650 Titi, NSN, Malaysia",
+            "category": "building.residential",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ4X3M9+WJ",
+            "rank": {
+              "importance": 4.890135042339235e-05,
+              "popularity": 1.4086558264694629,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "confidence_street_level": 0,
+              "confidence_building_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51ec623f306c8459405903c46ee9e2e00740f00102f901ae21b45100000000c00203e203246f70656e7374726565746d61703a616464726573733a7761792f31333730373539353938",
+            "bbox": {
+              "lon1": 102.0690573,
+              "lat1": 2.9847731,
+              "lon2": 102.0691493,
+              "lat2": 2.9848425
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "McDonald's Putra Nilai DT",
+      "provided_address": "PT 1134, Persiaran Pusat Bandar, Putra Point, 71800 Nilai, Negeri Sembilan",
+      "expected_address": {
+        "housenumber": "",
+        "street": "",
+        "postcode": "71800",
+        "city": "Nilai",
+        "country_code": "my"
+      },
+      "review_status": "needs_review",
+      "approved_location": null,
+      "error": null,
+      "candidate_checks": [
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Not a building or amenity-level result."
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Nilai",
+            "other_names": {
+              "name:zh": "汝来",
+              "name:zh-Hans": "汝来",
+              "name:zh-Hant": "汝來"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Negeri Sembilan",
+            "city": "Nilai",
+            "postcode": "71800",
+            "county": "Seremban",
+            "iso3166_2": "MY-05",
+            "lon": 101.7981676,
+            "lat": 2.8020988,
+            "result_type": "city",
+            "distance": 0,
+            "formatted": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "address_line1": "Nilai",
+            "address_line2": "71800 Nilai, Negeri Sembilan, Malaysia",
+            "category": "populated_place",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3RQ2X+R7",
+            "rank": {
+              "importance": 0.4096924117123553,
+              "popularity": 1.9591028003799664,
+              "confidence": 0.25,
+              "confidence_city_level": 1,
+              "match_type": "match_by_city_or_disrict"
+            },
+            "place_id": "5184ae8e2d1573594059694991c6b26a0640f00103f9013be06a2100000000c002089203054e696c6169",
+            "bbox": {
+              "lon1": 101.7581676,
+              "lat1": 2.7620988,
+              "lon2": 101.8381676,
+              "lat2": 2.8420988
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: city"
+          ],
+          "candidate": {
+            "country_code": "my",
+            "name": "Putra Point Commercial Centre",
+            "country": "Malaysia",
+            "county": "Petaling",
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "state": "Selangor",
+            "state_code": "SGR",
+            "county_code": "PE",
+            "city": "Shah Alam",
+            "lon": 101.573499,
+            "lat": 2.992256,
+            "result_type": "amenity",
+            "formatted": "Putra Point Commercial Centre, Shah Alam, Petaling, Malaysia",
+            "address_line1": "Putra Point Commercial Centre",
+            "address_line2": "Shah Alam, Petaling, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3XHRF+W9",
+            "plus_code_short": "XHRF+W9 Shah Alam, Petaling, Malaysia",
+            "iso3166_2": "MY-SGR",
+            "rank": {
+              "popularity": 3.5044204574415794,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "confidence_street_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "517a522635b4645940590514eae923f00740f00101f90105202b0100000000c0020192031d507574726120506f696e7420436f6d6d65726369616c2043656e747265e203256f70656e7374726565746d61703a76656e75653a72656c6174696f6e2f3139363033343631",
+            "bbox": {
+              "lon1": 101.5719701,
+              "lat1": 2.9908579,
+              "lon2": 101.5753747,
+              "lat2": 2.9947274
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Putra Point Commercial Centre",
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Selangor",
+            "city": "Subang Jaya City Council",
+            "county": "Petaling",
+            "suburb": "Putra Heights",
+            "commercial": "Putra Point Commercial Centre",
+            "iso3166_2": "MY-10",
+            "lon": 101.5734029,
+            "lat": 2.9958084,
+            "result_type": "amenity",
+            "formatted": "Putra Point Commercial Centre, Putra Heights, Subang Jaya City Council, Petaling, Malaysia",
+            "address_line1": "Putra Point Commercial Centre",
+            "address_line2": "Putra Heights, Subang Jaya City Council, Petaling, Malaysia",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3XHWF+89",
+            "rank": {
+              "importance": 0.0800613542381933,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "confidence_street_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "519fbb13a2b2645940591da8f8646af70740f00101f90105202b0100000000c0020192031d507574726120506f696e7420436f6d6d65726369616c2043656e747265",
+            "bbox": {
+              "lon1": 101.5705239,
+              "lat1": 2.9908579,
+              "lon2": 101.5753747,
+              "lat2": 2.9966016
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Putra Point Comercial Centre (Timur)",
+            "ref": "SJ517",
+            "other_names": {
+              "ref": "SJ517"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Selangor",
+            "city": "Subang Jaya City Council",
+            "postcode": "47650",
+            "county": "Petaling",
+            "suburb": "Putra Heights",
+            "street": "Persiaran Putra Perdana",
+            "iso3166_2": "MY-10",
+            "lon": 101.575274,
+            "lat": 2.9930465,
+            "state_code": "SGR",
+            "county_code": "PE",
+            "result_type": "amenity",
+            "formatted": "Putra Point Comercial Centre (Timur), Persiaran Putra Perdana, Putra Heights, 47650 Subang Jaya City Council, SGR, Malaysia",
+            "address_line1": "Putra Point Comercial Centre (Timur)",
+            "address_line2": "Persiaran Putra Perdana, Putra Heights, 47650 Subang Jaya City Council, SGR, Malaysia",
+            "category": "public_transport.bus",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3XHVG+64",
+            "rank": {
+              "importance": 6.13542381932863e-05,
+              "popularity": 3.512858129799333,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "confidence_street_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "514d0f0a4ad1645940591442075dc2f10740f00103f90114926f0f03000000c00201920324507574726120506f696e7420436f6d65726369616c2043656e747265202854696d757229e203246f70656e7374726565746d61703a76656e75653a6e6f64652f3133313433383732303230",
+            "bbox": {
+              "lon1": 101.575224,
+              "lat1": 2.9929965,
+              "lon2": 101.575324,
+              "lat2": 2.9930965
+            }
+          }
+        },
+        {
+          "status": "rejected_candidate",
+          "reasons": [
+            "Conflicting fields: postcode, city"
+          ],
+          "candidate": {
+            "datasource": {
+              "sourcename": "openstreetmap",
+              "attribution": "© OpenStreetMap contributors",
+              "license": "Open Database License",
+              "url": "https://www.openstreetmap.org/copyright"
+            },
+            "name": "Putra Point Comercial Centre (Barat)",
+            "ref": "SJ579",
+            "other_names": {
+              "ref": "SJ579"
+            },
+            "country": "Malaysia",
+            "country_code": "my",
+            "state": "Selangor",
+            "city": "Subang Jaya City Council",
+            "postcode": "47650",
+            "county": "Petaling",
+            "suburb": "Putra Heights",
+            "street": "Jalan Putra Mahkota 7/4",
+            "iso3166_2": "MY-10",
+            "lon": 101.5738098,
+            "lat": 2.9943312,
+            "state_code": "SGR",
+            "county_code": "PE",
+            "result_type": "amenity",
+            "formatted": "Putra Point Comercial Centre (Barat), Jalan Putra Mahkota 7/4, Putra Heights, 47650 Subang Jaya City Council, SGR, Malaysia",
+            "address_line1": "Putra Point Comercial Centre (Barat)",
+            "address_line2": "Jalan Putra Mahkota 7/4, Putra Heights, 47650 Subang Jaya City Council, SGR, Malaysia",
+            "category": "public_transport.bus",
+            "timezone": {
+              "name": "Asia/Kuala_Lumpur",
+              "name_alt": "Asia/Singapore",
+              "offset_STD": "+08:00",
+              "offset_DST": "+08:00",
+              "offset_STD_seconds": 28800,
+              "offset_DST_seconds": 28800
+            },
+            "plus_code": "6PJ3XHVF+PG",
+            "rank": {
+              "importance": 6.13542381932863e-05,
+              "popularity": 3.5133763952809116,
+              "confidence": 0,
+              "confidence_city_level": 0,
+              "confidence_street_level": 0,
+              "match_type": "full_match"
+            },
+            "place_id": "51f547bd4cb964594059b5238bea63f40740f00103f90112926f0f03000000c00201920324507574726120506f696e7420436f6d65726369616c2043656e7472652028426172617429e203246f70656e7374726565746d61703a76656e75653a6e6f64652f3133313433383732303138",
+            "bbox": {
+              "lon1": 101.5737598,
+              "lat1": 2.9942812,
+              "lon2": 101.5738598,
+              "lat2": 2.9943812
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "input_file": "nilai-targets.json",
+  "city": "Nilai",
+  "state": "Negeri Sembilan"
+}
