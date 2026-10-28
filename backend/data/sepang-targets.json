@@ -1,0 +1,401 @@
+[
+{
+  "name": "Ayam Gepuk & Ayam Mafia",
+  "address": "Lot 108553, Jalan Salak Jenderam, Bandar Baru Salak Tinggi, 43900 Sepang, Selangor",
+  "postcode": "43900",
+  "manual_location": {
+    "latitude": 2.825667797202564,
+    "longitude": 101.74156276614191,
+    "source": "ACTUAL SOURCE OF COORDINATES",
+    "checked_on": "2026-10-25"
+  },
+  "description": "A malay cuisine restaurant that serves a variety of dishes including ayam gepuk, ayam mafia, and other traditional Malay dishes.",
+  "cuisines": ["Malay"],
+  "food_categories": ["Fried Chicken", "Rice", "Roasted Chicken", "Fish"],
+  "price_range": "RM1-RM20",
+  "operating_hours": {
+    "monday": {
+        "status": "open",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      "tuesday": {
+        "status": "open",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      "wednesday": {
+        "status": "open",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      "thursday": {
+        "status": "open",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      "friday": {
+        "status": "open",
+        "periods": [
+        {
+            "open": "09:00",
+            "close": "12:30"
+        },
+        {
+            "open": "14:00",
+            "close": "22:00"
+        }
+        ]
+      },
+      "saturday": {
+        "status": "open",
+        "open": "09:00",
+        "close": "22:00"
+      },
+      "sunday": {
+        "status": "open",
+        "open": "09:00",
+        "close": "22:00"
+      }
+  },
+  "information_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+  "information_checked_on": "2026-10-25"
+},
+{
+  "name": "Nilai Dededi Seafood Restaurant",
+  "address": "9100, 32, 43900 Sepang, Selangor",
+  "postcode": "43900",
+  "manual_location": {
+    "latitude": 2.8074813067696307, 
+    "longitude": 101.75018032027384,
+    "source": "ACTUAL SOURCE OF COORDINATES",
+    "checked_on": "2026-10-25"
+  },
+  "description": "A chinese restaurant that serves a variety of seafood dishes including steamed fish, prawns, and crabs. The restaurant is known for its fresh seafood and traditional chinese cooking methods.",
+  "cuisines": ["Chinese"],
+  "food_categories": ["Seafood", "Rice", "Noodles", "Vegetables", "Fish", "Meat", "Poultry", "Soup", "Tofu", "Eggs"],
+  "price_range": "RM21-RM50",
+  "operating_hours": {
+    "monday": {
+        "status": "closed",
+        "open": null, 
+        "close": null
+    },
+    "tuesday": {
+        "status": "open",
+        "periods": [
+        { "open": "12:00", "close": "14:30" },
+        { "open": "17:30", "close": "22:30" }
+        ]
+    },
+    "wednesday": {
+        "status": "open",
+        "periods": [
+        { "open": "12:00", "close": "14:30" },
+        { "open": "17:30", "close": "22:30" }
+        ]
+    },
+    "thursday": {
+        "status": "open",
+        "periods": [
+        { "open": "12:00", "close": "14:30" },
+        { "open": "17:30", "close": "22:30" }
+        ]
+    },
+    "friday": {
+        "status": "open",
+        "periods": [
+        { "open": "12:00", "close": "14:30" },
+        { "open": "17:30", "close": "22:30" }
+        ]
+    },
+    "saturday": {
+        "status": "open",
+        "periods": [
+        { "open": "12:00", "close": "14:30" },
+        { "open": "17:30", "close": "22:30" }
+        ]
+    },
+    "sunday": {
+        "status": "open",
+        "periods": [
+        { "open": "12:00", "close": "14:30" },
+        { "open": "17:30", "close": "22:30" }
+        ]
+    }
+  },
+  "information_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+  "information_checked_on": "2026-10-25"
+},
+{
+  "name": "Baodinghot spicy food",
+  "city": "Dengkil",
+  "address": "161, Kampung Baru Dengkil, Pekan Dengkil, 43800 Dengkil, Selangor",
+  "postcode": "43800",
+  "manual_location": {
+    "latitude": 2.8616537777768967, 
+    "longitude": 101.68273578704097,
+    "source": "ACTUAL SOURCE OF COORDINATES",
+    "checked_on": "2026-10-25"
+  },
+  "description": "A home-based Chinese eatery specializing in fiery Mala dry pot and regional spicy stir-fries, offering customizable hot pots, rich rice bowl sets, and handmade dumplings.",
+  "cuisines": ["Chinese", "Sichuan"],
+  "food_categories": ["Mala Dry Pot", "Spicy Stir-Fry", "Hot Pot", "Rice Bowls", "Dumplings"],
+  "price_range": "RM1-RM20",
+  "operating_hours": {
+    "monday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:30"
+    },
+    "tuesday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:30"
+    },
+    "wednesday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:30"
+    },
+    "thursday": {
+        "status": "closed",
+        "open": null,
+        "close": null
+    },
+    "friday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:30"
+    },
+    "saturday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:30"
+    },
+    "sunday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:30"
+    }
+  },
+  "information_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+  "information_checked_on": "2026-10-25"
+},
+{
+  "name": "EatHami 食坊 (Bell Avenue, Sepang)",
+  "address": "R-G-13A, BELL AVENUE, Jalan Sunsuria, BANDAR SUNSURIA CITY, 43900 Sepang, Selangor",
+  "postcode": "43900",
+  "manual_location": {
+    "latitude": 2.828878154628206, 
+    "longitude": 101.70505187144734,
+    "source": "ACTUAL SOURCE OF COORDINATES",
+    "checked_on": "2026-10-25"
+  },
+  "description": "A casual Chinese eatery at Bell Avenue serving balanced home-style meal sets, clean daily soups, low-oil dishes, and quick rice plates for everyday dining.",
+  "cuisines": ["Chinese"],
+  "food_categories": ["Rice", "Vegetables", "Pasta", "Soup"],
+  "price_range": "RM1-RM20",
+  "operating_hours": {
+    "monday": {
+        "status": "open",
+        "open": "10:00", 
+        "close": "20:00"
+    },
+    "tuesday": {
+        "status": "open",
+        "open": "10:00", 
+        "close": "20:00"
+    },
+    "wednesday": {
+        "status": "open",
+        "open": "10:00", 
+        "close": "20:00"
+    },
+    "thursday": {
+        "status": "open",
+        "open": "10:00", 
+        "close": "20:00"
+    },
+    "friday": {
+        "status": "open",
+        "open": "10:00", 
+        "close": "20:00"
+    },
+    "saturday": {
+        "status": "open",
+        "open": "10:30", 
+        "close": "20:00"
+    },
+    "sunday": {
+        "status": "open",
+        "open": "10:00", 
+        "close": "20:00"
+    }
+  },
+  "information_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+  "information_checked_on": "2026-10-25"
+},
+{
+  "name": "Nomu Nomu Norm - Bell Avenue",
+  "address": "R-1-19 First Floor, Bell Avenue, Jalan Sunsuria, Kota Warisan, 43900 Sepang, Selangor",
+  "postcode": "43900",
+  "manual_location": {
+    "latitude": 2.828874172358625, 
+    "longitude": 101.70537881587398,
+    "source": "ACTUAL SOURCE OF COORDINATES",
+    "checked_on": "2026-10-25"
+  },
+  "description": "A cozy second-floor café at Bell Avenue serving modern comfort food, fusion dishes, and casual mains in a relaxed and inviting setting.",
+  "cuisines": ["Japanese Fusion"],
+  "food_categories": ["Rice Bowls", "Pasta", "Salads", "Sandwiches", "Japanese Curry"],
+  "price_range": "RM21-RM50",
+  "operating_hours": {
+    "monday": {
+        "status": "open",
+        "open": "10:30", 
+        "close": "22:00"
+    },
+    "tuesday": {
+        "status": "open",
+        "open": "10:30", 
+        "close": "22:00"
+    },
+    "wednesday": {
+        "status": "open",
+        "open": "10:30", 
+        "close": "22:00"
+    },
+    "thursday": {
+        "status": "open",
+        "open": "10:30", 
+        "close": "22:00"
+    },
+    "friday": {
+        "status": "open",
+        "open": "10:30", 
+        "close": "22:00"
+    },
+    "saturday": {
+        "status": "open",
+        "open": "10:30", 
+        "close": "22:00"
+    },
+    "sunday": {
+        "status": "open",
+        "open": "10:30", 
+        "close": "22:00"
+    }
+  },
+  "information_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+  "information_checked_on": "2026-10-25"
+},
+{
+  "name": "Face To Face Noodle House | 面对面 | Sepang, Bell Avenue",
+  "address": "R-G-35, Bell Avenue, Jalan Sunsuria, Bandar Sunsuria City, 43900 Sepang, Selangor",
+  "postcode": "43900",
+  "manual_location": {
+    "latitude": 2.8287660316531937, 
+    "longitude": 101.70644264975648,
+    "source": "ACTUAL SOURCE OF COORDINATES",
+    "checked_on": "2026-10-25"
+  },
+  "description": "A popular casual noodle house at Bell Avenue specializing in authentic handmade Pan Mee, traditional Sarawak Laksa, flavorful chili dry noodles, and classic local side bites.",
+  "cuisines": ["Chinese", "Malaysian"],
+  "food_categories": ["Noodles", "Pan Mee", "Sarawak Laksa", "Chili Dry Noodles", "Local Side Dishes"],
+  "price_range": "RM1-RM20",
+  "operating_hours": {
+    "monday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:00"
+    },
+    "tuesday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:00"
+    },
+    "wednesday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:00"
+    },
+    "thursday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:00"
+    },
+    "friday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:00"
+    },
+    "saturday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:00"
+    },
+    "sunday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "21:00"
+    }
+  },
+  "information_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+  "information_checked_on": "2026-10-25"
+},
+{
+  "name": "麻辣誘惑 Spicy Temptation @ Sepang (第六分行)",
+  "address": "R-G-38, Bell Avenue, Jalan Sunsuria, Bandar Sunsuria City, 43900 Sepang, Selangor",
+  "postcode": "43900",
+  "manual_location": {
+    "latitude": 2.8291621103251945, 
+    "longitude": 101.70661073706857,
+    "source": "ACTUAL SOURCE OF COORDINATES",
+    "checked_on": "2026-10-25"
+  },
+  "description": "A popular Chinese eatery at Bell Avenue specializing in customizable Mala Xiang Guo (stir-fry) and Mala Tang (soup), value-set meal combos, and single-portion noodle bowls like Sour Spicy Noodles and Braised Chicken Rice.",
+  "cuisines": ["Chinese", "Sichuan"],
+  "food_categories": ["Mala Dry Pot", "Mala Soup", "Rice", "Noodles"],
+  "price_range": "RM21-RM50",
+  "operating_hours": {
+    "monday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "22:00"
+    },
+    "tuesday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "22:00"
+    },
+    "wednesday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "22:00"
+    },
+    "thursday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "22:00"
+    },
+    "friday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "22:00"
+    },
+    "saturday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "22:00"
+    },
+    "sunday": {
+        "status": "open",
+        "open": "11:00", 
+        "close": "22:00"
+    }
+  },
+  "information_source": "ACTUAL SOURCE OF RESTAURANT DETAILS",
+  "information_checked_on": "2026-10-25"
+}
+]

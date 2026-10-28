@@ -49,7 +49,7 @@ def main() -> None:
         description="Prepare validated restaurant records without database writes."
     )
     parser.add_argument("targets", type=Path)
-    parser.add_argument("review", type=Path)
+    parser.add_argument("review", type=Path, nargs="?")
     parser.add_argument("--city", required=True)
     parser.add_argument("--state", required=True)
     args = parser.parse_args()
@@ -61,7 +61,11 @@ def main() -> None:
         raise ValueError("City and state must not be blank.")
 
     targets = read_json(args.targets)
-    review = read_json(args.review)
+    review = (
+        read_json(args.review)
+        if args.review is not None
+        else {"records": []}
+    )
 
     if not isinstance(targets, list) or not targets:
         raise ValueError("Targets must be a non-empty list.")
@@ -216,7 +220,7 @@ def main() -> None:
             "name": target.get("display_name", name),
             "address": {
                 "full_address": address,
-                "city": city,
+                "city": target.get("city") or city,
                 "state": state,
                 "postcode": candidate.get("postcode") or None,
             },
@@ -256,7 +260,9 @@ def main() -> None:
                 "location_review": approval,
                 "business_verified": False,
                 "review_file": (
-                    None if manual_location is not None else args.review.name
+                    None
+                    if manual_location is not None or args.review is None
+                    else args.review.name
                 ),
                 "targets_file": args.targets.name,
             },
