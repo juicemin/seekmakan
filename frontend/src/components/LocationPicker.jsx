@@ -20,7 +20,7 @@ export default function LocationPicker({
       : [2.8141, 101.7972];
 
     const map = L.map(containerRef.current, {
-      scrollWheelZoom: false,
+      scrollWheelZoom: true,
     }).setView(center, 13);
 
     mapRef.current = map;

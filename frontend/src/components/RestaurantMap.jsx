@@ -17,7 +17,7 @@ export default function RestaurantMap({
   // Create the map when this component mounts.
   useEffect(() => {
     const map = L.map(containerRef.current, {
-      scrollWheelZoom: false,
+      scrollWheelZoom: true,
     }).setView(DEFAULT_CENTER, 12);
 
     mapRef.current = map;
